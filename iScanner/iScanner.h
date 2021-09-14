@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CardIO.h"
 
 //! Project version number for iScanner.
 FOUNDATION_EXPORT double iScannerVersionNumber;

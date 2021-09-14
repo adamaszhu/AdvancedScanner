@@ -9,6 +9,8 @@ import Foundation
 
 public class iScanner {
 
-    public func test() {
+    public func test(over viewController: UIViewController) {
+        let vc = CardIOPaymentViewController()
+        viewController.present(vc, animated: true, completion: nil)
     }
 }
