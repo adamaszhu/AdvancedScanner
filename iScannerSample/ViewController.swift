@@ -8,15 +8,30 @@
 import UIKit
 import iScanner
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
+    private lazy var scanner: ScannerType = iScanner(viewController: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        scanner.completion = { [weak self] info in
+            let message: String
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/yy"
+            if let expiry = info.expiry {
+                message = "Number: \(info.number)\nExpiry: \(dateFormatter.string(from: expiry))"
+            } else {
+                message = "Number: \(info.number)"
+            }
+            let alertViewController = UIAlertController(title: "Credit Card",
+                                                        message: message,
+                                                        preferredStyle: .alert)
+            self?.present(alertViewController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func scan(_ sender: Any) {
-        let scanner = iScanner()
-        scanner.test(over: self)
+        scanner.scanCard()
     }
 }
 

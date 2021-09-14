@@ -7,13 +7,29 @@
 
 import Foundation
 
-public class iScanner {
+public protocol ScannerType {
+    var completion: (CreditCardInfo) -> Void { get set }
+    func scanCard()
+}
 
-    public init() {
+public class iScanner: ScannerType {
+
+    private let cardIOScanner: CardIOScanner
+
+    public var completion: (CreditCardInfo) -> Void {
+        get {
+            cardIOScanner.completion
+        }
+        set {
+            cardIOScanner.completion = newValue
+        }
     }
 
-    public func test(over viewController: UIViewController) {
-        let vc = CardIOPaymentViewController()
-        viewController.present(vc, animated: true, completion: nil)
+    public init(viewController: UIViewController) {
+        cardIOScanner = CardIOScanner(viewController: viewController)
+    }
+
+    public func scanCard() {
+        cardIOScanner.scanCard()
     }
 }
