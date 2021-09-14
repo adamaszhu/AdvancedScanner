@@ -1,0 +1,719 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		284B6C7126F02FAA00FDFBB0 /* iScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; };
+		284B6C7626F02FAA00FDFBB0 /* iScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */; };
+		284B6C7826F02FAA00FDFBB0 /* iScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C6A26F02FA900FDFBB0 /* iScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		284B6C8E26F0308700FDFBB0 /* CardIODetectionMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8226F0308700FDFBB0 /* CardIODetectionMode.h */; };
+		284B6C8F26F0308700FDFBB0 /* CardIOUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8326F0308700FDFBB0 /* CardIOUtilities.h */; };
+		284B6C9026F0308800FDFBB0 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C8426F0308700FDFBB0 /* libopencv_core.a */; };
+		284B6C9126F0308800FDFBB0 /* CardIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 284B6C8526F0308700FDFBB0 /* CardIO.m */; };
+		284B6C9226F0308800FDFBB0 /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C8626F0308700FDFBB0 /* libCardIO.a */; };
+		284B6C9326F0308800FDFBB0 /* CardIOView.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8726F0308700FDFBB0 /* CardIOView.h */; };
+		284B6C9426F0308800FDFBB0 /* CardIOPaymentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8826F0308700FDFBB0 /* CardIOPaymentViewController.h */; };
+		284B6C9526F0308800FDFBB0 /* CardIOViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8926F0308700FDFBB0 /* CardIOViewDelegate.h */; };
+		284B6C9626F0308800FDFBB0 /* CardIOCreditCardInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8A26F0308700FDFBB0 /* CardIOCreditCardInfo.h */; };
+		284B6C9726F0308800FDFBB0 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C8B26F0308700FDFBB0 /* libopencv_imgproc.a */; };
+		284B6C9826F0308800FDFBB0 /* CardIOPaymentViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8C26F0308700FDFBB0 /* CardIOPaymentViewControllerDelegate.h */; };
+		284B6C9926F0308800FDFBB0 /* CardIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8D26F0308700FDFBB0 /* CardIO.h */; };
+		284B6CA126F0315F00FDFBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */; };
+		284B6CA326F0315F00FDFBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */; };
+		284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA426F0315F00FDFBB0 /* ViewController.swift */; };
+		284B6CA826F0315F00FDFBB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CA626F0315F00FDFBB0 /* Main.storyboard */; };
+		284B6CAA26F0316100FDFBB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CA926F0316100FDFBB0 /* Assets.xcassets */; };
+		284B6CAD26F0316100FDFBB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */; };
+		284B6CB326F0318300FDFBB0 /* iScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; };
+		284B6CB426F0318300FDFBB0 /* iScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		284B6CB926F031D000FDFBB0 /* iScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CB826F031D000FDFBB0 /* iScanner.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		284B6C7226F02FAA00FDFBB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 284B6C5E26F02FA900FDFBB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 284B6C6626F02FA900FDFBB0;
+			remoteInfo = iScanner;
+		};
+		284B6CB526F0318300FDFBB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 284B6C5E26F02FA900FDFBB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 284B6C6626F02FA900FDFBB0;
+			remoteInfo = iScanner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		284B6CB726F0318400FDFBB0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				284B6CB426F0318300FDFBB0 /* iScanner.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		284B6C6726F02FA900FDFBB0 /* iScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		284B6C6A26F02FA900FDFBB0 /* iScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iScanner.h; sourceTree = "<group>"; };
+		284B6C6B26F02FA900FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		284B6C7026F02FAA00FDFBB0 /* iScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScannerTests.swift; sourceTree = "<group>"; };
+		284B6C7726F02FAA00FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		284B6C8226F0308700FDFBB0 /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
+		284B6C8326F0308700FDFBB0 /* CardIOUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOUtilities.h; sourceTree = "<group>"; };
+		284B6C8426F0308700FDFBB0 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopencv_core.a; sourceTree = "<group>"; };
+		284B6C8526F0308700FDFBB0 /* CardIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardIO.m; sourceTree = "<group>"; };
+		284B6C8626F0308700FDFBB0 /* libCardIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCardIO.a; sourceTree = "<group>"; };
+		284B6C8726F0308700FDFBB0 /* CardIOView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOView.h; sourceTree = "<group>"; };
+		284B6C8826F0308700FDFBB0 /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewController.h; sourceTree = "<group>"; };
+		284B6C8926F0308700FDFBB0 /* CardIOViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOViewDelegate.h; sourceTree = "<group>"; };
+		284B6C8A26F0308700FDFBB0 /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
+		284B6C8B26F0308700FDFBB0 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopencv_imgproc.a; sourceTree = "<group>"; };
+		284B6C8C26F0308700FDFBB0 /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
+		284B6C8D26F0308700FDFBB0 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
+		284B6C9E26F0315F00FDFBB0 /* iScannerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iScannerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		284B6CA426F0315F00FDFBB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		284B6CA726F0315F00FDFBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		284B6CA926F0316100FDFBB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		284B6CAC26F0316100FDFBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		284B6CAE26F0316100FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		284B6CB826F031D000FDFBB0 /* iScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScanner.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		284B6C6426F02FA900FDFBB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6C9026F0308800FDFBB0 /* libopencv_core.a in Frameworks */,
+				284B6C9226F0308800FDFBB0 /* libCardIO.a in Frameworks */,
+				284B6C9726F0308800FDFBB0 /* libopencv_imgproc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284B6C6D26F02FAA00FDFBB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6C7126F02FAA00FDFBB0 /* iScanner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284B6C9B26F0315F00FDFBB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6CB326F0318300FDFBB0 /* iScanner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		284B6C5D26F02FA900FDFBB0 = {
+			isa = PBXGroup;
+			children = (
+				284B6C6926F02FA900FDFBB0 /* iScanner */,
+				284B6C7426F02FAA00FDFBB0 /* iScannerTests */,
+				284B6C9F26F0315F00FDFBB0 /* iScannerSample */,
+				284B6C6826F02FA900FDFBB0 /* Products */,
+				284B6CB226F0318300FDFBB0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		284B6C6826F02FA900FDFBB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				284B6C6726F02FA900FDFBB0 /* iScanner.framework */,
+				284B6C7026F02FAA00FDFBB0 /* iScannerTests.xctest */,
+				284B6C9E26F0315F00FDFBB0 /* iScannerSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		284B6C6926F02FA900FDFBB0 /* iScanner */ = {
+			isa = PBXGroup;
+			children = (
+				284B6C8126F0308700FDFBB0 /* CardIO */,
+				284B6C6A26F02FA900FDFBB0 /* iScanner.h */,
+				284B6C6B26F02FA900FDFBB0 /* Info.plist */,
+				284B6CB826F031D000FDFBB0 /* iScanner.swift */,
+			);
+			path = iScanner;
+			sourceTree = "<group>";
+		};
+		284B6C7426F02FAA00FDFBB0 /* iScannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */,
+				284B6C7726F02FAA00FDFBB0 /* Info.plist */,
+			);
+			path = iScannerTests;
+			sourceTree = "<group>";
+		};
+		284B6C8126F0308700FDFBB0 /* CardIO */ = {
+			isa = PBXGroup;
+			children = (
+				284B6C8226F0308700FDFBB0 /* CardIODetectionMode.h */,
+				284B6C8326F0308700FDFBB0 /* CardIOUtilities.h */,
+				284B6C8426F0308700FDFBB0 /* libopencv_core.a */,
+				284B6C8526F0308700FDFBB0 /* CardIO.m */,
+				284B6C8626F0308700FDFBB0 /* libCardIO.a */,
+				284B6C8726F0308700FDFBB0 /* CardIOView.h */,
+				284B6C8826F0308700FDFBB0 /* CardIOPaymentViewController.h */,
+				284B6C8926F0308700FDFBB0 /* CardIOViewDelegate.h */,
+				284B6C8A26F0308700FDFBB0 /* CardIOCreditCardInfo.h */,
+				284B6C8B26F0308700FDFBB0 /* libopencv_imgproc.a */,
+				284B6C8C26F0308700FDFBB0 /* CardIOPaymentViewControllerDelegate.h */,
+				284B6C8D26F0308700FDFBB0 /* CardIO.h */,
+			);
+			path = CardIO;
+			sourceTree = "<group>";
+		};
+		284B6C9F26F0315F00FDFBB0 /* iScannerSample */ = {
+			isa = PBXGroup;
+			children = (
+				284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */,
+				284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */,
+				284B6CA426F0315F00FDFBB0 /* ViewController.swift */,
+				284B6CA626F0315F00FDFBB0 /* Main.storyboard */,
+				284B6CA926F0316100FDFBB0 /* Assets.xcassets */,
+				284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */,
+				284B6CAE26F0316100FDFBB0 /* Info.plist */,
+			);
+			path = iScannerSample;
+			sourceTree = "<group>";
+		};
+		284B6CB226F0318300FDFBB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		284B6C6226F02FA900FDFBB0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6C9426F0308800FDFBB0 /* CardIOPaymentViewController.h in Headers */,
+				284B6C7826F02FAA00FDFBB0 /* iScanner.h in Headers */,
+				284B6C9626F0308800FDFBB0 /* CardIOCreditCardInfo.h in Headers */,
+				284B6C9526F0308800FDFBB0 /* CardIOViewDelegate.h in Headers */,
+				284B6C9926F0308800FDFBB0 /* CardIO.h in Headers */,
+				284B6C8E26F0308700FDFBB0 /* CardIODetectionMode.h in Headers */,
+				284B6C9826F0308800FDFBB0 /* CardIOPaymentViewControllerDelegate.h in Headers */,
+				284B6C8F26F0308700FDFBB0 /* CardIOUtilities.h in Headers */,
+				284B6C9326F0308800FDFBB0 /* CardIOView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		284B6C6626F02FA900FDFBB0 /* iScanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 284B6C7B26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScanner" */;
+			buildPhases = (
+				284B6C6226F02FA900FDFBB0 /* Headers */,
+				284B6C6326F02FA900FDFBB0 /* Sources */,
+				284B6C6426F02FA900FDFBB0 /* Frameworks */,
+				284B6C6526F02FA900FDFBB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iScanner;
+			productName = iScanner;
+			productReference = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		284B6C6F26F02FAA00FDFBB0 /* iScannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 284B6C7E26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerTests" */;
+			buildPhases = (
+				284B6C6C26F02FAA00FDFBB0 /* Sources */,
+				284B6C6D26F02FAA00FDFBB0 /* Frameworks */,
+				284B6C6E26F02FAA00FDFBB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				284B6C7326F02FAA00FDFBB0 /* PBXTargetDependency */,
+			);
+			name = iScannerTests;
+			productName = iScannerTests;
+			productReference = 284B6C7026F02FAA00FDFBB0 /* iScannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		284B6C9D26F0315F00FDFBB0 /* iScannerSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 284B6CAF26F0316100FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerSample" */;
+			buildPhases = (
+				284B6C9A26F0315F00FDFBB0 /* Sources */,
+				284B6C9B26F0315F00FDFBB0 /* Frameworks */,
+				284B6C9C26F0315F00FDFBB0 /* Resources */,
+				284B6CB726F0318400FDFBB0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				284B6CB626F0318300FDFBB0 /* PBXTargetDependency */,
+			);
+			name = iScannerSample;
+			productName = iScannerSample;
+			productReference = 284B6C9E26F0315F00FDFBB0 /* iScannerSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		284B6C5E26F02FA900FDFBB0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					284B6C6626F02FA900FDFBB0 = {
+						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
+					};
+					284B6C6F26F02FAA00FDFBB0 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					284B6C9D26F0315F00FDFBB0 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 284B6C6126F02FA900FDFBB0 /* Build configuration list for PBXProject "iScanner" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 284B6C5D26F02FA900FDFBB0;
+			productRefGroup = 284B6C6826F02FA900FDFBB0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				284B6C6626F02FA900FDFBB0 /* iScanner */,
+				284B6C6F26F02FAA00FDFBB0 /* iScannerTests */,
+				284B6C9D26F0315F00FDFBB0 /* iScannerSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		284B6C6526F02FA900FDFBB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284B6C6E26F02FAA00FDFBB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284B6C9C26F0315F00FDFBB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6CAD26F0316100FDFBB0 /* LaunchScreen.storyboard in Resources */,
+				284B6CAA26F0316100FDFBB0 /* Assets.xcassets in Resources */,
+				284B6CA826F0315F00FDFBB0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		284B6C6326F02FA900FDFBB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6CB926F031D000FDFBB0 /* iScanner.swift in Sources */,
+				284B6C9126F0308800FDFBB0 /* CardIO.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284B6C6C26F02FAA00FDFBB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6C7626F02FAA00FDFBB0 /* iScannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284B6C9A26F0315F00FDFBB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */,
+				284B6CA126F0315F00FDFBB0 /* AppDelegate.swift in Sources */,
+				284B6CA326F0315F00FDFBB0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		284B6C7326F02FAA00FDFBB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 284B6C6626F02FA900FDFBB0 /* iScanner */;
+			targetProxy = 284B6C7226F02FAA00FDFBB0 /* PBXContainerItemProxy */;
+		};
+		284B6CB626F0318300FDFBB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 284B6C6626F02FA900FDFBB0 /* iScanner */;
+			targetProxy = 284B6CB526F0318300FDFBB0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		284B6CA626F0315F00FDFBB0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				284B6CA726F0315F00FDFBB0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				284B6CAC26F0316100FDFBB0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		284B6C7926F02FAA00FDFBB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		284B6C7A26F02FAA00FDFBB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		284B6C7C26F02FAA00FDFBB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y2F8RA72GQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = iScanner/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iScanner/CardIO",
+				);
+				OTHER_LDFLAGS = "-lc++";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iscanner;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		284B6C7D26F02FAA00FDFBB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y2F8RA72GQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = iScanner/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iScanner/CardIO",
+				);
+				OTHER_LDFLAGS = "-lc++";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iscanner;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		284B6C7F26F02FAA00FDFBB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2F8RA72GQ;
+				INFOPLIST_FILE = iScannerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iScanner.iScannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		284B6C8026F02FAA00FDFBB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2F8RA72GQ;
+				INFOPLIST_FILE = iScannerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iScanner.iScannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		284B6CB026F0316100FDFBB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2F8RA72GQ;
+				INFOPLIST_FILE = iScannerSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iscanner.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		284B6CB126F0316100FDFBB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2F8RA72GQ;
+				INFOPLIST_FILE = iScannerSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iscanner.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		284B6C6126F02FA900FDFBB0 /* Build configuration list for PBXProject "iScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				284B6C7926F02FAA00FDFBB0 /* Debug */,
+				284B6C7A26F02FAA00FDFBB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		284B6C7B26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				284B6C7C26F02FAA00FDFBB0 /* Debug */,
+				284B6C7D26F02FAA00FDFBB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		284B6C7E26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				284B6C7F26F02FAA00FDFBB0 /* Debug */,
+				284B6C8026F02FAA00FDFBB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		284B6CAF26F0316100FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				284B6CB026F0316100FDFBB0 /* Debug */,
+				284B6CB126F0316100FDFBB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 284B6C5E26F02FA900FDFBB0 /* Project object */;
+}
