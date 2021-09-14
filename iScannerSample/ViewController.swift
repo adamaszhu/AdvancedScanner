@@ -29,6 +29,12 @@ final class ViewController: UIViewController {
             self?.present(alertViewController, animated: true, completion: nil)
         }
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let cardIOView = CardIOView(frame: CGRect(x: 0, y: 0, width: 350, height: 300))
+        view.addSubview(cardIOView)
+    }
     
     @IBAction func scan(_ sender: Any) {
         scanner.scanCard()

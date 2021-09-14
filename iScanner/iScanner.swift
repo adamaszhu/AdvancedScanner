@@ -14,22 +14,22 @@ public protocol ScannerType {
 
 public class iScanner: ScannerType {
 
-    private let cardIOScanner: CardIOScanner
+    private var scanner: ScannerType
 
     public var completion: (CreditCardInfo) -> Void {
         get {
-            cardIOScanner.completion
+            scanner.completion
         }
         set {
-            cardIOScanner.completion = newValue
+            scanner.completion = newValue
         }
     }
 
     public init(viewController: UIViewController) {
-        cardIOScanner = CardIOScanner(viewController: viewController)
+        scanner = CardIOScanner(viewController: viewController)
     }
 
     public func scanCard() {
-        cardIOScanner.scanCard()
+        scanner.scanCard()
     }
 }

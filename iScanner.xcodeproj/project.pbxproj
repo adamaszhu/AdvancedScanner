@@ -43,6 +43,8 @@
 		284B6CD126F03E0800FDFBB0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CD026F03E0800FDFBB0 /* Security.framework */; };
 		284B6CD326F05CC100FDFBB0 /* CardIOScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */; };
 		284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */; };
+		284B6CD926F0827100FDFBB0 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD826F0827100FDFBB0 /* CardScanner.swift */; };
+		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,7 @@
 		284B6CD026F03E0800FDFBB0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIOScanner.swift; sourceTree = "<group>"; };
 		284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
+		284B6CD826F0827100FDFBB0 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284B6CC726F03DDB00FDFBB0 /* CoreMedia.framework in Frameworks */,
+				287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */,
 				284B6C9026F0308800FDFBB0 /* libopencv_core.a in Frameworks */,
 				284B6CBF26F03DB700FDFBB0 /* Accelerate.framework in Frameworks */,
 				284B6CCB26F03DEB00FDFBB0 /* MobileCoreServices.framework in Frameworks */,
@@ -188,6 +192,7 @@
 				284B6CB826F031D000FDFBB0 /* iScanner.swift */,
 				284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */,
 				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
+				284B6CD826F0827100FDFBB0 /* CardScanner.swift */,
 			);
 			path = iScanner;
 			sourceTree = "<group>";
@@ -287,6 +292,9 @@
 			dependencies = (
 			);
 			name = iScanner;
+			packageProductDependencies = (
+				287054F926F16A6500D2DA33 /* AdvancedFoundation */,
+			);
 			productName = iScanner;
 			productReference = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */;
 			productType = "com.apple.product-type.framework";
@@ -358,6 +366,9 @@
 				Base,
 			);
 			mainGroup = 284B6C5D26F02FA900FDFBB0;
+			packageReferences = (
+				287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */,
+			);
 			productRefGroup = 284B6C6826F02FA900FDFBB0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -405,6 +416,7 @@
 				284B6CB926F031D000FDFBB0 /* iScanner.swift in Sources */,
 				284B6CD326F05CC100FDFBB0 /* CardIOScanner.swift in Sources */,
 				284B6C9126F0308800FDFBB0 /* CardIO.m in Sources */,
+				284B6CD926F0827100FDFBB0 /* CardScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +802,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamaszhu/AdvancedFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		287054F926F16A6500D2DA33 /* AdvancedFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */;
+			productName = AdvancedFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 284B6C5E26F02FA900FDFBB0 /* Project object */;
 }

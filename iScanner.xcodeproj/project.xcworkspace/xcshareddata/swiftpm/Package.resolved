@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AdvancedFoundation",
+        "repositoryURL": "https://github.com/adamaszhu/AdvancedFoundation",
+        "state": {
+          "branch": null,
+          "revision": "8916e62b3fd6e4d4fe0ab2878264afc83c374b25",
+          "version": "1.7.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
