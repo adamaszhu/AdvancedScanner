@@ -384,6 +384,7 @@ public class CardScanner: UIViewController {
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
+@available(iOS 13.0, *)
 extension CardScanner: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let frame = CMSampleBufferGetImageBuffer(sampleBuffer) else {
