@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283B4FDE26F56B6D00FCE3B6 /* AdvancedUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */; };
 		284B6C7126F02FAA00FDFBB0 /* iScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; };
 		284B6C7626F02FAA00FDFBB0 /* iScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */; };
 		284B6C7826F02FAA00FDFBB0 /* iScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C6A26F02FA900FDFBB0 /* iScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -150,6 +151,7 @@
 				284B6CC326F03DCA00FDFBB0 /* AVFoundation.framework in Frameworks */,
 				284B6CC526F03DD300FDFBB0 /* CoreGraphics.framework in Frameworks */,
 				284B6CC926F03DE200FDFBB0 /* CoreVideo.framework in Frameworks */,
+				283B4FDE26F56B6D00FCE3B6 /* AdvancedUIKit in Frameworks */,
 				284B6CCF26F03E0100FDFBB0 /* QuartzCore.framework in Frameworks */,
 				284B6CC126F03DC400FDFBB0 /* AudioToolbox.framework in Frameworks */,
 				284B6C9226F0308800FDFBB0 /* libCardIO.a in Frameworks */,
@@ -323,6 +325,7 @@
 			name = iScanner;
 			packageProductDependencies = (
 				287054F926F16A6500D2DA33 /* AdvancedFoundation */,
+				283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */,
 			);
 			productName = iScanner;
 			productReference = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */;
@@ -397,6 +400,7 @@
 			mainGroup = 284B6C5D26F02FA900FDFBB0;
 			packageReferences = (
 				287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */,
+				283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */,
 			);
 			productRefGroup = 284B6C6826F02FA900FDFBB0 /* Products */;
 			projectDirPath = "";
@@ -840,6 +844,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamaszhu/AdvancedUIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.2;
+			};
+		};
 		287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamaszhu/AdvancedFoundation";
@@ -851,6 +863,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */;
+			productName = AdvancedUIKit;
+		};
 		287054F926F16A6500D2DA33 /* AdvancedFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */;
