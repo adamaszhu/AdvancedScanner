@@ -5,15 +5,16 @@
 //  Created by Adamas Zhu on 15/9/21.
 //
 
-
 import Foundation
 import UIKit
 
 open class BottomSheetViewController: ModalViewController {
     private var modalView: UIView = UIView()
     private var isInitialized: Bool = false
+    private var ratio: Double? = nil
 
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController, ratio: Double? = nil) {
+        self.ratio = ratio
         super.init(nibName: nil, bundle: nil)
         addChild(viewController)
     }
@@ -65,13 +66,19 @@ open class BottomSheetViewController: ModalViewController {
     }
 
     private func setupModalView() {
-        modalView.translatesAutoresizingMaskIntoConstraints = false
-        modalView.frame.origin = CGPoint(x: 0, y: view.bounds.height)
-        modalView.frame.size = CGSize(width: view.bounds.width,
-                                      height: view.bounds.height * Self.modalHeightPercentage)
         guard let childViewController = children.first else {
             return
         }
+        modalView.translatesAutoresizingMaskIntoConstraints = false
+        modalView.frame.origin = CGPoint(x: 0, y: view.bounds.height)
+        let height: CGFloat
+        if let ratio = ratio {
+            height = view.bounds.width * CGFloat(ratio)
+        } else {
+            height = view.bounds.height * Self.modalHeightPercentage
+        }
+        modalView.frame.size = CGSize(width: view.bounds.width,
+                                      height: height)
         modalView.addSubview(childViewController.view)
         childViewController.view.frame.size = modalView.frame.size
     }

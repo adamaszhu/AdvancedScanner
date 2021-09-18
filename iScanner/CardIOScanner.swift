@@ -18,25 +18,21 @@ final class CardIOScanner: NSObject, ScannerType {
     }
 
     func scanCard() {
-        guard let paymentViewController = CardIOPaymentViewController(paymentDelegate: self) else {
+        let storyboard = UIStoryboard(name: String(describing: CardIOViewController.self),
+                                      bundle: Bundle(for: CardIOViewController.self))
+        guard let viewController = storyboard.instantiateInitialViewController() as? CardIOViewController else {
             return
         }
-        paymentViewController.disableManualEntryButtons = true
-        paymentViewController.suppressScanConfirmation = true
-        paymentViewController.hideCardIOLogo = true
-        paymentViewController.scannedImageDuration = 0
-        viewController.present(paymentViewController, animated: true)
+        viewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let bottomSheetViewController = BottomSheetViewController(viewController: navigationController, ratio: CardIOViewController.cameraRatio)
+        self.viewController.present(bottomSheetViewController, animated: true)
     }
 }
 
-extension CardIOScanner: CardIOPaymentViewControllerDelegate {
-
-    func userDidCancel(_ viewController: CardIOPaymentViewController) {
-        viewController.dismiss(animated: true)
-    }
-
-    func userDidProvide(_ cardIOCreditCardInfo: CardIOCreditCardInfo!, in viewController: CardIOPaymentViewController) {
-        viewController.dismiss(animated: true) {
+extension CardIOScanner: CardIOViewDelegate {
+    func cardIOView(_ cardIOView: CardIOView!, didScanCard cardIOCreditCardInfo: CardIOCreditCardInfo!) {
+        viewController.presentedViewController?.dismiss(animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + Self.completionDelay) { [weak self] in
                 let creditCardInfo = CreditCardInfo(cardIOCreditCardInfo: cardIOCreditCardInfo)
                 self?.completion(creditCardInfo)

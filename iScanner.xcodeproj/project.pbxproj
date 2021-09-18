@@ -45,6 +45,13 @@
 		284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */; };
 		284B6CD926F0827100FDFBB0 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD826F0827100FDFBB0 /* CardScanner.swift */; };
 		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
+		287054FE26F1786100D2DA33 /* CardIOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287054FD26F1786100D2DA33 /* CardIOViewController.swift */; };
+		2870550026F178C900D2DA33 /* CardIOViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 287054FF26F178C900D2DA33 /* CardIOViewController.storyboard */; };
+		2870550326F17D9E00D2DA33 /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550226F17D9E00D2DA33 /* FadeInAnimator.swift */; };
+		2870550526F17DB900D2DA33 /* FadeOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550426F17DB900D2DA33 /* FadeOutAnimator.swift */; };
+		2870550726F17DD800D2DA33 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550626F17DD800D2DA33 /* Animator.swift */; };
+		2870550926F17DF800D2DA33 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550826F17DF800D2DA33 /* ModalViewController.swift */; };
+		2870550B26F17E1700D2DA33 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550A26F17E1700D2DA33 /* BottomSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +126,13 @@
 		284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIOScanner.swift; sourceTree = "<group>"; };
 		284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
 		284B6CD826F0827100FDFBB0 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
+		287054FD26F1786100D2DA33 /* CardIOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIOViewController.swift; sourceTree = "<group>"; };
+		287054FF26F178C900D2DA33 /* CardIOViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardIOViewController.storyboard; sourceTree = "<group>"; };
+		2870550226F17D9E00D2DA33 /* FadeInAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
+		2870550426F17DB900D2DA33 /* FadeOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimator.swift; sourceTree = "<group>"; };
+		2870550626F17DD800D2DA33 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		2870550826F17DF800D2DA33 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		2870550A26F17E1700D2DA33 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +200,7 @@
 		284B6C6926F02FA900FDFBB0 /* iScanner */ = {
 			isa = PBXGroup;
 			children = (
+				2870550126F17D8700D2DA33 /* SDK */,
 				284B6C8126F0308700FDFBB0 /* CardIO */,
 				284B6C6A26F02FA900FDFBB0 /* iScanner.h */,
 				284B6C6B26F02FA900FDFBB0 /* Info.plist */,
@@ -193,6 +208,8 @@
 				284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */,
 				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
 				284B6CD826F0827100FDFBB0 /* CardScanner.swift */,
+				287054FD26F1786100D2DA33 /* CardIOViewController.swift */,
+				287054FF26F178C900D2DA33 /* CardIOViewController.storyboard */,
 			);
 			path = iScanner;
 			sourceTree = "<group>";
@@ -254,6 +271,18 @@
 				284B6CBE26F03DB700FDFBB0 /* Accelerate.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2870550126F17D8700D2DA33 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				2870550226F17D9E00D2DA33 /* FadeInAnimator.swift */,
+				2870550426F17DB900D2DA33 /* FadeOutAnimator.swift */,
+				2870550626F17DD800D2DA33 /* Animator.swift */,
+				2870550826F17DF800D2DA33 /* ModalViewController.swift */,
+				2870550A26F17E1700D2DA33 /* BottomSheetViewController.swift */,
+			);
+			path = SDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2870550026F178C900D2DA33 /* CardIOViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,10 +442,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287054FE26F1786100D2DA33 /* CardIOViewController.swift in Sources */,
+				2870550B26F17E1700D2DA33 /* BottomSheetViewController.swift in Sources */,
 				284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */,
 				284B6CB926F031D000FDFBB0 /* iScanner.swift in Sources */,
+				2870550526F17DB900D2DA33 /* FadeOutAnimator.swift in Sources */,
 				284B6CD326F05CC100FDFBB0 /* CardIOScanner.swift in Sources */,
 				284B6C9126F0308800FDFBB0 /* CardIO.m in Sources */,
+				2870550926F17DF800D2DA33 /* ModalViewController.swift in Sources */,
+				2870550726F17DD800D2DA33 /* Animator.swift in Sources */,
+				2870550326F17D9E00D2DA33 /* FadeInAnimator.swift in Sources */,
 				284B6CD926F0827100FDFBB0 /* CardScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
