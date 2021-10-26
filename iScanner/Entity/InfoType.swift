@@ -4,5 +4,7 @@
 /// - date: 11/10/21
 /// - author: Adamas
 public enum InfoType {
+
+    /// Credit card
     case creditCard
 }
