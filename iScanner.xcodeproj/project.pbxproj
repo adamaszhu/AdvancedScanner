@@ -31,7 +31,6 @@
 		284B6CAD26F0316100FDFBB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */; };
 		284B6CB326F0318300FDFBB0 /* iScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; };
 		284B6CB426F0318300FDFBB0 /* iScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		284B6CB926F031D000FDFBB0 /* iScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CB826F031D000FDFBB0 /* iScanner.swift */; };
 		284B6CBF26F03DB700FDFBB0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CBE26F03DB700FDFBB0 /* Accelerate.framework */; };
 		284B6CC126F03DC400FDFBB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CC026F03DC400FDFBB0 /* AudioToolbox.framework */; };
 		284B6CC326F03DCA00FDFBB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CC226F03DCA00FDFBB0 /* AVFoundation.framework */; };
@@ -42,17 +41,17 @@
 		284B6CCD26F03DF200FDFBB0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CCC26F03DF200FDFBB0 /* OpenGLES.framework */; platformFilter = ios; };
 		284B6CCF26F03E0100FDFBB0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CCE26F03E0100FDFBB0 /* QuartzCore.framework */; };
 		284B6CD126F03E0800FDFBB0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CD026F03E0800FDFBB0 /* Security.framework */; };
-		284B6CD326F05CC100FDFBB0 /* CardIOScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */; };
 		284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */; };
-		284B6CD926F0827100FDFBB0 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD826F0827100FDFBB0 /* CardScanner.swift */; };
 		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
-		287054FE26F1786100D2DA33 /* CardIOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287054FD26F1786100D2DA33 /* CardIOViewController.swift */; };
-		2870550026F178C900D2DA33 /* CardIOViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 287054FF26F178C900D2DA33 /* CardIOViewController.storyboard */; };
-		2870550326F17D9E00D2DA33 /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550226F17D9E00D2DA33 /* FadeInAnimator.swift */; };
-		2870550526F17DB900D2DA33 /* FadeOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550426F17DB900D2DA33 /* FadeOutAnimator.swift */; };
-		2870550726F17DD800D2DA33 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550626F17DD800D2DA33 /* Animator.swift */; };
-		2870550926F17DF800D2DA33 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550826F17DF800D2DA33 /* ModalViewController.swift */; };
-		2870550B26F17E1700D2DA33 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870550A26F17E1700D2DA33 /* BottomSheetViewController.swift */; };
+		28A05BFD272574EE00D8287D /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05BFC272574EE00D8287D /* ScannerView.swift */; };
+		28A05C032726C0DC00D8287D /* InfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05C022726C0DB00D8287D /* InfoType.swift */; };
+		28A05EE4273B974A00D8287D /* ScannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EE3273B974A00D8287D /* ScannerViewDelegate.swift */; };
+		28A05EE9273B9B2200D8287D /* CreditCardScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EE8273B9B2200D8287D /* CreditCardScannerView.swift */; };
+		28A05EEC273BADED00D8287D /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EEB273BADED00D8287D /* Scanner.swift */; };
+		28A05EEE273BD42C00D8287D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EED273BD42C00D8287D /* ScannerViewController.swift */; };
+		28A05EF2273C8A5500D8287D /* CreditCardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EF1273C8A5500D8287D /* CreditCardScanner.swift */; };
+		28A05EF4273C8B4D00D8287D /* ScannerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EF3273C8B4D00D8287D /* ScannerType.swift */; };
+		28A05EF6273C94C200D8287D /* ScannerViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EF5273C94C200D8287D /* ScannerViewType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +112,6 @@
 		284B6CA926F0316100FDFBB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		284B6CAC26F0316100FDFBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		284B6CAE26F0316100FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		284B6CB826F031D000FDFBB0 /* iScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScanner.swift; sourceTree = "<group>"; };
 		284B6CBE26F03DB700FDFBB0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		284B6CC026F03DC400FDFBB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		284B6CC226F03DCA00FDFBB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -124,16 +122,17 @@
 		284B6CCC26F03DF200FDFBB0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		284B6CCE26F03E0100FDFBB0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		284B6CD026F03E0800FDFBB0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIOScanner.swift; sourceTree = "<group>"; };
 		284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
 		284B6CD826F0827100FDFBB0 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
-		287054FD26F1786100D2DA33 /* CardIOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIOViewController.swift; sourceTree = "<group>"; };
-		287054FF26F178C900D2DA33 /* CardIOViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardIOViewController.storyboard; sourceTree = "<group>"; };
-		2870550226F17D9E00D2DA33 /* FadeInAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
-		2870550426F17DB900D2DA33 /* FadeOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimator.swift; sourceTree = "<group>"; };
-		2870550626F17DD800D2DA33 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		2870550826F17DF800D2DA33 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
-		2870550A26F17E1700D2DA33 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		28A05BFC272574EE00D8287D /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		28A05C022726C0DB00D8287D /* InfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoType.swift; sourceTree = "<group>"; };
+		28A05EE3273B974A00D8287D /* ScannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewDelegate.swift; sourceTree = "<group>"; };
+		28A05EE8273B9B2200D8287D /* CreditCardScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScannerView.swift; sourceTree = "<group>"; };
+		28A05EEB273BADED00D8287D /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
+		28A05EED273BD42C00D8287D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		28A05EF1273C8A5500D8287D /* CreditCardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScanner.swift; sourceTree = "<group>"; };
+		28A05EF3273C8B4D00D8287D /* ScannerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerType.swift; sourceTree = "<group>"; };
+		28A05EF5273C94C200D8287D /* ScannerViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,16 +201,13 @@
 		284B6C6926F02FA900FDFBB0 /* iScanner */ = {
 			isa = PBXGroup;
 			children = (
-				2870550126F17D8700D2DA33 /* SDK */,
+				28A05EEA273B9EF700D8287D /* Scanner */,
+				28A05BFF2725792900D8287D /* ScannerView */,
+				28A05BFE2725751000D8287D /* Entity */,
 				284B6C8126F0308700FDFBB0 /* CardIO */,
 				284B6C6A26F02FA900FDFBB0 /* iScanner.h */,
 				284B6C6B26F02FA900FDFBB0 /* Info.plist */,
-				284B6CB826F031D000FDFBB0 /* iScanner.swift */,
-				284B6CD226F05CC100FDFBB0 /* CardIOScanner.swift */,
-				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
 				284B6CD826F0827100FDFBB0 /* CardScanner.swift */,
-				287054FD26F1786100D2DA33 /* CardIOViewController.swift */,
-				287054FF26F178C900D2DA33 /* CardIOViewController.storyboard */,
 			);
 			path = iScanner;
 			sourceTree = "<group>";
@@ -275,16 +271,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2870550126F17D8700D2DA33 /* SDK */ = {
+		28A05BFE2725751000D8287D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				2870550226F17D9E00D2DA33 /* FadeInAnimator.swift */,
-				2870550426F17DB900D2DA33 /* FadeOutAnimator.swift */,
-				2870550626F17DD800D2DA33 /* Animator.swift */,
-				2870550826F17DF800D2DA33 /* ModalViewController.swift */,
-				2870550A26F17E1700D2DA33 /* BottomSheetViewController.swift */,
+				28A05C022726C0DB00D8287D /* InfoType.swift */,
+				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
 			);
-			path = SDK;
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		28A05BFF2725792900D8287D /* ScannerView */ = {
+			isa = PBXGroup;
+			children = (
+				28A05EED273BD42C00D8287D /* ScannerViewController.swift */,
+				28A05BFC272574EE00D8287D /* ScannerView.swift */,
+				28A05EE3273B974A00D8287D /* ScannerViewDelegate.swift */,
+				28A05EE8273B9B2200D8287D /* CreditCardScannerView.swift */,
+				28A05EF5273C94C200D8287D /* ScannerViewType.swift */,
+			);
+			path = ScannerView;
+			sourceTree = "<group>";
+		};
+		28A05EEA273B9EF700D8287D /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				28A05EEB273BADED00D8287D /* Scanner.swift */,
+				28A05EF1273C8A5500D8287D /* CreditCardScanner.swift */,
+				28A05EF3273C8B4D00D8287D /* ScannerType.swift */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,7 +433,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2870550026F178C900D2DA33 /* CardIOViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,17 +460,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				287054FE26F1786100D2DA33 /* CardIOViewController.swift in Sources */,
-				2870550B26F17E1700D2DA33 /* BottomSheetViewController.swift in Sources */,
+				28A05BFD272574EE00D8287D /* ScannerView.swift in Sources */,
+				28A05EE4273B974A00D8287D /* ScannerViewDelegate.swift in Sources */,
 				284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */,
-				284B6CB926F031D000FDFBB0 /* iScanner.swift in Sources */,
-				2870550526F17DB900D2DA33 /* FadeOutAnimator.swift in Sources */,
-				284B6CD326F05CC100FDFBB0 /* CardIOScanner.swift in Sources */,
 				284B6C9126F0308800FDFBB0 /* CardIO.m in Sources */,
-				2870550926F17DF800D2DA33 /* ModalViewController.swift in Sources */,
-				2870550726F17DD800D2DA33 /* Animator.swift in Sources */,
-				2870550326F17D9E00D2DA33 /* FadeInAnimator.swift in Sources */,
-				284B6CD926F0827100FDFBB0 /* CardScanner.swift in Sources */,
+				28A05EF2273C8A5500D8287D /* CreditCardScanner.swift in Sources */,
+				28A05EE9273B9B2200D8287D /* CreditCardScannerView.swift in Sources */,
+				28A05EEC273BADED00D8287D /* Scanner.swift in Sources */,
+				28A05EEE273BD42C00D8287D /* ScannerViewController.swift in Sources */,
+				28A05EF6273C94C200D8287D /* ScannerViewType.swift in Sources */,
+				28A05EF4273C8B4D00D8287D /* ScannerType.swift in Sources */,
+				28A05C032726C0DC00D8287D /* InfoType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

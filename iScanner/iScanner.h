@@ -1,10 +1,8 @@
-//
-//  iScanner.h
-//  iScanner
-//
-//  Created by Adamas Zhu on 14/9/21.
-//
-
+/// Import objective c codes
+///
+/// - version: 0.1.0
+/// - date: 11/10/21
+/// - author: Adamas
 #import <Foundation/Foundation.h>
 #import "CardIO.h"
 
@@ -13,7 +11,3 @@ FOUNDATION_EXPORT double iScannerVersionNumber;
 
 //! Project version string for iScanner.
 FOUNDATION_EXPORT const unsigned char iScannerVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <iScanner/PublicHeader.h>
-
-

@@ -1,12 +1,3 @@
-//
-//  AppDelegate.swift
-//  iScannerSample
-//
-//  Created by Adamas Zhu on 14/9/21.
-//
-
-import UIKit
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -30,3 +21,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+import UIKit

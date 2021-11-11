@@ -7,4 +7,7 @@ public enum InfoType {
 
     /// Credit card
     case creditCard
+
+    /// Detect nothing
+    case none
 }

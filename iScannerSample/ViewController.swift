@@ -1,43 +1,23 @@
-//
-//  ViewController.swift
-//  iScannerSample
-//
-//  Created by Adamas Zhu on 14/9/21.
-//
-
-import UIKit
-import iScanner
-
 final class ViewController: UIViewController {
-
-    private lazy var scanner: ScannerType = iScanner(viewController: self)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        scanner.completion = { [weak self] info in
-            let message: String
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/yy"
-            if let expiry = info.expiry {
-                message = "Number: \(info.number)\nExpiry: \(dateFormatter.string(from: expiry))"
-            } else {
-                message = "Number: \(info.number)"
-            }
-            let alertViewController = UIAlertController(title: "Credit Card",
-                                                        message: message,
-                                                        preferredStyle: .alert)
-            self?.present(alertViewController, animated: true, completion: nil)
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        let cardIOView = CardIOView(frame: view.bounds)
-//        view.addSubview(cardIOView)
-    }
+    private lazy var scanner = Scanner(viewController: self)
     
     @IBAction func scan(_ sender: Any) {
-        scanner.scanCard()
+        scanner.scanCreditCard { [weak self] creditCardInfo in
+            var message: String = "Number: \(creditCardInfo.number)"
+            if let expiry = creditCardInfo.expiry {
+                let expiryString = expiry.string(withPattern: "MM/yy")
+                message += "\nExpiry: \(expiryString)"
+            }
+            let alertController = UIAlertController(title: "Credit Card", message: message, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(alertAction)
+            self?.present(alertController, animated: true)
+        }
     }
 }
 
+import UIKit
+import iScanner
+import AdvancedUIKit
+import AdvancedFoundation
