@@ -5,10 +5,11 @@
 /// - author: Adamas
 final class CreditCardScanner: ScannerType {
 
-    var didDetectInfoAction: ((CreditCardInfo) -> Void)?
+    /// Callback when a credit card is detected
+    private var didDetectCreditCardAction: ((CreditCardInfo) -> Void)?
 
     /// The current view controller
-    private unowned let viewController: UIViewController
+    private weak var viewController: UIViewController?
 
     /// Create the scanner
     /// - Parameter viewController: The current view controller
@@ -16,7 +17,8 @@ final class CreditCardScanner: ScannerType {
         self.viewController = viewController
     }
 
-    func scan() {
+    func scan(completion: @escaping (CreditCardInfo) -> Void) {
+        didDetectCreditCardAction = completion
         let viewController = ScannerViewController()
         viewController.infoType = .creditCard
         viewController.delegate = self
@@ -24,15 +26,15 @@ final class CreditCardScanner: ScannerType {
         let bottomSheetViewController = BottomSheetViewController(
             viewController: navigationController,
             ratio: viewController.cameraRatio)
-        self.viewController.present(bottomSheetViewController, animated: true)
+        self.viewController?.present(bottomSheetViewController, animated: true)
     }
 }
 
 extension CreditCardScanner: ScannerViewDelegate {
 
     func scannerView(_ scannerView: ScannerView, didDetect creditCardInfo: CreditCardInfo) {
-        viewController.presentedViewController?.dismiss(animated: true) { [weak self] in
-            self?.didDetectInfoAction?(creditCardInfo)
+        viewController?.presentedViewController?.dismiss(animated: true) { [weak self] in
+            self?.didDetectCreditCardAction?(creditCardInfo)
         }
     }
 }

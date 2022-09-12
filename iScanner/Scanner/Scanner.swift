@@ -21,8 +21,7 @@ open class Scanner {
             Logger.standard.logError(Self.scannerError, withDetail: CreditCardScanner.self)
             return
         }
-        scanner.didDetectInfoAction = completion
-        scanner.scan()
+        scanner.scan(completion: completion)
     }
 }
 
