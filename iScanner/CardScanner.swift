@@ -23,7 +23,7 @@ public class CardScanner: UIViewController {
 
     private let device = AVCaptureDevice.default(for: .video)
 
-    private var viewGuide: PartialTransparentView!
+    private var viewGuide: CreditCardMaskView!
 
     private var creditCardNumber: String?
     private var creditCardName: String?
@@ -66,10 +66,6 @@ public class CardScanner: UIViewController {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override public func loadView() {
-        view = UIView()
     }
 
     deinit {
@@ -128,7 +124,7 @@ public class CardScanner: UIViewController {
         let viewX = (UIScreen.main.bounds.width / 2) - (widht / 2)
         let viewY = (UIScreen.main.bounds.height / 2) - (height / 2) - 100
 
-        viewGuide = PartialTransparentView(rectsArray: [CGRect(x: viewX, y: viewY, width: widht, height: height)])
+        viewGuide = CreditCardMaskView(rect: CGRect(x: viewX, y: viewY, width: widht, height: height))
 
         view.addSubview(viewGuide)
         viewGuide.translatesAutoresizingMaskIntoConstraints = false
@@ -425,41 +421,5 @@ private extension String {
             }
         }
         return false
-    }
-}
-
-// MARK: - Class PartialTransparentView
-
-class PartialTransparentView: UIView {
-    var rectsArray: [CGRect]?
-
-    convenience init(rectsArray: [CGRect]) {
-        self.init()
-
-        self.rectsArray = rectsArray
-
-        backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        isOpaque = false
-    }
-
-    override func draw(_ rect: CGRect) {
-        backgroundColor?.setFill()
-        UIRectFill(rect)
-
-        guard let rectsArray = rectsArray else {
-            return
-        }
-
-        for holeRect in rectsArray {
-            let path = UIBezierPath(roundedRect: holeRect, cornerRadius: 10)
-
-            let holeRectIntersection = rect.intersection(holeRect)
-
-            UIRectFill(holeRectIntersection)
-
-            UIColor.clear.setFill()
-            UIGraphicsGetCurrentContext()?.setBlendMode(CGBlendMode.copy)
-            path.fill()
-        }
     }
 }
