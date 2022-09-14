@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-final class CreditCardMaskView: UIView {
+final class PreviewMaskView: UIView {
 
     private var rect: CGRect?
 
@@ -31,7 +31,7 @@ final class CreditCardMaskView: UIView {
     }
 }
 
-private extension CreditCardMaskView {
+private extension PreviewMaskView {
     static let maskColor = UIColor.black.withAlphaComponent(0.6)
     static let maskCornerRatius: CGFloat = 10
 }

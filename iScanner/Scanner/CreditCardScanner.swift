@@ -25,7 +25,7 @@ final class CreditCardScanner: ScannerType {
         let navigationController = UINavigationController(rootViewController: viewController)
         let bottomSheetViewController = BottomSheetViewController(
             viewController: navigationController,
-            ratio: viewController.cameraRatio)
+            mode: .ratio(viewController.cameraRatio))
         self.viewController?.present(bottomSheetViewController, animated: true)
     }
 }
