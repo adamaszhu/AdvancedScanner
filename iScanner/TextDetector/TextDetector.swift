@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AdvancedFoundation
 
 public typealias TextDetection = (type: TextType, string: String)
 
@@ -23,8 +24,12 @@ public class TextDetector {
 
     public func detect(_ string: String) -> TextDetection? {
         for type in textTypes {
-            let isValid = type.rules
-                .reduce(true) { $0 && $1.isValid(value: string) == nil }
+            let formattedString = type.isSpaceAllowed
+            ? string
+            : string.removingSpaces()
+            let isValid = type
+                .rules
+                .reduce(true) { $0 && $1.isValid(value: formattedString) == nil }
             if isValid {
                 return (type, string)
             }

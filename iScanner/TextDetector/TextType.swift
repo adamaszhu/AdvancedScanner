@@ -9,9 +9,11 @@ import Foundation
 import AdvancedUIKit
 
 public enum TextType: String {
+    
     case creditCardNumber = "credit card number"
     case expiry = "expiry date"
     case creditCardVerificationNumber = "card verification number"
+    case fullName = "full name"
 
     var rules: [RuleType] {
         let errorMessage = String(format: Self.errorMessagePattern, rawValue)
@@ -25,6 +27,17 @@ public enum TextType: String {
             case .creditCardVerificationNumber:
                 return DefaultRuleFactory.creditCardVerificationNumberRules(withInvalidMessage: errorMessage,
                 andLengthMessage: errorMessage)
+            case .fullName:
+                return DefaultRuleFactory.fullNameRules(withMessage: errorMessage)
+        }
+    }
+
+    var isSpaceAllowed: Bool {
+        switch self {
+            case .fullName:
+                return true
+            default:
+                return false
         }
     }
 }
