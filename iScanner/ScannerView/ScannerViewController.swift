@@ -3,29 +3,22 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-open class ScannerViewController: UIViewController {
+open class ScannerViewController<Info>: UIViewController {
 
     /// The ratio of the camera view
-    public var cameraRatio: Double {
-        scannerView.cameraRatio
+    public var ratio: Double {
+        scannerView.ratio
     }
 
-    /// Set the type of the scanner view
-    public var infoType: InfoType = .none {
+    /// Callback when some info is detected
+    public var didDetectInfoAction: ((Info) -> Void)? {
         didSet {
-            scannerView.infoType = infoType
-        }
-    }
-
-    /// The delegate of the scanning function
-    public weak var delegate: ScannerViewDelegate? {
-        didSet {
-            scannerView.delegate = delegate
+            scannerView.didDetectInfoAction = didDetectInfoAction
         }
     }
 
     /// The scanner view in the view controller
-    private var scannerView: ScannerView = ScannerView()
+    public private(set) var scannerView: ScannerView<Info> = ScannerView<Info>()
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +34,8 @@ open class ScannerViewController: UIViewController {
             title: navigationItem.leftBarButtonItem?.title,
             style: navigationItem.leftBarButtonItem?.style ?? .plain,
             target: self, action: #selector(back))
+        navigationController?.navigationBar.backgroundColor = .black
+        navigationController?.navigationBar.tintColor = .white
     }
 
     /// Close the view controller

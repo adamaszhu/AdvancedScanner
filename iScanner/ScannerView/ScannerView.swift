@@ -3,37 +3,50 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-open class ScannerView: UIView {
+open class ScannerView<Info>: UIView, ScannerViewType {
 
-    /// The ratio of the camera view
-    public var cameraRatio: Double {
-        500.0/375.0
-    }
-
-    /// Set the type of the scanner view
-    public var infoType: InfoType = .none {
+    public var didDetectInfoAction: ((Info) -> Void)? {
         didSet {
-            switch infoType {
-            case .creditCard:
-                setupCreditCardScannerView()
-            case .none:
-                break
+            if #available(iOS 13.0, *) {
+                (innerView as? VisionScannerView<Info>)?.didDetectInfoAction = didDetectInfoAction
+            } else if Info.self == CreditCardInfo.self {
+                (innerView as? CardIOScannerView)?.didDetectInfoAction = { [weak self] info in
+                    self?.didDetectInfoAction?(info as! Info)
+                }
             }
         }
     }
 
-    /// The delegate for detecting an info type
-    public weak var delegate: ScannerViewDelegate?
+    public private (set) var ratio: Double = 0
 
-    /// Setup a CreditCardScannerView as the content
-    private func setupCreditCardScannerView() {
-        let creditCardScannerView = CreditCardScannerView()
-        addSubview(creditCardScannerView)
-        creditCardScannerView.pinEdgesToSuperview()
-        creditCardScannerView.didDetectInfoAction = { [weak self] creditCardInfo in
-            guard let self = self else { return }
-            self.delegate?.scannerView(self, didDetect: creditCardInfo)
+    private var innerView: UIView?
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
+
+    private func initialize() {
+        let innerView: UIView
+        if #available(iOS 13.0, *) {
+            let visionScannerView = VisionScannerView<Info>()
+            ratio = visionScannerView.ratio
+            innerView = visionScannerView
+        } else if Info.self == CreditCardInfo.self {
+            let cardIOScannerView = CardIOScannerView()
+            ratio = cardIOScannerView.ratio
+            innerView = cardIOScannerView
+        } else {
+            return
         }
+        addSubview(innerView)
+        innerView.pinEdgesToSuperview()
+        self.innerView = innerView
     }
 }
 
