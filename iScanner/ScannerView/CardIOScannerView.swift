@@ -4,9 +4,9 @@
 /// - version: 0.1.0
 /// - date: 16/09/22
 /// - author: Adamas
-final class CreditCardScannerView: UIView, ScannerViewType {
+final class CardIOScannerView: UIView, ScannerViewType {
 
-    static let ratio = 375.0 / 500.0
+    let ratio = 375.0 / 500.0
 
     var didDetectInfoAction: ((CreditCardInfo) -> Void)?
 
@@ -32,7 +32,7 @@ final class CreditCardScannerView: UIView, ScannerViewType {
     }
 }
 
-extension CreditCardScannerView: CardIOViewDelegate {
+extension CardIOScannerView: CardIOViewDelegate {
 
     func cardIOView(_ cardIOView: CardIOView!, didScanCard cardInfo: CardIOCreditCardInfo!) {
         let creditCardInfo = CreditCardInfo(cardIOCreditCardInfo: cardInfo)
