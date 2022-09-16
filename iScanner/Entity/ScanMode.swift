@@ -22,4 +22,12 @@ public enum ScanMode {
                 return []
         }
     }
+
+    init(infoType: InfoType.Type) {
+        if infoType == CreditCardInfo.self {
+            self = .creditCard
+        } else {
+            self = .none
+        }
+    }
 }

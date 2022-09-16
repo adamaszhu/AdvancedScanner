@@ -35,6 +35,9 @@ final class CardIOScannerView: UIView, ScannerViewType {
 extension CardIOScannerView: CardIOViewDelegate {
 
     func cardIOView(_ cardIOView: CardIOView!, didScanCard cardInfo: CardIOCreditCardInfo!) {
+        guard let cardInfo = cardInfo else {
+            return
+        }
         let creditCardInfo = CreditCardInfo(cardIOCreditCardInfo: cardInfo)
         didDetectInfoAction?(creditCardInfo)
     }

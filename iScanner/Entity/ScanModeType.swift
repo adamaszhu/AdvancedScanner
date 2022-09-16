@@ -7,4 +7,9 @@ public protocol ScanModeType {
 
     /// A list of text formats which should be detected under the mode
     var textFormats: [TextFormatType] { get }
+
+    /// Decide the mode
+    /// 
+    /// - Parameter infoType: The information type
+    init(infoType: InfoType.Type)
 }
