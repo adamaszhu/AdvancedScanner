@@ -10,4 +10,7 @@ protocol ScannerViewType {
 
     /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)? { get set }
+
+    /// The ratio of the camera view
+    static var ratio: Double { get }
 }

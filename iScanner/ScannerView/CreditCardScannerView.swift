@@ -1,9 +1,12 @@
-/// The scanner view that can detect a credit card
+/// The scanner view that can detect a credit card.
 ///
+/// - important: CardIO was deprecated. So this view should only be used on iOS12
 /// - version: 0.1.0
-/// - date: 10/11/21
+/// - date: 16/09/22
 /// - author: Adamas
 final class CreditCardScannerView: UIView, ScannerViewType {
+
+    static let ratio = 375.0 / 500.0
 
     var didDetectInfoAction: ((CreditCardInfo) -> Void)?
 
@@ -17,7 +20,7 @@ final class CreditCardScannerView: UIView, ScannerViewType {
         initialize()
     }
 
-    /// Initialize the actual Car
+    /// Initialize the actual scanner view using CardIO
     private func initialize() {
         let cardIOView = CardIOView()
         addSubview(cardIOView)
@@ -38,3 +41,4 @@ extension CreditCardScannerView: CardIOViewDelegate {
 }
 
 import AdvancedUIKit
+import AdvancedFoundation
