@@ -4,7 +4,7 @@
 /// - date: 16/09/22
 /// - author: Adamas
 @available(iOS 13.0, *)
-public extension CIImage {
+extension CIImage {
 
     /// Detect strings from the image
     /// - Parameter shouldCorrectLanguage: Whether strings should be auto corrected.

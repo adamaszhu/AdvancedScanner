@@ -6,7 +6,7 @@ final class ViewController: UIViewController {
         scanner.scanCreditCard { [weak self] creditCardInfo in
             var message: String = "Number: \(creditCardInfo.number)"
             if let expiry = creditCardInfo.expiry {
-                let expiryString = expiry.string(withPattern: "MM/yy")
+                let expiryString = expiry.string(with: DateFormat.expiryDate)
                 message += "\nExpiry: \(expiryString)"
             }
             let alertController = UIAlertController(title: "Credit Card", message: message, preferredStyle: .alert)

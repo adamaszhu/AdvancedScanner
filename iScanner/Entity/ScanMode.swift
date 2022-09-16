@@ -14,7 +14,7 @@ public enum ScanMode {
     var textTypes: [TextType] {
         switch self {
             case .creditCard:
-                return [.creditCardNumber, .expiry]
+                return [.creditCardNumber, .expiry, .creditCardVerificationNumber, .fullName]
             case .none:
                 return []
         }

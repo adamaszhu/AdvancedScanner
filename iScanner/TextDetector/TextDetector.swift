@@ -18,6 +18,12 @@ public class TextDetector {
         self.textTypes = textTypes
     }
 
+    @available(iOS 13.0, *)
+    public func detect(_ ciImage: CIImage, withLanguageCorrection shouldCorrectLanguage: Bool) -> [TextDetection] {
+        let strings = ciImage.strings(withLanguageCorrection: shouldCorrectLanguage)
+        return detect(strings)
+    }
+
     public func detect(_ strings: [String]) -> [TextDetection] {
         strings.compactMap { detect($0) }
     }
