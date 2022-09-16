@@ -11,10 +11,13 @@ public enum ScanMode {
     /// Detect nothing
     case none
 
-    var textTypes: [TextType] {
+    var textFormats: [TextFormatType] {
         switch self {
             case .creditCard:
-                return [.creditCardNumber, .expiry, .creditCardVerificationNumber, .fullName]
+                return [TextFormat.creditCardNumber,
+                        TextFormat.expiry,
+                        TextFormat.creditCardVerificationNumber,
+                        TextFormat.fullName]
             case .none:
                 return []
         }
