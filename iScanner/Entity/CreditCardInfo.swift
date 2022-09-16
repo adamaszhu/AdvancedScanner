@@ -11,20 +11,40 @@ public struct CreditCardInfo {
     /// The expiry date
     public let expiry: Date?
 
+    /// The name on the credit card
+    public let name: String?
+
+    /// The credit card verification number
+    public let cvn: String?
+
     /// Initialize the object
     /// - Parameters:
     ///   - number: The card number
-    ///   - expiry: The expiry date
+    ///   - name: The name on the card
+    ///   - cvn: The verification number
+    ///   - expiry: The expiry string
     public init(number: String,
-                expiry: Date?) {
+                name: String?,
+                expiry: String?,
+                cvn: String?) {
         self.number = number
-        self.expiry = expiry
+        self.cvn = cvn
+        self.name = name
+        if let expiry = expiry {
+            self.expiry = [DateFormat.expiryDate, DateFormat.fullExpiryDate]
+                .compactMap { Date(string: expiry, dateFormat: $0) }
+                .first
+        } else {
+            self.expiry = nil
+        }
     }
 
     /// Initialize the object using a card IO object
     /// - Parameter cardIOCreditCardInfo: The card IO object
     init(cardIOCreditCardInfo: CardIOCreditCardInfo) {
         number = cardIOCreditCardInfo.cardNumber
+        name = cardIOCreditCardInfo.cardholderName
+        cvn = cardIOCreditCardInfo.cvv
         if cardIOCreditCardInfo.expiryYear != 0,
            cardIOCreditCardInfo.expiryMonth != 0 {
             let components = DateComponents(year: Int(cardIOCreditCardInfo.expiryYear),
@@ -37,3 +57,4 @@ public struct CreditCardInfo {
 }
 
 import Foundation
+import AdvancedFoundation
