@@ -1,33 +1,44 @@
-//
-//  TextDetector.swift
-//  iScanner
-//
-//  Created by Adamas Zhu on 14/9/2022.
-//
-
-import Foundation
-import AdvancedFoundation
-
-public typealias TextDetection = (type: TextType, string: String)
-
+/// The helper class used to detect texts from images
+///
+/// - version: 0.1.0
+/// - date: 16/09/22
+/// - author: Adamas
 public class TextDetector {
 
-    private let textTypes: [TextType]
+    /// A list of text formats to detect
+    private let textTypes: [TextFormatType]
 
-    public init(textTypes: [TextType]) {
+    /// Create the detector
+    /// - Parameter textTypes: A list of text formats to detect
+    public init(textTypes: [TextFormatType]) {
         self.textTypes = textTypes
     }
 
     @available(iOS 13.0, *)
-    public func detect(_ ciImage: CIImage, withLanguageCorrection shouldCorrectLanguage: Bool) -> [TextDetection] {
+    /// Detect text formats from an image
+    ///
+    /// - Parameters:
+    ///   - ciImage: The source image
+    ///   - shouldCorrectLanguage: Whether language auto correction should be applied
+    /// - Returns: A list of detected formats
+    public func detect(_ ciImage: CIImage,
+                       withLanguageCorrection shouldCorrectLanguage: Bool) -> [TextDetection] {
         let strings = ciImage.strings(withLanguageCorrection: shouldCorrectLanguage)
         return detect(strings)
     }
 
+    /// Detect text formats from an array
+    ///
+    /// - Parameter strings: The source strings
+    /// - Returns: A list of detected formats
     public func detect(_ strings: [String]) -> [TextDetection] {
         strings.compactMap { detect($0) }
     }
 
+    /// Try to detect a text format from a string
+    ///
+    /// - Parameter string: The source string
+    /// - Returns: The detected format, nil if the string matches none of those formats
     public func detect(_ string: String) -> TextDetection? {
         for type in textTypes {
             let formattedString = type.isSpaceAllowed
@@ -43,3 +54,8 @@ public class TextDetector {
         return nil
     }
 }
+
+/// A detected text format
+public typealias TextDetection = (textFormat: TextFormatType, string: String)
+
+import AdvancedFoundation
