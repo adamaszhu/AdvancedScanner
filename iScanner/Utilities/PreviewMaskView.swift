@@ -1,15 +1,16 @@
-/// The mask view that highlight a rect for the credit card
+/// The mask view that highlight a rect for the object
 ///
 /// - version: 0.1.0
 /// - date: 13/09/22
 /// - author: Adamas
-import Foundation
-import UIKit
-
 final class PreviewMaskView: UIView {
 
+    /// The rect that shouldn't apply the mask
     private var rect: CGRect?
 
+    /// Create the mask view
+    ///
+    /// - Parameter rect: A rect that shouldn't apply the mask effect
     convenience init(rect: CGRect) {
         self.init()
         self.rect = rect
@@ -31,7 +32,11 @@ final class PreviewMaskView: UIView {
     }
 }
 
+/// Constants
 private extension PreviewMaskView {
     static let maskColor = UIColor.black.withAlphaComponent(0.6)
     static let maskCornerRatius: CGFloat = 10
 }
+
+import Foundation
+import UIKit
