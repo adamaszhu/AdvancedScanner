@@ -6,7 +6,7 @@
 protocol ScannerViewType {
 
     /// The info that the scanner is supporting
-    associatedtype Info
+    associatedtype Info: InfoType
 
     /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)? { get set }

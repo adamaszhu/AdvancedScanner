@@ -8,10 +8,15 @@ final class PreviewMaskView: UIView {
     /// The rect that shouldn't apply the mask
     private var rect: CGRect?
 
+    /// The ratius of the highlighted area
+    private var rectRadius: CGFloat?
+
     /// Create the mask view
     ///
-    /// - Parameter rect: A rect that shouldn't apply the mask effect
-    convenience init(rect: CGRect) {
+    /// - Parameters:
+    ///  - rect: A rect that shouldn't apply the mask effect
+    ///  - rectRadius: The ratius of the rect
+    convenience init(rect: CGRect, rectRadius: CGFloat) {
         self.init()
         self.rect = rect
         isOpaque = false
@@ -21,11 +26,12 @@ final class PreviewMaskView: UIView {
         Self.maskColor.setFill()
         UIRectFill(rect)
 
-        guard let creditCardRect = self.rect else {
+        guard let rect = self.rect,
+        let rectRadius = self.rectRadius else {
             return
         }
-        let path = UIBezierPath(roundedRect: creditCardRect,
-                                cornerRadius: Self.maskCornerRatius)
+        let path = UIBezierPath(roundedRect: rect,
+                                cornerRadius: rectRadius)
         UIColor.clear.setFill()
         UIGraphicsGetCurrentContext()?.setBlendMode(.copy)
         path.fill()
@@ -35,7 +41,6 @@ final class PreviewMaskView: UIView {
 /// Constants
 private extension PreviewMaskView {
     static let maskColor = UIColor.black.withAlphaComponent(0.6)
-    static let maskCornerRatius: CGFloat = 10
 }
 
 import Foundation

@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-public struct CreditCardInfo {
+public struct CreditCardInfo: InfoType {
 
     /// The card number
     public let number: String
