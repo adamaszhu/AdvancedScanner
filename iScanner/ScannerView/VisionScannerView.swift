@@ -4,20 +4,22 @@
 /// - date: 10/11/21
 /// - author: Adamas
 @available(iOS 13.0, *)
-final class VisionScannerView<Info>: UIView, ScannerViewType, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, TextScannerViewType, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     var didDetectInfoAction: ((Info) -> Void)?
 
     let ratio = 2160.0 / 3840.0
 
-    private var mode: ScanMode {
-        if Info.self == CreditCardInfo.self {
-            return .creditCard
-        } else {
-            return .none
-        }
-    }
+    /// The scanning mode that the view is under
+    private let mode = ScanMode(infoType: Info.self)
 
+    /// Whether the layout has been initialized
+    private var isInitialized = false
+
+    /// Cached text detections
+    private var detections: [TextDetection] = []
+
+    /// The video session
     private let captureSession: AVCaptureSession = {
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .hd4K3840x2160
@@ -44,7 +46,17 @@ final class VisionScannerView<Info>: UIView, ScannerViewType, AVCaptureVideoData
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        guard !isInitialized else {
+            return
+        }
+        isInitialized = true
         layer.sublayers?.first?.frame = bounds
+
+        // Setup the mask view
+        let maskView = PreviewMaskView(rect: mode.scanningAreaRect(in: bounds),
+                                       rectRadius: mode.scanningAreaRadius)
+        addSubview(maskView)
+        maskView.pinEdgesToSuperview()
     }
 
     /// Initialize the actual scanner view using Vision
@@ -61,11 +73,6 @@ final class VisionScannerView<Info>: UIView, ScannerViewType, AVCaptureVideoData
         let preview = AVCaptureVideoPreviewLayer(session: captureSession)
         preview.videoGravity = .resizeAspect
         layer.addSublayer(preview)
-
-        // Setup the mask view
-        let maskView = PreviewMaskView(rect: Self.creditCardRect())
-        addSubview(maskView)
-        maskView.pinEdgesToSuperview()
 
         // Add video output
         let videoOutput = AVCaptureVideoDataOutput()
@@ -96,48 +103,54 @@ final class VisionScannerView<Info>: UIView, ScannerViewType, AVCaptureVideoData
         // TODO: END
     }
 
-    static private func creditCardRect(in screen: UIScreen = UIScreen.main) -> CGRect {
-        let width = screen.bounds.width * Self.creditCardWidthRatio
-        let height = width / Self.creditCardRatio
-        let x = screen.bounds.width / 2 - width / 2
-        let y = screen.bounds.height / 2 - height / 2 - Self.creditCardOffset
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let buffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             Logger.standard.logError(Self.bufferImageError)
             return
         }
-        let rect = Self.creditCardRect()
-        let superRect = bounds
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.extractInfo(from: buffer, with: rect, inside: superRect)
 
+        guard isInitialized else {
+            return
+        }
+
+        DispatchQueue.main.async {  [weak self] in
+            guard let self = self else {
+                return
+            }
+            // Can only get bounds on UI thread
+            let rect = self.mode.scanningAreaRect(in: self.bounds)
+            let superRect = self.bounds
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.extractInfo(from: buffer, with: rect, inside: superRect)
+            }
         }
     }
 
+    /// Extract info from a given area of an image
+    /// - Parameters:
+    ///   - buffer: The buffer of the image
+    ///   - rect: The area to detect
+    ///   - superRect: The whole view size
     private func extractInfo(from buffer: CVImageBuffer, with rect: CGRect, inside superRect: CGRect) {
-        let ciImage = CIImage(cvImageBuffer: buffer)
+        var ciImage = CIImage(cvImageBuffer: buffer)
+
+        // Crop the image to what the scanning area is showing
         var rect = rect
-
         let ratio = ciImage.extent.width / superRect.width
-
         rect = CGRect(x: rect.minX * ratio,
                       y: rect.minY * ratio,
                       width: rect.width * ratio,
                       height: rect.height * ratio)
+        ciImage = ciImage.cropped(to: CIImage.ciRect(for: rect, in: ciImage.extent))
 
-        let croppedImage = ciImage.cropped(to: CIImage.ciRect(for: rect, in: ciImage.extent))
-
-        let textDetector = TextDetector(textTypes: mode.textTypes)
-        let detections = textDetector.detect(croppedImage, withLanguageCorrection: false)
+        let textDetector = TextDetector(textTypes: mode.textFormats)
+        let detections = textDetector.detect(ciImage, withLanguageCorrection: false)
 
         // TODO: TEST
         DispatchQueue.main.async {
             let context = CIContext()
-            let cgImage = context.createCGImage(croppedImage, from: croppedImage.extent)
-                        self.image.image = UIImage(cgImage: cgImage!)
+            let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
+            self.image.image = UIImage(cgImage: cgImage!)
         }
         // TODO: END
 
@@ -145,12 +158,29 @@ final class VisionScannerView<Info>: UIView, ScannerViewType, AVCaptureVideoData
             return
         }
 
+        var hasNewDetection = false
+        detections.enumerated().forEach { (index, detection) in
+            if !self.detections.contains(detection) {
+                self.detections.append(detection)
+                hasNewDetection = true
+            } else if let existingDetection = self.detections.first(where: {$0 == detection}),
+                      existingDetection.string != detection.string {
+                self.detections.remove(at: index)
+                self.detections.insert(detection, at: index)
+                hasNewDetection = true
+            }
+        }
+
+        guard hasNewDetection else {
+            return
+        }
+
         DispatchQueue.main.async { [weak self] in
             // Vibration feedback
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             for detection in detections {
-                switch detection.type {
-                    case .creditCardNumber where Info.self == CreditCardInfo.self:
+                switch detection.textFormat {
+                    case TextFormat.creditCardNumber where Info.self == CreditCardInfo.self:
                         let info = CreditCardInfo(number: detection.string, name: nil, expiry: nil, cvn: nil)
                         self?.didDetectInfoAction?(info as! Info)
                         self?.captureSession.stopRunning()
@@ -165,11 +195,8 @@ final class VisionScannerView<Info>: UIView, ScannerViewType, AVCaptureVideoData
 /// Constants
 @available(iOS 13.0, *)
 private extension VisionScannerView {
-    static var videoProcessingQueueLabel: String { "CreditCardScannerProcessingQueue" }
+    static var videoProcessingQueueLabel: String { "TextScannerProcessingQueue" }
     static var bufferImageError: String { "Cannot get the buffered image." }
-    static var creditCardWidthRatio: Double { 0.8 }
-    static var creditCardRatio: Double { 3.0 / 2.0 }
-    static var creditCardOffset: CGFloat { 100 }
 }
 
 import AdvancedUIKit

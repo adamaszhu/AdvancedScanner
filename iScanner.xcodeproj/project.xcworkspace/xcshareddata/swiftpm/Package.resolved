@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "AdvancedFoundation",
-        "repositoryURL": "https://github.com/adamaszhu/AdvancedFoundation",
-        "state": {
-          "branch": null,
-          "revision": "068a5f3d1890e27d85891e9ebb7ab148eda1981f",
-          "version": "1.7.2"
-        }
-      },
-      {
-        "package": "AdvancedUIKit",
-        "repositoryURL": "https://github.com/adamaszhu/AdvancedUIKit",
-        "state": {
-          "branch": null,
-          "revision": "ffa80d985f83e2c78c1a64f754f6f283ee154bd3",
-          "version": "1.8.0"
-        }
+  "pins" : [
+    {
+      "identity" : "advancedfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamaszhu/AdvancedFoundation",
+      "state" : {
+        "revision" : "e5a2d02b6478a0242f50645061860d8e98b12849",
+        "version" : "1.8.6"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "advanceduikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamaszhu/AdvancedUIKit",
+      "state" : {
+        "revision" : "0d351d26a7b39e3cee7c7827a128d3e943316404",
+        "version" : "1.9.8"
+      }
+    }
+  ],
+  "version" : 2
 }

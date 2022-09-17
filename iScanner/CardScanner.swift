@@ -23,7 +23,7 @@ public class CardScanner: UIViewController {
 
     private let device = AVCaptureDevice.default(for: .video)
 
-    private var viewGuide: CreditCardMaskView!
+    private var viewGuide: PreviewMaskView!
 
     private var creditCardNumber: String?
     private var creditCardName: String?
@@ -124,7 +124,7 @@ public class CardScanner: UIViewController {
         let viewX = (UIScreen.main.bounds.width / 2) - (widht / 2)
         let viewY = (UIScreen.main.bounds.height / 2) - (height / 2) - 100
 
-        viewGuide = CreditCardMaskView(rect: CGRect(x: viewX, y: viewY, width: widht, height: height))
+        viewGuide = PreviewMaskView(rect: CGRect(x: viewX, y: viewY, width: widht, height: height), rectRadius: 0)
 
         view.addSubview(viewGuide)
         viewGuide.translatesAutoresizingMaskIntoConstraints = false
@@ -247,135 +247,6 @@ public class CardScanner: UIViewController {
 
     // MARK: - Payment detection
 
-    private func handleObservedPaymentCard(in frame: CVImageBuffer) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.extractPaymentCardData(frame: frame)
-        }
-    }
-
-    func luhnCheck(_ cardNumber: String) -> Bool {
-        var sum = 0
-
-        // 1. Reverse the characters
-        let reversedCharacters = cardNumber.reversed().map { String($0) }
-
-        for (idx, element) in reversedCharacters.enumerated() {
-
-            // Ensure the character is a digit
-            guard let digit = Int(element) else { return false }
-
-            // double the value of every second digit;
-            // if the product of this doubling operation is greater than 9 (e.g., 8 × 2 = 16),
-            // then sum the digits of the products (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9).
-            switch ((idx % 2 == 1), digit) {
-            case (true, 9):
-                sum += 9
-            case (true, 0 ... 8):
-                sum += (digit * 2) % 9
-            default:
-                sum += digit
-            }
-        }
-
-        // If the sum ends with a 0, it passes the Luhn's check
-        return sum % 10 == 0
-    }
-
-    private func extractPaymentCardData(frame: CVImageBuffer) {
-        let ciImage = CIImage(cvImageBuffer: frame)
-        let widht = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.2)
-        let height = widht - (widht * 0.45)
-        let viewX = (UIScreen.main.bounds.width / 2) - (widht / 2)
-        let viewY = (UIScreen.main.bounds.height / 2) - (height / 2) - 100 + height
-
-        let resizeFilter = CIFilter(name: "CILanczosScaleTransform")!
-
-        // Desired output size
-        let targetSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-
-        // Compute scale and corrective aspect ratio
-        let scale = targetSize.height / ciImage.extent.height
-        let aspectRatio = targetSize.width / (ciImage.extent.width * scale)
-
-        // Apply resizing
-        resizeFilter.setValue(ciImage, forKey: kCIInputImageKey)
-        resizeFilter.setValue(scale, forKey: kCIInputScaleKey)
-        resizeFilter.setValue(aspectRatio, forKey: kCIInputAspectRatioKey)
-        let outputImage = resizeFilter.outputImage 
-
-        let croppedImage = outputImage!.cropped(to: CGRect(x: viewX, y: viewY, width: widht, height: height))
-
-        let request = VNRecognizeTextRequest()
-        request.recognitionLevel = .accurate
-        request.usesLanguageCorrection = false
-
-        let stillImageRequestHandler = VNImageRequestHandler(ciImage: croppedImage, options: [:])
-        try? stillImageRequestHandler.perform([request])
-
-        guard let texts = request.results as? [VNRecognizedTextObservation], texts.count > 0 else {
-            // no text detected
-            return
-        }
-
-        let arrayLines = texts.flatMap({ $0.topCandidates(20).map({ $0.string }) })
-
-        for line in arrayLines {
-            print("Trying to parse: \(line)")
-
-            let trimmed = line.replacingOccurrences(of: " ", with: "")
-
-            if creditCardNumber == nil &&
-                trimmed.count >= 15 &&
-                trimmed.count <= 16 &&
-                trimmed.isOnlyNumbers,
-               luhnCheck(String(trimmed)) {
-                creditCardNumber = line
-                DispatchQueue.main.async {
-                    self.labelCardNumber?.text = line
-                    self.tapticFeedback()
-                }
-                continue
-            }
-
-            if creditCardCVV == nil &&
-                trimmed.count == 3 &&
-                trimmed.isOnlyNumbers {
-                creditCardCVV = line
-                DispatchQueue.main.async {
-                    self.labelCardCVV?.text = line
-                    self.tapticFeedback()
-                }
-                continue
-            }
-
-            if creditCardDate == nil &&
-                trimmed.count >= 5 && // 12/20
-                trimmed.count <= 7 && // 12/2020
-                trimmed.isDate {
-
-                creditCardDate = line
-                DispatchQueue.main.async {
-                    self.labelCardDate?.text = line
-                    self.tapticFeedback()
-                }
-                continue
-            }
-
-            // Not used yet
-            if creditCardName == nil &&
-                trimmed.count > 10 &&
-                line.contains(" ") &&
-                trimmed.isOnlyAlpha {
-
-                creditCardName = line
-                continue
-            }
-        }
-    }
-
-    private func tapticFeedback() {
-        UINotificationFeedbackGenerator().notificationOccurred(.success)
-    }
 }
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
@@ -383,43 +254,6 @@ public class CardScanner: UIViewController {
 @available(iOS 13.0, *)
 extension CardScanner: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let frame = CMSampleBufferGetImageBuffer(sampleBuffer) else {
-            debugPrint("unable to get image from sample buffer")
-            return
-        }
 
-        handleObservedPaymentCard(in: frame)
-    }
-}
-
-// MARK: - Extensions
-
-private extension String {
-    var isOnlyAlpha: Bool {
-        return !isEmpty && range(of: "[^a-zA-Z]", options: .regularExpression) == nil
-    }
-
-    var isOnlyNumbers: Bool {
-        return !isEmpty && range(of: "[^0-9]", options: .regularExpression) == nil
-    }
-
-    // Date Pattern MM/YY or MM/YYYY
-    var isDate: Bool {
-        let arrayDate = components(separatedBy: "/")
-        if arrayDate.count == 2 {
-            let currentYear = Calendar.current.component(.year, from: Date())
-            if let month = Int(arrayDate[0]), let year = Int(arrayDate[1]) {
-                if month > 12 || month < 1 {
-                    return false
-                }
-                if year < (currentYear - 2000 + 20) && year >= (currentYear - 2000) { // Between current year and 20 years ahead
-                    return true
-                }
-                if year >= currentYear && year < (currentYear + 20) { // Between current year and 20 years ahead
-                    return true
-                }
-            }
-        }
-        return false
     }
 }

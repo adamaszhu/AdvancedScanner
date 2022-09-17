@@ -48,14 +48,11 @@ public class TextDetector {
                 .rules
                 .reduce(true) { $0 && $1.isValid(value: formattedString) == nil }
             if isValid {
-                return (type, string)
+                return TextDetection(textFormat: type, string: string)
             }
         }
         return nil
     }
 }
-
-/// A detected text format
-public typealias TextDetection = (textFormat: TextFormatType, string: String)
 
 import AdvancedFoundation
