@@ -1,9 +1,9 @@
-/// The scanner view type that all actual scanner view should confirm
+/// The text scanner view type that all actual text scanner view should confirm
 ///
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-protocol ScannerViewType {
+protocol TextScannerViewType {
 
     /// The info that the scanner is supporting
     associatedtype Info: InfoType

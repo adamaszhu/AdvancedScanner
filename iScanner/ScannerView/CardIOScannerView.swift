@@ -4,7 +4,7 @@
 /// - version: 0.1.0
 /// - date: 16/09/22
 /// - author: Adamas
-final class CardIOScannerView: UIView, ScannerViewType {
+final class CardIOScannerView: UIView, TextScannerViewType {
 
     let ratio = 375.0 / 500.0
 

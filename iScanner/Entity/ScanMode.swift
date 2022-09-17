@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-public enum ScanMode {
+public enum ScanMode: ScanModeType {
 
     /// Credit card
     case creditCard
@@ -11,7 +11,7 @@ public enum ScanMode {
     /// Detect nothing
     case none
 
-    var textFormats: [TextFormatType] {
+    public var textFormats: [TextFormatType] {
         switch self {
             case .creditCard:
                 return [TextFormat.creditCardNumber,
@@ -23,7 +23,7 @@ public enum ScanMode {
         }
     }
 
-    init(infoType: InfoType.Type) {
+    public init(infoType: InfoType.Type) {
         if infoType == CreditCardInfo.self {
             self = .creditCard
         } else {

@@ -1,11 +1,11 @@
 final class ViewController: UIViewController {
     
-    private lazy var scanner = Scanner(viewController: self)
+    private lazy var scanner = TextScanner<CreditCardInfo, ScanMode>(viewController: self)
     
     @IBAction func scan(_ sender: Any) {
-        scanner.scanCreditCard { [weak self] creditCardInfo in
-            var message: String = "Number: \(creditCardInfo.number)"
-            if let expiry = creditCardInfo.expiry {
+        scanner.scan { [weak self] info in
+            var message: String = "Number: \(info.number)"
+            if let expiry = info.expiry {
                 let expiryString = expiry.string(with: DateFormat.expiryDate)
                 message += "\nExpiry: \(expiryString)"
             }

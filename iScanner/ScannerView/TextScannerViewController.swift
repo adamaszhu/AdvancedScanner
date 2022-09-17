@@ -3,27 +3,27 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-open class ScannerViewController<Info>: UIViewController {
+open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UIViewController {
 
     /// The ratio of the camera view
     public var ratio: Double {
-        scannerView.ratio
+        textScannerView.ratio
     }
 
     /// Callback when some info is detected
     public var didDetectInfoAction: ((Info) -> Void)? {
         didSet {
-            scannerView.didDetectInfoAction = didDetectInfoAction
+            textScannerView.didDetectInfoAction = didDetectInfoAction
         }
     }
 
     /// The scanner view in the view controller
-    public private(set) var scannerView: ScannerView<Info> = ScannerView<Info>()
+    public private(set) var textScannerView = TextScannerView<Info, ScanMode>()
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(scannerView)
-        scannerView.pinEdgesToSuperview()
+        view.addSubview(textScannerView)
+        textScannerView.pinEdgesToSuperview()
         setupNavigationBar()
     }
 
