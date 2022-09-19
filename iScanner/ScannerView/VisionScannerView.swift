@@ -17,7 +17,7 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
     private var isInitialized = false
 
     /// Cached text detections
-    private var detections: [TextDetection] = []
+    private var textDetections: [TextDetection] = []
 
     /// The video session
     private let captureSession: AVCaptureSession = {
@@ -87,7 +87,6 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
         // Start the session
         captureSession.startRunning()
-
 
         //TODO: TEST
         addSubview(image)
@@ -161,14 +160,14 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
         // Insert new detection or modify existing detection
         var hasNewDetection = false
         detections.enumerated().forEach { (index, detection) in
-            let existingDetection = self.detections.first { $0.textFormat.isEqualTo(detection.textFormat) }
+            let existingDetection = self.textDetections.first { $0.textFormat.isEqualTo(detection.textFormat) }
             if let existingDetection = existingDetection,
                existingDetection.string != detection.string {
-                self.detections.remove(at: index)
-                self.detections.insert(detection, at: index)
+                self.textDetections.remove(at: index)
+                self.textDetections.insert(detection, at: index)
                 hasNewDetection = true
             } else if existingDetection == nil {
-                self.detections.append(detection)
+                self.textDetections.append(detection)
                 hasNewDetection = true
             }
         }
@@ -179,7 +178,7 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
         DispatchQueue.main.async { [weak self] in
             guard let self = self,
-                  let info: Info = self.mode.info(from: self.detections) else {
+                  let info: Info = self.mode.info(from: self.textDetections) else {
                 return
             }
             // Vibration feedback

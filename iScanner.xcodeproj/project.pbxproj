@@ -288,10 +288,10 @@
 		28A05BFE2725751000D8287D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				28A05C022726C0DB00D8287D /* ScanMode.swift */,
-				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
 				28D9845228D4B2A700FA28BB /* ScanModeType.swift */,
+				28A05C022726C0DB00D8287D /* ScanMode.swift */,
 				28D9845428D4B75E00FA28BB /* InfoType.swift */,
+				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -301,9 +301,9 @@
 			children = (
 				28A5BB1628D052410065218B /* PreviewMaskView.swift */,
 				28A05EED273BD42C00D8287D /* TextScannerViewController.swift */,
+				28A05EF5273C94C200D8287D /* TextScannerViewType.swift */,
 				28A05BFC272574EE00D8287D /* TextScannerView.swift */,
 				28A05EE8273B9B2200D8287D /* VisionScannerView.swift */,
-				28A05EF5273C94C200D8287D /* TextScannerViewType.swift */,
 				28D9844728D36B1300FA28BB /* CardIOScannerView.swift */,
 			);
 			path = ScannerView;
@@ -321,9 +321,9 @@
 			isa = PBXGroup;
 			children = (
 				28D9844E28D405F400FA28BB /* Image+TextDetectable.swift */,
+				28D9845028D4AD0C00FA28BB /* TextFormatType.swift */,
 				28A5BB1F28D1B04E0065218B /* TextFormat.swift */,
 				28A5BB2928D1ED920065218B /* TextDetector.swift */,
-				28D9845028D4AD0C00FA28BB /* TextFormatType.swift */,
 				2869C8A828D6063F00326933 /* TextDetection.swift */,
 			);
 			path = TextDetector;

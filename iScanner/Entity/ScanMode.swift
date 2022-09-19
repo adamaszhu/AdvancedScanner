@@ -41,11 +41,16 @@ public enum ScanMode: ScanModeType {
     }
 
     public func scanningAreaRect(in rect: CGRect) -> CGRect {
-        let width = rect.width * Self.defaultWidthRatio
-        let height = width / Self.creditCardRatio
-        let x = rect.width / 2 - width / 2
-        let y = rect.height / 2 / height / 2 - Self.defaultAreaOffset
-        return CGRect(x: x, y: y, width: width, height: height)
+        switch self {
+            case .creditCard:
+                let width = rect.width * Self.defaultWidthRatio
+                let height = width / Self.creditCardRatio
+                let x = rect.width / 2 - width / 2
+                let y = rect.height / 2 / height / 2 - Self.defaultAreaOffset
+                return CGRect(x: x, y: y, width: width, height: height)
+            default:
+                return .zero
+        }
     }
 
     public func info<Info>(from textDetections: [TextDetection]) -> Info? where Info : InfoType {
