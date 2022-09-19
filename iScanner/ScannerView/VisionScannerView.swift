@@ -40,10 +40,6 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
         captureSession.stopRunning()
     }
 
-    // TODO: TEST
-    private var image: UIImageView = UIImageView(frame: .zero)
-    // TODO: END
-
     override func layoutSubviews() {
         super.layoutSubviews()
         guard !isInitialized else {
@@ -87,19 +83,6 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
         // Start the session
         captureSession.startRunning()
-
-        //TODO: TEST
-        addSubview(image)
-        image.contentMode = .scaleAspectFit
-        image.pinEdgesToSuperview(with: .init(top: .invalidInset, left: 0, bottom: 0, right: 0))
-        if #available(iOS 10.0, *) {
-            image.height = 250
-        } else {
-            // Fallback on earlier versions
-        }
-        image.backgroundColor = .red
-        bringSubviewToFront(image)
-        // TODO: END
     }
 
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -144,14 +127,6 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
         let textDetector = TextDetector(textTypes: mode.textFormats)
         let detections = textDetector.detect(ciImage, withLanguageCorrection: false)
-
-        // TODO: TEST
-        DispatchQueue.main.async {
-            let context = CIContext()
-            let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
-            self.image.image = UIImage(cgImage: cgImage!)
-        }
-        // TODO: END
 
         guard !detections.isEmpty else {
             return
