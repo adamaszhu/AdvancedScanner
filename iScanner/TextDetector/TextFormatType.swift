@@ -10,6 +10,9 @@ public protocol TextFormatType {
 
     /// Whether or not the format can contain spaces
     var isSpaceAllowed: Bool { get }
+
+    /// The field name
+    var name: String { get }
 }
 
 public extension TextFormatType {

@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adamaszhu/AdvancedUIKit",
       "state" : {
-        "revision" : "0d351d26a7b39e3cee7c7827a128d3e943316404",
-        "version" : "1.9.8"
+        "revision" : "8fccba822b2c189e7a8f7526888ebc9cfcc5d79f",
+        "version" : "1.9.11"
       }
     }
   ],

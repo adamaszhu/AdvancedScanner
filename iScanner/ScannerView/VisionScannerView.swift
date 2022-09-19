@@ -126,23 +126,22 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
         ciImage = ciImage.cropped(to: CIImage.ciRect(for: rect, in: ciImage.extent))
 
         let textDetector = TextDetector(textTypes: mode.textFormats)
-        let detections = textDetector.detect(ciImage, withLanguageCorrection: false)
+        let textDetections = textDetector.detect(ciImage, withLanguageCorrection: false)
 
-        guard !detections.isEmpty else {
+        guard !textDetections.isEmpty else {
             return
         }
 
         // Insert new detection or modify existing detection
         var hasNewDetection = false
-        detections.enumerated().forEach { (index, detection) in
-            let existingDetection = self.textDetections.first { $0.textFormat.isEqualTo(detection.textFormat) }
+        textDetections.forEach { textDetection in
+            let existingDetection = self.textDetections.first { $0.textFormat.isEqualTo(textDetection.textFormat) }
             if let existingDetection = existingDetection,
-               existingDetection.string != detection.string {
-                self.textDetections.remove(at: index)
-                self.textDetections.insert(detection, at: index)
+               existingDetection.string != textDetection.string {
+                existingDetection.string = textDetection.string
                 hasNewDetection = true
             } else if existingDetection == nil {
-                self.textDetections.append(detection)
+                self.textDetections.append(textDetection)
                 hasNewDetection = true
             }
         }

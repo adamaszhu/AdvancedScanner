@@ -9,6 +9,12 @@ final class ViewController: UIViewController {
                 let expiryString = expiry.string(with: DateFormat.expiryDate)
                 message += "\nExpiry: \(expiryString)"
             }
+            if let name = info.name {
+                message += "\nName: \(name)"
+            }
+            if let cvn = info.cvn {
+                message += "\nCVN: \(cvn)"
+            }
             let alertController = UIAlertController(title: "Credit Card", message: message, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(alertAction)

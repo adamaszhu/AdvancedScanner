@@ -21,8 +21,21 @@ public enum TextFormat {
 
 extension TextFormat: TextFormatType {
 
+    public var name: String {
+        switch self {
+            case .creditCardNumber:
+                return Self.creditCardNumberName
+            case .creditCardVerificationNumber:
+                return Self.creditCardVerificationNumberName
+            case .expiry:
+                return Self.expiryName
+            case .fullName:
+                return Self.fullNameName
+        }
+    }
+
     public var rules: [RuleType] {
-        let errorMessage = String(format: Self.errorMessagePattern, String(describing: self))
+        let errorMessage = String(format: Self.errorMessagePattern, name)
         switch self {
             case .creditCardNumber:
                 return DefaultRuleFactory.creditCardNumberRules(withInvalidMessage: errorMessage,
@@ -51,6 +64,10 @@ extension TextFormat: TextFormatType {
 /// Constants
 private extension TextFormat {
     static let errorMessagePattern = "Cannot detect a valid text with %@ format"
+    static let creditCardNumberName = "Card number"
+    static let creditCardVerificationNumberName = "CVN"
+    static let fullNameName = "Name"
+    static let expiryName = "Expiry date"
 }
 
 import AdvancedUIKit
