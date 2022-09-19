@@ -10,6 +10,8 @@ final class CardIOScannerView: UIView, TextScannerViewType {
 
     var didDetectInfoAction: ((CreditCardInfo) -> Void)?
 
+    var hint: String = .empty
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()

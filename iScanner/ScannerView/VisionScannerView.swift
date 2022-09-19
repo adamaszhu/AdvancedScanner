@@ -10,6 +10,12 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
     let ratio = 2160.0 / 3840.0
 
+    var hint: String = .empty {
+        didSet {
+            hintLabel.text = hint
+        }
+    }
+
     /// The scanning mode that the view is under
     private let mode = ScanMode(infoType: Info.self)
 
@@ -18,6 +24,9 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
     /// Cached text detections
     private var textDetections: [TextDetection] = []
+
+    /// The hint label displayed in the centre of the screen
+    private var hintLabel: UILabel = UILabel()
 
     /// The video session
     private let captureSession: AVCaptureSession = {
@@ -49,10 +58,21 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
         layer.sublayers?.first?.frame = bounds
 
         // Setup the mask view
-        let maskView = PreviewMaskView(rect: mode.scanningAreaRect(in: bounds),
+        let rect = mode.scanningAreaRect(in: bounds)
+        let maskView = PreviewMaskView(rect: rect,
                                        rectRadius: mode.scanningAreaRadius)
         addSubview(maskView)
         maskView.pinEdgesToSuperview()
+
+        // Setup the hint label
+        hintLabel.textColor = Self.hintColor
+        hintLabel.textAlignment = .center
+        hintLabel.numberOfLines = 0
+        addSubview(hintLabel)
+        hintLabel.pinEdgesToSuperview(with: UIEdgeInsets(top: rect.minY,
+                                                         left: rect.minX,
+                                                         bottom: bounds.height - rect.minY - rect.height,
+                                                         right: bounds.width - rect.minX - rect.width))
     }
 
     /// Initialize the actual scanner view using Vision
@@ -167,10 +187,12 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 private extension VisionScannerView {
     static var videoProcessingQueueLabel: String { "TextScannerProcessingQueue" }
     static var bufferImageError: String { "Cannot get the buffered image." }
+    static var hintColor: UIColor { UIColor.white.withAlphaComponent(0.4) }
 }
 
 import AdvancedUIKit
 import AdvancedFoundation
 import CoreGraphics
 import AVFoundation
+import UIKit
 import CoreImage

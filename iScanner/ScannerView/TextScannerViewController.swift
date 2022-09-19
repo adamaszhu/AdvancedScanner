@@ -16,6 +16,9 @@ open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UI
     /// The scanner view in the view controller
     public private(set) var textScannerView = TextScannerView<Info, ScanMode>()
 
+    /// Add a hint message
+    public var hint: String = .empty
+
     /// The detected info
     private var info: Info?
 
@@ -24,6 +27,7 @@ open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UI
         textScannerView.didDetectInfoAction = { [weak self] info in
             self?.info = info
         }
+        textScannerView.hint = hint
         view.addSubview(textScannerView)
         textScannerView.pinEdgesToSuperview()
         setupNavigationBar()

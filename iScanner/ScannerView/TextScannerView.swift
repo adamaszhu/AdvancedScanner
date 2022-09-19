@@ -5,6 +5,15 @@
 /// - author: Adamas
 public class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, TextScannerViewType {
 
+    public var hint: String = .empty {
+        didSet {
+            if #available(iOS 13.0, *) {
+                let visionScannerView = textScannerView as? VisionScannerView<Info, ScanMode>
+                visionScannerView?.hint = hint
+            }
+        }
+    }
+
     public var didDetectInfoAction: ((Info) -> Void)? {
         didSet {
             if #available(iOS 13.0, *) {

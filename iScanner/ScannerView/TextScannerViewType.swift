@@ -13,4 +13,7 @@ protocol TextScannerViewType {
 
     /// The ratio of the camera view
     var ratio: Double { get }
+
+    /// The hint message
+    var hint: String { get set }
 }

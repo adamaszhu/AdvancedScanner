@@ -15,14 +15,18 @@ public class TextScanner<Info: InfoType, ScanMode: ScanModeType> {
     }
 
     /// Trigger the scanning view
-    /// - Parameter completion: Callback when the given info is detected
-    public func scan(completion: @escaping (Info) -> Void) {
+    /// - Parameters:
+    ///  - hint: The hint message displayed on the screen
+    ///  - completion: Callback when the given info is detected
+    public func scan(withHint hint: String,
+                     completion: @escaping (Info) -> Void) {
         let viewController = TextScannerViewController<Info, ScanMode>()
         viewController.didDetectInfoAction = { [weak self] info in
             self?.viewController?.presentedViewController?.dismiss(animated: true) {
                 completion(info)
             }
         }
+        viewController.hint = hint
         let navigationController = UINavigationController(rootViewController: viewController)
         let bottomSheetViewController = BottomSheetViewController(
             viewController: navigationController,
