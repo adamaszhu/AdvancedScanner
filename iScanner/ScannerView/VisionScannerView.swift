@@ -158,15 +158,17 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
             return
         }
 
+        // Insert new detection or modify existing detection
         var hasNewDetection = false
         detections.enumerated().forEach { (index, detection) in
-            if !self.detections.contains(detection) {
-                self.detections.append(detection)
-                hasNewDetection = true
-            } else if let existingDetection = self.detections.first(where: {$0 == detection}),
-                      existingDetection.string != detection.string {
+            let existingDetection = self.detections.first { $0.textFormat.isEqualTo(detection.textFormat) }
+            if let existingDetection = existingDetection,
+               existingDetection.string != detection.string {
                 self.detections.remove(at: index)
                 self.detections.insert(detection, at: index)
+                hasNewDetection = true
+            } else if existingDetection == nil {
+                self.detections.append(detection)
                 hasNewDetection = true
             }
         }
@@ -176,18 +178,13 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
         }
 
         DispatchQueue.main.async { [weak self] in
+            guard let self = self,
+                  let info: Info = self.mode.info(from: self.detections) else {
+                return
+            }
             // Vibration feedback
             UINotificationFeedbackGenerator().notificationOccurred(.success)
-            for detection in detections {
-                switch detection.textFormat {
-                    case TextFormat.creditCardNumber where Info.self == CreditCardInfo.self:
-                        let info = CreditCardInfo(number: detection.string, name: nil, expiry: nil, cvn: nil)
-                        self?.didDetectInfoAction?(info as! Info)
-                        self?.captureSession.stopRunning()
-                    default:
-                        break
-                }
-            }
+            self.didDetectInfoAction?(info)
         }
     }
 }

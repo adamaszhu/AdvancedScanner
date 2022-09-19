@@ -21,4 +21,10 @@ public protocol ScanModeType {
     /// - Parameter rect: The rect of the whole view
     /// - Returns: The scaning area rect
     func scanningAreaRect(in rect: CGRect) -> CGRect
+
+    /// Generate an info from a list of text detections
+    /// 
+    /// - Parameter textDetections: The text detection
+    /// - Returns: An info object
+    func info<Info: InfoType>(from textDetections: [TextDetection]) -> Info?
 }

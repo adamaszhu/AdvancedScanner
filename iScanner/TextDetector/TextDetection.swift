@@ -21,10 +21,3 @@ public struct TextDetection {
         self.string = string
     }
 }
-
-extension TextDetection: Equatable {
-
-    static func == (lhs: TextDetection, rhs: TextDetection) -> Bool {
-        String(describing: lhs.textFormat) == String(describing: rhs.textFormat)
-    }
-}

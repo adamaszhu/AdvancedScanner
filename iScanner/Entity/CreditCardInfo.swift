@@ -54,6 +54,23 @@ public struct CreditCardInfo: InfoType {
             expiry = nil
         }
     }
+
+    public init?(textDetections: [TextDetection]) {
+        var detections: [TextFormat: String] = [:]
+        textDetections.forEach { textDetection in
+            if let textFormat = textDetection.textFormat as? TextFormat {
+                detections[textFormat] = textDetection.string
+            }
+        }
+        guard let number = detections[.creditCardNumber] else {
+            return nil
+        }
+        self.init(number: number,
+                  name: detections[.fullName],
+                  expiry: detections[.expiry],
+                  cvn: detections[.creditCardVerificationNumber])
+
+    }
 }
 
 import Foundation

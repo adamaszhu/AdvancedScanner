@@ -47,6 +47,15 @@ public enum ScanMode: ScanModeType {
         let y = rect.height / 2 / height / 2 - Self.defaultAreaOffset
         return CGRect(x: x, y: y, width: width, height: height)
     }
+
+    public func info<Info>(from textDetections: [TextDetection]) -> Info? where Info : InfoType {
+        switch self {
+            case .creditCard:
+                return CreditCardInfo(textDetections: textDetections) as? Info
+            default:
+                return nil
+        }
+    }
 }
 
 /// Constants
