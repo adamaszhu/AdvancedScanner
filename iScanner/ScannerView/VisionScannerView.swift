@@ -26,7 +26,10 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
     private var textDetections: [TextDetection] = []
 
     /// The hint label displayed in the centre of the screen
-    private var hintLabel: UILabel = UILabel()
+    private var hintLabel = UILabel()
+
+    /// The stack view used to display detected texts
+    private var detectionsStackView = UIStackView()
 
     /// The video session
     private let captureSession: AVCaptureSession = {
@@ -73,6 +76,15 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
                                                          left: rect.minX,
                                                          bottom: bounds.height - rect.minY - rect.height,
                                                          right: bounds.width - rect.minX - rect.width))
+
+        // Setup the stack view
+        detectionsStackView.axis = .vertical
+        detectionsStackView.spacing = Self.stackViewSpacing
+        addSubview(detectionsStackView)
+        detectionsStackView.pinEdgesToSuperview(with: UIEdgeInsets(top: bounds.height - rect.minY - rect.height + Self.stackViewSpacing,
+                                                                   left: rect.minX,
+                                                                   bottom: .invalidInset,
+                                                                   right: bounds.width - rect.minX - rect.width))
     }
 
     /// Initialize the actual scanner view using Vision
@@ -178,6 +190,18 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
             // Vibration feedback
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             self.didDetectInfoAction?(info)
+            self.updateDetections()
+        }
+    }
+
+    /// Display detections in the stack view
+    private func updateDetections() {
+        detectionsStackView.subviews.forEach { $0.removeFromSuperview() }
+        textDetections.forEach { textDetection in
+            let label = UILabel()
+            label.textColor = Self.hintColor
+            label.text = textDetection.textFormat.name + .colon + .space + textDetection.string
+            detectionsStackView.addArrangedSubview(label)
         }
     }
 }
@@ -188,6 +212,7 @@ private extension VisionScannerView {
     static var videoProcessingQueueLabel: String { "TextScannerProcessingQueue" }
     static var bufferImageError: String { "Cannot get the buffered image." }
     static var hintColor: UIColor { UIColor.white.withAlphaComponent(0.4) }
+    static var stackViewSpacing: CGFloat { 4 }
 }
 
 import AdvancedUIKit
