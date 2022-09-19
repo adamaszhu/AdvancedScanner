@@ -19,6 +19,7 @@ final class PreviewMaskView: UIView {
     convenience init(rect: CGRect, rectRadius: CGFloat) {
         self.init()
         self.rect = rect
+        self.rectRadius = rectRadius
         isOpaque = false
     }
 

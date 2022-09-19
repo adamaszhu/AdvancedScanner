@@ -46,7 +46,7 @@ public enum ScanMode: ScanModeType {
                 let width = rect.width * Self.defaultWidthRatio
                 let height = width / Self.creditCardRatio
                 let x = rect.width / 2 - width / 2
-                let y = rect.height / 2 / height / 2 - Self.defaultAreaOffset
+                let y = rect.height / 2 - height / 2 - Self.defaultAreaOffset
                 return CGRect(x: x, y: y, width: width, height: height)
             default:
                 return .zero
