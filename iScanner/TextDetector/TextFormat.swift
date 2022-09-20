@@ -35,7 +35,7 @@ extension TextFormat: TextFormatType {
     }
 
     public var rules: [RuleType] {
-        let errorMessage = String(format: Self.errorMessagePattern, name)
+        let errorMessage = String(format: Self.errorMessagePattern, name.lowercased())
         switch self {
             case .creditCardNumber:
                 return DefaultRuleFactory.creditCardNumberRules(withInvalidMessage: errorMessage,
@@ -63,7 +63,7 @@ extension TextFormat: TextFormatType {
 
 /// Constants
 private extension TextFormat {
-    static let errorMessagePattern = "Cannot detect a valid text with %@ format"
+    static let errorMessagePattern = "Cannot detect a valid %@"
     static let creditCardNumberName = "Card number"
     static let creditCardVerificationNumberName = "CVN"
     static let fullNameName = "Name"

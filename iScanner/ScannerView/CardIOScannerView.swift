@@ -10,7 +10,13 @@ final class CardIOScannerView: UIView, TextScannerViewType {
 
     var didDetectInfoAction: ((CreditCardInfo) -> Void)?
 
-    var hint: String = .empty
+    var hint: String = .empty {
+        didSet {
+            cardIOView.scanInstructions = hint
+        }
+    }
+
+    private let cardIOView = CardIOView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +30,6 @@ final class CardIOScannerView: UIView, TextScannerViewType {
 
     /// Initialize the actual scanner view using CardIO
     private func initialize() {
-        let cardIOView = CardIOView()
         addSubview(cardIOView)
         cardIOView.pinEdgesToSuperview()
         cardIOView.delegate = self
@@ -38,6 +43,7 @@ extension CardIOScannerView: CardIOViewDelegate {
 
     func cardIOView(_ cardIOView: CardIOView!, didScanCard cardInfo: CardIOCreditCardInfo!) {
         guard let cardInfo = cardInfo else {
+            // When camera permission is off
             return
         }
         let creditCardInfo = CreditCardInfo(cardIOCreditCardInfo: cardInfo)

@@ -26,10 +26,10 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
     private var textDetections: [TextDetection] = []
 
     /// The hint label displayed in the centre of the screen
-    private var hintLabel = UILabel()
+    private let hintLabel = UILabel()
 
     /// The stack view used to display detected texts
-    private var detectionsStackView = UIStackView()
+    private let detectionsStackView = UIStackView()
 
     /// The video session
     private let captureSession: AVCaptureSession = {
@@ -166,19 +166,20 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
 
         // Insert new detection or modify existing detection
         var hasNewDetection = false
+        var hasModifiedDetection = false
         textDetections.forEach { textDetection in
             let existingDetection = self.textDetections.first { $0.textFormat.isEqualTo(textDetection.textFormat) }
             if let existingDetection = existingDetection,
                existingDetection.string != textDetection.string {
                 existingDetection.string = textDetection.string
-                hasNewDetection = true
+                hasModifiedDetection = true
             } else if existingDetection == nil {
                 self.textDetections.append(textDetection)
                 hasNewDetection = true
             }
         }
 
-        guard hasNewDetection else {
+        guard hasNewDetection || hasModifiedDetection else {
             return
         }
 
@@ -188,7 +189,9 @@ final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, T
                 return
             }
             // Vibration feedback
-            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            if hasNewDetection {
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
+            }
             self.didDetectInfoAction?(info)
             self.updateDetections()
         }
