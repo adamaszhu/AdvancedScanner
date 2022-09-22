@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "advancedfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamaszhu/AdvancedFoundation",
+      "state" : {
+        "revision" : "441a6aacc5e7a53d2c4ddf18814ea84d53c92a7e",
+        "version" : "1.8.7"
+      }
+    },
+    {
+      "identity" : "advanceduikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamaszhu/AdvancedUIKit",
+      "state" : {
+        "revision" : "544aca10d7a14618f842baffd98e2c25cf0609cd",
+        "version" : "1.9.12"
+      }
+    }
+  ],
+  "version" : 2
+}
