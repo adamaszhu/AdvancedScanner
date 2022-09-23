@@ -24,9 +24,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "284B6C9D26F0315F00FDFBB0"
-               BuildableName = "iScannerSample.app"
-               BlueprintName = "iScannerSample"
-               ReferencedContainer = "container:iScanner.xcodeproj">
+               BuildableName = "AdvancedScannerSample.app"
+               BlueprintName = "AdvancedScannerSample"
+               ReferencedContainer = "container:AdvancedScanner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "284B6C9D26F0315F00FDFBB0"
-            BuildableName = "iScannerSample.app"
-            BlueprintName = "iScannerSample"
-            ReferencedContainer = "container:iScanner.xcodeproj">
+            BuildableName = "AdvancedScannerSample.app"
+            BlueprintName = "AdvancedScannerSample"
+            ReferencedContainer = "container:AdvancedScanner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "284B6C9D26F0315F00FDFBB0"
-            BuildableName = "iScannerSample.app"
-            BlueprintName = "iScannerSample"
-            ReferencedContainer = "container:iScanner.xcodeproj">
+            BuildableName = "AdvancedScannerSample.app"
+            BlueprintName = "AdvancedScannerSample"
+            ReferencedContainer = "container:AdvancedScanner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

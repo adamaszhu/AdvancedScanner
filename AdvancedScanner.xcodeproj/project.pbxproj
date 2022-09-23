@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		283B4FDE26F56B6D00FCE3B6 /* AdvancedUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */; };
-		284B6C7126F02FAA00FDFBB0 /* iScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; };
+		284B6C7126F02FAA00FDFBB0 /* AdvancedScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */; };
 		284B6C7626F02FAA00FDFBB0 /* iScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */; };
 		284B6C7826F02FAA00FDFBB0 /* iScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C6A26F02FA900FDFBB0 /* iScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		284B6C8E26F0308700FDFBB0 /* CardIODetectionMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 284B6C8226F0308700FDFBB0 /* CardIODetectionMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,8 +29,8 @@
 		284B6CA826F0315F00FDFBB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CA626F0315F00FDFBB0 /* Main.storyboard */; };
 		284B6CAA26F0316100FDFBB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CA926F0316100FDFBB0 /* Assets.xcassets */; };
 		284B6CAD26F0316100FDFBB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */; };
-		284B6CB326F0318300FDFBB0 /* iScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; };
-		284B6CB426F0318300FDFBB0 /* iScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		284B6CB326F0318300FDFBB0 /* AdvancedScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */; };
+		284B6CB426F0318300FDFBB0 /* AdvancedScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		284B6CBF26F03DB700FDFBB0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CBE26F03DB700FDFBB0 /* Accelerate.framework */; };
 		284B6CC126F03DC400FDFBB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CC026F03DC400FDFBB0 /* AudioToolbox.framework */; };
 		284B6CC326F03DCA00FDFBB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6CC226F03DCA00FDFBB0 /* AVFoundation.framework */; };
@@ -85,7 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				284B6CB426F0318300FDFBB0 /* iScanner.framework in Embed Frameworks */,
+				284B6CB426F0318300FDFBB0 /* AdvancedScanner.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,10 +93,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		284B6C6726F02FA900FDFBB0 /* iScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		284B6C6A26F02FA900FDFBB0 /* iScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iScanner.h; sourceTree = "<group>"; };
 		284B6C6B26F02FA900FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		284B6C7026F02FAA00FDFBB0 /* iScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScannerTests.swift; sourceTree = "<group>"; };
 		284B6C7726F02FAA00FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		284B6C8226F0308700FDFBB0 /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		284B6C8B26F0308700FDFBB0 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopencv_imgproc.a; sourceTree = "<group>"; };
 		284B6C8C26F0308700FDFBB0 /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
 		284B6C8D26F0308700FDFBB0 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
-		284B6C9E26F0315F00FDFBB0 /* iScannerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iScannerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		284B6C9E26F0315F00FDFBB0 /* AdvancedScannerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedScannerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		284B6CA426F0315F00FDFBB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 		28A05EEB273BADED00D8287D /* TextScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
 		28A05EED273BD42C00D8287D /* TextScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerViewController.swift; sourceTree = "<group>"; };
 		28A05EF5273C94C200D8287D /* TextScannerViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerViewType.swift; sourceTree = "<group>"; };
+		28A2479028DDE87500772C1C /* AdvancedFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AdvancedFoundation; path = ../AdvancedFoundation; sourceTree = "<group>"; };
 		28A5BB1628D052410065218B /* PreviewMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMaskView.swift; sourceTree = "<group>"; };
 		28A5BB1F28D1B04E0065218B /* TextFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		28A5BB2928D1ED920065218B /* TextDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetector.swift; sourceTree = "<group>"; };
@@ -175,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284B6C7126F02FAA00FDFBB0 /* iScanner.framework in Frameworks */,
+				284B6C7126F02FAA00FDFBB0 /* AdvancedScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284B6CB326F0318300FDFBB0 /* iScanner.framework in Frameworks */,
+				284B6CB326F0318300FDFBB0 /* AdvancedScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,9 +194,10 @@
 		284B6C5D26F02FA900FDFBB0 = {
 			isa = PBXGroup;
 			children = (
-				284B6C6926F02FA900FDFBB0 /* iScanner */,
-				284B6C7426F02FAA00FDFBB0 /* iScannerTests */,
-				284B6C9F26F0315F00FDFBB0 /* iScannerSample */,
+				28A2478F28DDE87500772C1C /* Packages */,
+				284B6C6926F02FA900FDFBB0 /* AdvancedScanner */,
+				284B6C7426F02FAA00FDFBB0 /* AdvancedScannerTests */,
+				284B6C9F26F0315F00FDFBB0 /* AdvancedScannerSample */,
 				284B6C6826F02FA900FDFBB0 /* Products */,
 				284B6CB226F0318300FDFBB0 /* Frameworks */,
 			);
@@ -204,14 +206,14 @@
 		284B6C6826F02FA900FDFBB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				284B6C6726F02FA900FDFBB0 /* iScanner.framework */,
-				284B6C7026F02FAA00FDFBB0 /* iScannerTests.xctest */,
-				284B6C9E26F0315F00FDFBB0 /* iScannerSample.app */,
+				284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */,
+				284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */,
+				284B6C9E26F0315F00FDFBB0 /* AdvancedScannerSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		284B6C6926F02FA900FDFBB0 /* iScanner */ = {
+		284B6C6926F02FA900FDFBB0 /* AdvancedScanner */ = {
 			isa = PBXGroup;
 			children = (
 				28A5BB1E28D199DB0065218B /* TextDetector */,
@@ -223,16 +225,16 @@
 				284B6C6B26F02FA900FDFBB0 /* Info.plist */,
 				284B6CD826F0827100FDFBB0 /* CardScanner.swift */,
 			);
-			path = iScanner;
+			path = AdvancedScanner;
 			sourceTree = "<group>";
 		};
-		284B6C7426F02FAA00FDFBB0 /* iScannerTests */ = {
+		284B6C7426F02FAA00FDFBB0 /* AdvancedScannerTests */ = {
 			isa = PBXGroup;
 			children = (
 				284B6C7526F02FAA00FDFBB0 /* iScannerTests.swift */,
 				284B6C7726F02FAA00FDFBB0 /* Info.plist */,
 			);
-			path = iScannerTests;
+			path = AdvancedScannerTests;
 			sourceTree = "<group>";
 		};
 		284B6C8126F0308700FDFBB0 /* CardIO */ = {
@@ -254,7 +256,7 @@
 			path = CardIO;
 			sourceTree = "<group>";
 		};
-		284B6C9F26F0315F00FDFBB0 /* iScannerSample */ = {
+		284B6C9F26F0315F00FDFBB0 /* AdvancedScannerSample */ = {
 			isa = PBXGroup;
 			children = (
 				284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */,
@@ -265,7 +267,7 @@
 				284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */,
 				284B6CAE26F0316100FDFBB0 /* Info.plist */,
 			);
-			path = iScannerSample;
+			path = AdvancedScannerSample;
 			sourceTree = "<group>";
 		};
 		284B6CB226F0318300FDFBB0 /* Frameworks */ = {
@@ -317,6 +319,14 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
+		28A2478F28DDE87500772C1C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				28A2479028DDE87500772C1C /* AdvancedFoundation */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		28A5BB1E28D199DB0065218B /* TextDetector */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,9 +361,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		284B6C6626F02FA900FDFBB0 /* iScanner */ = {
+		284B6C6626F02FA900FDFBB0 /* AdvancedScanner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 284B6C7B26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScanner" */;
+			buildConfigurationList = 284B6C7B26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "AdvancedScanner" */;
 			buildPhases = (
 				284B6C6226F02FA900FDFBB0 /* Headers */,
 				284B6C6326F02FA900FDFBB0 /* Sources */,
@@ -364,18 +374,18 @@
 			);
 			dependencies = (
 			);
-			name = iScanner;
+			name = AdvancedScanner;
 			packageProductDependencies = (
 				287054F926F16A6500D2DA33 /* AdvancedFoundation */,
 				283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */,
 			);
 			productName = iScanner;
-			productReference = 284B6C6726F02FA900FDFBB0 /* iScanner.framework */;
+			productReference = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		284B6C6F26F02FAA00FDFBB0 /* iScannerTests */ = {
+		284B6C6F26F02FAA00FDFBB0 /* AdvancedScannerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 284B6C7E26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerTests" */;
+			buildConfigurationList = 284B6C7E26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "AdvancedScannerTests" */;
 			buildPhases = (
 				284B6C6C26F02FAA00FDFBB0 /* Sources */,
 				284B6C6D26F02FAA00FDFBB0 /* Frameworks */,
@@ -386,14 +396,14 @@
 			dependencies = (
 				284B6C7326F02FAA00FDFBB0 /* PBXTargetDependency */,
 			);
-			name = iScannerTests;
+			name = AdvancedScannerTests;
 			productName = iScannerTests;
-			productReference = 284B6C7026F02FAA00FDFBB0 /* iScannerTests.xctest */;
+			productReference = 284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		284B6C9D26F0315F00FDFBB0 /* iScannerSample */ = {
+		284B6C9D26F0315F00FDFBB0 /* AdvancedScannerSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 284B6CAF26F0316100FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerSample" */;
+			buildConfigurationList = 284B6CAF26F0316100FDFBB0 /* Build configuration list for PBXNativeTarget "AdvancedScannerSample" */;
 			buildPhases = (
 				284B6C9A26F0315F00FDFBB0 /* Sources */,
 				284B6C9B26F0315F00FDFBB0 /* Frameworks */,
@@ -405,9 +415,9 @@
 			dependencies = (
 				284B6CB626F0318300FDFBB0 /* PBXTargetDependency */,
 			);
-			name = iScannerSample;
+			name = AdvancedScannerSample;
 			productName = iScannerSample;
-			productReference = 284B6C9E26F0315F00FDFBB0 /* iScannerSample.app */;
+			productReference = 284B6C9E26F0315F00FDFBB0 /* AdvancedScannerSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -431,7 +441,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 284B6C6126F02FA900FDFBB0 /* Build configuration list for PBXProject "iScanner" */;
+			buildConfigurationList = 284B6C6126F02FA900FDFBB0 /* Build configuration list for PBXProject "AdvancedScanner" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -448,9 +458,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				284B6C6626F02FA900FDFBB0 /* iScanner */,
-				284B6C6F26F02FAA00FDFBB0 /* iScannerTests */,
-				284B6C9D26F0315F00FDFBB0 /* iScannerSample */,
+				284B6C6626F02FA900FDFBB0 /* AdvancedScanner */,
+				284B6C6F26F02FAA00FDFBB0 /* AdvancedScannerTests */,
+				284B6C9D26F0315F00FDFBB0 /* AdvancedScannerSample */,
 			);
 		};
 /* End PBXProject section */
@@ -531,12 +541,12 @@
 /* Begin PBXTargetDependency section */
 		284B6C7326F02FAA00FDFBB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 284B6C6626F02FA900FDFBB0 /* iScanner */;
+			target = 284B6C6626F02FA900FDFBB0 /* AdvancedScanner */;
 			targetProxy = 284B6C7226F02FAA00FDFBB0 /* PBXContainerItemProxy */;
 		};
 		284B6CB626F0318300FDFBB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 284B6C6626F02FA900FDFBB0 /* iScanner */;
+			target = 284B6C6626F02FA900FDFBB0 /* AdvancedScanner */;
 			targetProxy = 284B6CB526F0318300FDFBB0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -855,7 +865,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		284B6C6126F02FA900FDFBB0 /* Build configuration list for PBXProject "iScanner" */ = {
+		284B6C6126F02FA900FDFBB0 /* Build configuration list for PBXProject "AdvancedScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284B6C7926F02FAA00FDFBB0 /* Debug */,
@@ -864,7 +874,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		284B6C7B26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScanner" */ = {
+		284B6C7B26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "AdvancedScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284B6C7C26F02FAA00FDFBB0 /* Debug */,
@@ -873,7 +883,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		284B6C7E26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerTests" */ = {
+		284B6C7E26F02FAA00FDFBB0 /* Build configuration list for PBXNativeTarget "AdvancedScannerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284B6C7F26F02FAA00FDFBB0 /* Debug */,
@@ -882,7 +892,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		284B6CAF26F0316100FDFBB0 /* Build configuration list for PBXNativeTarget "iScannerSample" */ = {
+		284B6CAF26F0316100FDFBB0 /* Build configuration list for PBXNativeTarget "AdvancedScannerSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284B6CB026F0316100FDFBB0 /* Debug */,
