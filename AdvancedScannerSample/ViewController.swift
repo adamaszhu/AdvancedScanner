@@ -24,6 +24,6 @@ final class ViewController: UIViewController {
 }
 
 import UIKit
-import iScanner
+import AdvancedScanner
 import AdvancedUIKit
 import AdvancedFoundation

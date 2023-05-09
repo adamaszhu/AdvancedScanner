@@ -63,3 +63,4 @@ open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UI
 }
 
 import AdvancedUIKit
+import UIKit

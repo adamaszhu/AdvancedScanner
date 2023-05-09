@@ -19,11 +19,6 @@ public class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, Te
             if #available(iOS 13.0, *) {
                 let visionScannerView = textScannerView as? VisionScannerView<Info, ScanMode>
                 visionScannerView?.didDetectInfoAction = didDetectInfoAction
-            } else if Info.self == CreditCardInfo.self {
-                let cardIOScannerView = textScannerView as? CardIOScannerView
-                cardIOScannerView?.didDetectInfoAction = { [weak self] info in
-                    self?.didDetectInfoAction?(info as! Info)
-                }
             }
         }
     }
@@ -50,10 +45,6 @@ public class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, Te
             let visionScannerView = VisionScannerView<Info, ScanMode>()
             ratio = visionScannerView.ratio
             textScannerView = visionScannerView
-        } else if Info.self == CreditCardInfo.self {
-            let cardIOScannerView = CardIOScannerView()
-            ratio = cardIOScannerView.ratio
-            textScannerView = cardIOScannerView
         } else {
             return
         }
@@ -64,3 +55,4 @@ public class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, Te
 }
 
 import AdvancedUIKit
+import UIKit

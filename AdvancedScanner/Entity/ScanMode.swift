@@ -70,3 +70,5 @@ private extension ScanMode {
     static let creditCardCornerRatius: CGFloat = 10
     static let creditCardRatio: CGFloat = 3.0 / 2.0
 }
+
+import UIKit

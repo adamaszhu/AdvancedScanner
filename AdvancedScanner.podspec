@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.platform = :ios
-s.ios.deployment_target = '9.0'
+s.ios.deployment_target = '13.0'
 s.name = "AdvancedScanner"
 s.summary = "AdvancedScanner contains additional text detection logic."
 s.requires_arc = true

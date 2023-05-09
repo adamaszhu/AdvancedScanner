@@ -39,22 +39,6 @@ public struct CreditCardInfo: InfoType {
         }
     }
 
-    /// Initialize the object using a card IO object
-    /// - Parameter cardIOCreditCardInfo: The card IO object
-    init(cardIOCreditCardInfo: CardIOCreditCardInfo) {
-        number = cardIOCreditCardInfo.cardNumber
-        name = cardIOCreditCardInfo.cardholderName
-        cvn = cardIOCreditCardInfo.cvv
-        if cardIOCreditCardInfo.expiryYear != 0,
-           cardIOCreditCardInfo.expiryMonth != 0 {
-            let components = DateComponents(year: Int(cardIOCreditCardInfo.expiryYear),
-                                            month: Int(cardIOCreditCardInfo.expiryMonth))
-            expiry = Calendar.current.date(from: components)
-        } else {
-            expiry = nil
-        }
-    }
-
     public init?(textDetections: [TextDetection]) {
         var detections: [TextFormat: String] = [:]
         textDetections.forEach { textDetection in

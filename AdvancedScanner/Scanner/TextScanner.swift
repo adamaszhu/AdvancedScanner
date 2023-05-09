@@ -37,3 +37,4 @@ public class TextScanner<Info: InfoType, ScanMode: ScanModeType> {
 
 import AdvancedFoundation
 import AdvancedUIKit
+import UIKit

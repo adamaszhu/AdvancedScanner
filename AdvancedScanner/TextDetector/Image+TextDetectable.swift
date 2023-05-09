@@ -30,3 +30,4 @@ private extension CIImage {
 
 import Foundation
 import Vision
+import UIKit

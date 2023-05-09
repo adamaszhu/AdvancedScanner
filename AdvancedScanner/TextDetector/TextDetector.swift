@@ -56,3 +56,4 @@ public class TextDetector {
 }
 
 import AdvancedFoundation
+import UIKit
