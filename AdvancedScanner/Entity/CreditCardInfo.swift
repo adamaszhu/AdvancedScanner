@@ -40,19 +40,13 @@ public struct CreditCardInfo: InfoType {
     }
 
     public init?(textDetections: [TextDetection]) {
-        var detections: [TextFormat: String] = [:]
-        textDetections.forEach { textDetection in
-            if let textFormat = textDetection.textFormat as? TextFormat {
-                detections[textFormat] = textDetection.string
-            }
-        }
-        guard let number = detections[.creditCardNumber] else {
+        guard let number = textDetections[TextFormat.creditCardNumber].first else {
             return nil
         }
         self.init(number: number,
-                  name: detections[.fullName],
-                  expiry: detections[.expiry],
-                  cvn: detections[.creditCardVerificationNumber])
+                  name: textDetections[TextFormat.fullName].first,
+                  expiry: textDetections[TextFormat.expiry].first,
+                  cvn: textDetections[TextFormat.creditCardVerificationNumber].first)
 
     }
 }

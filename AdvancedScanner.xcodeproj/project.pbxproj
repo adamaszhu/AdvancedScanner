@@ -31,6 +31,7 @@
 		28A5BB2028D1B04E0065218B /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5BB1F28D1B04E0065218B /* TextFormat.swift */; };
 		28A5BB2A28D1ED920065218B /* TextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5BB2928D1ED920065218B /* TextDetector.swift */; };
 		28A89921273E167E00FE65A7 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD826F0827100FDFBB0 /* CardScanner.swift */; };
+		28ABA9C22A0BBF3200FFBC21 /* TextDetection+Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ABA9C12A0BBF3200FFBC21 /* TextDetection+Accessible.swift */; };
 		28D9844F28D405F400FA28BB /* Image+TextDetectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9844E28D405F400FA28BB /* Image+TextDetectable.swift */; };
 		28D9845128D4AD0C00FA28BB /* TextFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845028D4AD0C00FA28BB /* TextFormatType.swift */; };
 		28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845228D4B2A700FA28BB /* ScanModeType.swift */; };
@@ -94,6 +95,7 @@
 		28A5BB1628D052410065218B /* PreviewMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMaskView.swift; sourceTree = "<group>"; };
 		28A5BB1F28D1B04E0065218B /* TextFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		28A5BB2928D1ED920065218B /* TextDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetector.swift; sourceTree = "<group>"; };
+		28ABA9C12A0BBF3200FFBC21 /* TextDetection+Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextDetection+Accessible.swift"; sourceTree = "<group>"; };
 		28D9844E28D405F400FA28BB /* Image+TextDetectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+TextDetectable.swift"; sourceTree = "<group>"; };
 		28D9845028D4AD0C00FA28BB /* TextFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatType.swift; sourceTree = "<group>"; };
 		28D9845228D4B2A700FA28BB /* ScanModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModeType.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				28A5BB1F28D1B04E0065218B /* TextFormat.swift */,
 				28A5BB2928D1ED920065218B /* TextDetector.swift */,
 				2869C8A828D6063F00326933 /* TextDetection.swift */,
+				28ABA9C12A0BBF3200FFBC21 /* TextDetection+Accessible.swift */,
 			);
 			path = TextDetector;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A05BFD272574EE00D8287D /* TextScannerView.swift in Sources */,
+				28ABA9C22A0BBF3200FFBC21 /* TextDetection+Accessible.swift in Sources */,
 				28D9844F28D405F400FA28BB /* Image+TextDetectable.swift in Sources */,
 				284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */,
 				2869C8A928D6063F00326933 /* TextDetection.swift in Sources */,

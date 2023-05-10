@@ -1,4 +1,4 @@
-/// Define objects that hold some info
+/// Define info objects that hold some info
 ///
 /// - version: 0.1.0
 /// - date: 16/09/22
