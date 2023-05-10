@@ -3,13 +3,16 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-public enum ScanMode: ScanModeType {
-
+public enum ScanMode {
+    
     /// Credit card
     case creditCard
-
+    
     /// Detect nothing
     case none
+}
+
+extension ScanMode: ScanModeType {
 
     public var textFormats: [TextFormatType] {
         switch self {

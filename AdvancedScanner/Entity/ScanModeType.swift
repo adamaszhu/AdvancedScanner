@@ -1,4 +1,3 @@
-import CoreGraphics
 /// The interface that a customized ScanMode object should follow
 ///
 /// - version: 0.1.0
@@ -28,3 +27,5 @@ public protocol ScanModeType {
     /// - Returns: An info object
     func info<Info: InfoType>(from textDetections: [TextDetection]) -> Info?
 }
+
+import CoreGraphics
