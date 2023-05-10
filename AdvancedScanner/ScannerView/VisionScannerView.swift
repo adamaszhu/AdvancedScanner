@@ -3,13 +3,15 @@
 /// - version: 0.1.0
 /// - date: 10/11/21
 /// - author: Adamas
-@available(iOS 13.0, *)
-final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, TextScannerViewType, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class VisionScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)?
 
+    /// The ratio of the camera view
     let ratio = 2160.0 / 3840.0
 
+    /// The hint message
     var hint: String = .empty {
         didSet {
             hintLabel.text = hint

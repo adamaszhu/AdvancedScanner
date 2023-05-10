@@ -3,54 +3,45 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-public class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, TextScannerViewType {
-
+public class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView {
+    
+    /// The hint message
     public var hint: String = .empty {
         didSet {
-            if #available(iOS 13.0, *) {
-                let visionScannerView = textScannerView as? VisionScannerView<Info, ScanMode>
-                visionScannerView?.hint = hint
-            }
+            visionScannerView?.hint = hint
         }
     }
-
+    
+    /// Callback when some info is detected
     public var didDetectInfoAction: ((Info) -> Void)? {
         didSet {
-            if #available(iOS 13.0, *) {
-                let visionScannerView = textScannerView as? VisionScannerView<Info, ScanMode>
-                visionScannerView?.didDetectInfoAction = didDetectInfoAction
-            }
+            visionScannerView?.didDetectInfoAction = didDetectInfoAction
         }
     }
-
+    
+    /// The ratio of the camera view
     public private (set) var ratio: Double = 0
-
+    
     /// The actual scanner view inside
-    private var textScannerView: UIView?
-
+    private var visionScannerView: VisionScannerView<Info, ScanMode>?
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
-
+    
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
     }
-
+    
     /// Fill the scanner view with the actual scanner view
     private func initialize() {
-        let textScannerView: UIView
-        if #available(iOS 13.0, *) {
-            let visionScannerView = VisionScannerView<Info, ScanMode>()
-            ratio = visionScannerView.ratio
-            textScannerView = visionScannerView
-        } else {
-            return
-        }
-        addSubview(textScannerView)
-        textScannerView.pinEdgesToSuperview()
-        self.textScannerView = textScannerView
+        let visionScannerView = VisionScannerView<Info, ScanMode>()
+        ratio = visionScannerView.ratio
+        addSubview(visionScannerView)
+        visionScannerView.pinEdgesToSuperview()
+        self.visionScannerView = visionScannerView
     }
 }
 

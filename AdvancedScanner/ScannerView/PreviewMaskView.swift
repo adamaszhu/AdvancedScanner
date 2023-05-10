@@ -33,8 +33,7 @@ final class PreviewMaskView: UIView {
         }
         let path = UIBezierPath(roundedRect: rect,
                                 cornerRadius: rectRadius)
-        UIColor.clear.setFill()
-        UIGraphicsGetCurrentContext()?.setBlendMode(.copy)
+        UIGraphicsGetCurrentContext()?.setBlendMode(.clear)
         path.fill()
     }
 }
