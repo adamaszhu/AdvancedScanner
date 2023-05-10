@@ -23,7 +23,7 @@ public extension TextFormatType {
     /// - Parameter textFormat: The other text format
     /// - Returns: Whether they are the same text format or not
     func isEqualTo(_ textFormat: TextFormatType) -> Bool {
-        String(describing: self) == String(describing: textFormat)
+        name == textFormat.name
     }
 }
 

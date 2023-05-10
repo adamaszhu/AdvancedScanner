@@ -39,8 +39,8 @@ extension TextFormat: TextFormatType {
         switch self {
             case .creditCardNumber:
                 return DefaultRuleFactory.creditCardNumberRules(withInvalidMessage: errorMessage,
-                                                               minLengthMessage: errorMessage,
-                                                               andMaxLengthMessage: errorMessage)
+                                                                minLengthMessage: errorMessage,
+                                                                andMaxLengthMessage: errorMessage)
             case .expiry:
                 return DefaultRuleFactory.expiryRules(withMessage: errorMessage)
             case .creditCardVerificationNumber:

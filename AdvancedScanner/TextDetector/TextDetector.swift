@@ -14,7 +14,6 @@ public class TextDetector {
         self.textTypes = textTypes
     }
 
-    @available(iOS 13.0, *)
     /// Detect text formats from an image
     ///
     /// - Parameters:
