@@ -21,9 +21,8 @@
 		284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */; };
 		2869C8A928D6063F00326933 /* TextDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869C8A828D6063F00326933 /* TextDetection.swift */; };
 		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
-		28A05BFD272574EE00D8287D /* TextScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05BFC272574EE00D8287D /* TextScannerView.swift */; };
 		28A05C032726C0DC00D8287D /* ScanMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05C022726C0DB00D8287D /* ScanMode.swift */; };
-		28A05EE9273B9B2200D8287D /* VisionScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EE8273B9B2200D8287D /* VisionScannerView.swift */; };
+		28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EE8273B9B2200D8287D /* TextScannerView.swift */; };
 		28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EEB273BADED00D8287D /* TextScanner.swift */; };
 		28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EED273BD42C00D8287D /* TextScannerViewController.swift */; };
 		28A5BB1728D052410065218B /* PreviewMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5BB1628D052410065218B /* PreviewMaskView.swift */; };
@@ -85,9 +84,8 @@
 		284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
 		284B6CD826F0827100FDFBB0 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
 		2869C8A828D6063F00326933 /* TextDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetection.swift; sourceTree = "<group>"; };
-		28A05BFC272574EE00D8287D /* TextScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
 		28A05C022726C0DB00D8287D /* ScanMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMode.swift; sourceTree = "<group>"; };
-		28A05EE8273B9B2200D8287D /* VisionScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionScannerView.swift; sourceTree = "<group>"; };
+		28A05EE8273B9B2200D8287D /* TextScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
 		28A05EEB273BADED00D8287D /* TextScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
 		28A05EED273BD42C00D8287D /* TextScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerViewController.swift; sourceTree = "<group>"; };
 		28A5BB1628D052410065218B /* PreviewMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMaskView.swift; sourceTree = "<group>"; };
@@ -201,8 +199,7 @@
 			children = (
 				28A5BB1628D052410065218B /* PreviewMaskView.swift */,
 				28A05EED273BD42C00D8287D /* TextScannerViewController.swift */,
-				28A05BFC272574EE00D8287D /* TextScannerView.swift */,
-				28A05EE8273B9B2200D8287D /* VisionScannerView.swift */,
+				28A05EE8273B9B2200D8287D /* TextScannerView.swift */,
 			);
 			path = ScannerView;
 			sourceTree = "<group>";
@@ -377,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28A05BFD272574EE00D8287D /* TextScannerView.swift in Sources */,
 				28ABA9C22A0BBF3200FFBC21 /* TextDetection+Accessible.swift in Sources */,
 				28D9844F28D405F400FA28BB /* Image+TextDetectable.swift in Sources */,
 				284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */,
@@ -385,7 +381,7 @@
 				28A89921273E167E00FE65A7 /* CardScanner.swift in Sources */,
 				28D9845528D4B75E00FA28BB /* InfoType.swift in Sources */,
 				28A5BB2028D1B04E0065218B /* TextFormat.swift in Sources */,
-				28A05EE9273B9B2200D8287D /* VisionScannerView.swift in Sources */,
+				28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */,
 				28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */,
 				28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */,
 				28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */,

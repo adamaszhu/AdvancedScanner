@@ -14,7 +14,7 @@ open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UI
     public var didDetectInfoAction: ((Info) -> Void)?
 
     /// The scanner view in the view controller
-    public private(set) var textScannerView = TextScannerView<Info, ScanMode>()
+    private(set) var textScannerView = TextScannerView<Info, ScanMode>()
 
     /// Add a hint message
     public var hint: String = .empty
