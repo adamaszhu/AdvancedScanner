@@ -8,9 +8,6 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
     /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)?
 
-    /// The ratio of the camera view
-    let ratio = 2160.0 / 3840.0
-
     /// The hint message
     var hint: String = .empty {
         didSet {
@@ -32,6 +29,9 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
 
     /// The stack view used to display detected texts
     private let detectionsStackView = UIStackView()
+    
+    /// The latest bounds of the view
+    private var latestBounds: CGRect = .zero
 
     /// The video session
     private let captureSession: AVCaptureSession = {
@@ -56,10 +56,13 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.latestBounds = bounds
         guard !isInitialized else {
             return
         }
         isInitialized = true
+        
+        // Update the preview layer
         layer.sublayers?.first?.frame = bounds
 
         // Setup the mask view
@@ -74,19 +77,21 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
         hintLabel.textAlignment = .center
         hintLabel.numberOfLines = 0
         addSubview(hintLabel)
-        hintLabel.pinEdgesToSuperview(with: UIEdgeInsets(top: rect.minY,
-                                                         left: rect.minX,
-                                                         bottom: bounds.height - rect.minY - rect.height,
-                                                         right: bounds.width - rect.minX - rect.width))
+        let hintEdgeInsets = UIEdgeInsets(top: rect.minY,
+                                          left: rect.minX,
+                                          bottom: bounds.height - rect.minY - rect.height,
+                                          right: bounds.width - rect.minX - rect.width)
+        hintLabel.pinEdgesToSuperview(with: hintEdgeInsets)
 
         // Setup the stack view
         detectionsStackView.axis = .vertical
         detectionsStackView.spacing = Self.stackViewSpacing
         addSubview(detectionsStackView)
-        detectionsStackView.pinEdgesToSuperview(with: UIEdgeInsets(top: bounds.height - rect.minY - rect.height + Self.stackViewSpacing,
-                                                                   left: rect.minX,
-                                                                   bottom: .invalidInset,
-                                                                   right: bounds.width - rect.minX - rect.width))
+        let detectionsEdgeInsets = UIEdgeInsets(top: bounds.height - rect.minY - rect.height + Self.stackViewSpacing,
+                                                left: rect.minX,
+                                                bottom: .invalidInset,
+                                                right: bounds.width - rect.minX - rect.width)
+        detectionsStackView.pinEdgesToSuperview(with: detectionsEdgeInsets)
     }
 
     /// Initialize the actual scanner view using Vision
@@ -129,17 +134,8 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
             return
         }
 
-        DispatchQueue.main.async {  [weak self] in
-            guard let self = self else {
-                return
-            }
-            // Can only get bounds on UI thread
-            let rect = self.mode.scanningAreaRect(in: self.bounds)
-            let superRect = self.bounds
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.extractInfo(from: buffer, with: rect, inside: superRect)
-            }
-        }
+        let rect = mode.scanningAreaRect(in: latestBounds)
+        extractInfo(from: buffer, in: rect, inside: latestBounds)
     }
 
     /// Extract info from a given area of an image
@@ -147,20 +143,19 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
     ///   - buffer: The buffer of the image
     ///   - rect: The area to detect
     ///   - superRect: The whole view size
-    private func extractInfo(from buffer: CVImageBuffer, with rect: CGRect, inside superRect: CGRect) {
+    private func extractInfo(from buffer: CVImageBuffer, in rect: CGRect, inside superRect: CGRect) {
         var ciImage = CIImage(cvImageBuffer: buffer)
 
         // Crop the image to what the scanning area is showing
-        var rect = rect
         let ratio = ciImage.extent.width / superRect.width
-        rect = CGRect(x: rect.minX * ratio,
+        let rect = CGRect(x: rect.minX * ratio,
                       y: rect.minY * ratio,
                       width: rect.width * ratio,
                       height: rect.height * ratio)
         ciImage = ciImage.cropped(to: CIImage.ciRect(for: rect, in: ciImage.extent))
 
         let textDetector = TextDetector(textTypes: mode.textFormats)
-        let textDetections = textDetector.detect(ciImage, withLanguageCorrection: false)
+        let textDetections = textDetector.detect(ciImage, withLanguageCorrection: mode.shouldCorrectLanguage)
 
         guard !textDetections.isEmpty else {
             return
@@ -186,17 +181,21 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
         }
 
         DispatchQueue.main.async { [weak self] in
-            guard let self = self,
-                  let info: Info = self.mode.info(from: self.textDetections) else {
-                return
-            }
-            // Vibration feedback
-            if hasNewDetection {
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
-            }
-            self.didDetectInfoAction?(info)
-            self.updateDetections()
+            self?.handleDetections(asNewDetection: hasNewDetection)
         }
+    }
+    
+    /// Handle a new text detection
+    private func handleDetections(asNewDetection isNewDetection: Bool) {
+        guard let info: Info = mode.info(from: textDetections) else {
+            return
+        }
+        // Vibration feedback
+        if isNewDetection {
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        }
+        didDetectInfoAction?(info)
+        updateDetections()
     }
 
     /// Display detections in the stack view

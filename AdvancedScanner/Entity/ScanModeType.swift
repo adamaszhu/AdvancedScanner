@@ -11,6 +11,9 @@ public protocol ScanModeType {
     /// The radius of the scanning area
     var scanningAreaRadius: CGFloat { get }
 
+    /// Whether or not auto correction should be applied to the result 
+    var shouldCorrectLanguage: Bool { get }
+
     /// Decide the mode
     /// 
     /// - Parameter infoType: The information type

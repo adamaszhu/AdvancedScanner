@@ -5,19 +5,14 @@
 /// - author: Adamas
 open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UIViewController {
 
-    /// The ratio of the camera view
-    public var ratio: Double {
-        textScannerView.ratio
-    }
-
     /// Callback when some info is detected
     public var didDetectInfoAction: ((Info) -> Void)?
-
-    /// The scanner view in the view controller
-    private(set) var textScannerView = TextScannerView<Info, ScanMode>()
-
+    
     /// Add a hint message
     public var hint: String = .empty
+
+    /// The scanner view in the view controller
+    private lazy var textScannerView: TextScannerView<Info, ScanMode> = TextScannerView<Info, ScanMode>()
 
     /// The detected info
     private var info: Info?
@@ -60,6 +55,12 @@ open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UI
             didDetectInfoAction?(info)
         }
     }
+}
+
+extension TextScannerViewController {
+    
+    /// The ratio of the camera view
+    static var ratio: Double { 2160.0 / 3840.0 }
 }
 
 import AdvancedUIKit

@@ -13,6 +13,13 @@ public enum ScanMode {
 }
 
 extension ScanMode: ScanModeType {
+    
+    public var shouldCorrectLanguage: Bool {
+        switch self {
+        default:
+            return false
+        }
+    }
 
     public var textFormats: [TextFormatType] {
         switch self {

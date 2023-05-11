@@ -28,9 +28,10 @@ public class TextScanner<Info: InfoType, ScanMode: ScanModeType> {
         }
         viewController.hint = hint
         let navigationController = UINavigationController(rootViewController: viewController)
+        let ratio = TextScannerViewController<Info, ScanMode>.ratio
         let bottomSheetViewController = BottomSheetViewController(
             viewController: navigationController,
-            mode: .ratio(viewController.ratio))
+            mode: .ratio(ratio))
         self.viewController?.present(bottomSheetViewController, animated: true)
     }
 }
