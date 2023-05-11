@@ -112,7 +112,7 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
         // Add video output
         let videoOutput = AVCaptureVideoDataOutput()
         videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: NSNumber(value: kCVPixelFormatType_32BGRA)]
-        videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: Self.videoProcessingQueueLabel))
+        videoOutput.setSampleBufferDelegate(self, queue: Self.videoDispatchQueue)
         captureSession.addOutput(videoOutput)
 
         if let connection = videoOutput.connection(with: .video),
@@ -121,7 +121,9 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVC
         }
 
         // Start the session
-        captureSession.startRunning()
+        Self.videoDispatchQueue.async { [weak self] in
+            self?.captureSession.startRunning()
+        }
     }
 
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -216,6 +218,7 @@ private extension TextScannerView {
     static var bufferImageError: String { "Cannot get the buffered image." }
     static var hintColor: UIColor { UIColor.white.withAlphaComponent(0.4) }
     static var stackViewSpacing: CGFloat { 4 }
+    static var videoDispatchQueue: DispatchQueue { DispatchQueue(label: Self.videoProcessingQueueLabel) }
 }
 
 import AdvancedUIKit
