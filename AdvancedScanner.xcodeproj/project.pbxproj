@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		283B4FDE26F56B6D00FCE3B6 /* AdvancedUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */; };
-		284B6C7126F02FAA00FDFBB0 /* AdvancedScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */; };
-		284B6C7626F02FAA00FDFBB0 /* AdvancedSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6C7526F02FAA00FDFBB0 /* AdvancedSpecs.swift */; };
 		284B6CA126F0315F00FDFBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */; };
 		284B6CA326F0315F00FDFBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */; };
 		284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA426F0315F00FDFBB0 /* ViewController.swift */; };
@@ -19,6 +17,9 @@
 		284B6CB326F0318300FDFBB0 /* AdvancedScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */; };
 		284B6CB426F0318300FDFBB0 /* AdvancedScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */; };
+		285718C12A0DAB0D0003343C /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 285718C02A0DAB0D0003343C /* Quick */; };
+		285718C52A0DAB7E0003343C /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 285718C42A0DAB7E0003343C /* Nimble */; };
+		285718D32A0E27520003343C /* TextDetectorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285718D22A0E27520003343C /* TextDetectorSpecs.swift */; };
 		2869C8A928D6063F00326933 /* TextDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869C8A828D6063F00326933 /* TextDetection.swift */; };
 		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
 		28A05C032726C0DC00D8287D /* ScanMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05C022726C0DB00D8287D /* ScanMode.swift */; };
@@ -70,7 +71,6 @@
 		284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		284B6C6B26F02FA900FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		284B6C7526F02FAA00FDFBB0 /* AdvancedSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSpecs.swift; sourceTree = "<group>"; };
 		284B6C7726F02FAA00FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		284B6C9E26F0315F00FDFBB0 /* AdvancedScannerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedScannerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +81,7 @@
 		284B6CAC26F0316100FDFBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		284B6CAE26F0316100FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
+		285718D22A0E27520003343C /* TextDetectorSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetectorSpecs.swift; sourceTree = "<group>"; };
 		2869C8A828D6063F00326933 /* TextDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetection.swift; sourceTree = "<group>"; };
 		28A05C022726C0DB00D8287D /* ScanMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMode.swift; sourceTree = "<group>"; };
 		28A05EE8273B9B2200D8287D /* TextScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
@@ -110,7 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284B6C7126F02FAA00FDFBB0 /* AdvancedScanner.framework in Frameworks */,
+				285718C52A0DAB7E0003343C /* Nimble in Frameworks */,
+				285718C12A0DAB0D0003343C /* Quick in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,8 +162,8 @@
 		284B6C7426F02FAA00FDFBB0 /* AdvancedScannerTests */ = {
 			isa = PBXGroup;
 			children = (
-				284B6C7526F02FAA00FDFBB0 /* AdvancedSpecs.swift */,
 				284B6C7726F02FAA00FDFBB0 /* Info.plist */,
+				285718D22A0E27520003343C /* TextDetectorSpecs.swift */,
 			);
 			path = AdvancedScannerTests;
 			sourceTree = "<group>";
@@ -271,6 +273,10 @@
 				284B6C7326F02FAA00FDFBB0 /* PBXTargetDependency */,
 			);
 			name = AdvancedScannerTests;
+			packageProductDependencies = (
+				285718C02A0DAB0D0003343C /* Quick */,
+				285718C42A0DAB7E0003343C /* Nimble */,
+			);
 			productName = iScannerTests;
 			productReference = 284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -327,6 +333,8 @@
 			packageReferences = (
 				287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */,
 				283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */,
+				285718BF2A0DAB0D0003343C /* XCRemoteSwiftPackageReference "Quick" */,
+				285718C32A0DAB7E0003343C /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 284B6C6826F02FA900FDFBB0 /* Products */;
 			projectDirPath = "";
@@ -392,7 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284B6C7626F02FAA00FDFBB0 /* AdvancedSpecs.swift in Sources */,
+				285718D32A0E27520003343C /* TextDetectorSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +782,22 @@
 				minimumVersion = 1.7.2;
 			};
 		};
+		285718BF2A0DAB0D0003343C /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		285718C32A0DAB7E0003343C /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamaszhu/AdvancedFoundation";
@@ -789,6 +813,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */;
 			productName = AdvancedUIKit;
+		};
+		285718C02A0DAB0D0003343C /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285718BF2A0DAB0D0003343C /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		285718C42A0DAB7E0003343C /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285718C32A0DAB7E0003343C /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 		287054F926F16A6500D2DA33 /* AdvancedFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
