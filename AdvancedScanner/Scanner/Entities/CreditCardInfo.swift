@@ -38,7 +38,9 @@ public struct CreditCardInfo: InfoType {
             self.expiry = nil
         }
     }
-
+    
+    /// Create the object from a list of detections
+    /// - Parameter textDetections: A list of detections
     public init?(textDetections: [TextDetection]) {
         guard let number = textDetections[TextFormat.creditCardNumber].first else {
             return nil
