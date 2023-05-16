@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 10/11/21
 /// - author: Adamas
-final class TextScannerView<Info: InfoType, ScanMode: ScanModeType>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePresentable>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)?

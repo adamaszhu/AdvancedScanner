@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-public class TextScanner<Info: InfoType, ScanMode: ScanModeType> {
+public class TextScanner<Info: InfoType, ScanMode: ScanModeType & ScanModePresentable> {
 
     /// The current view controller
     private weak var viewController: UIViewController?
@@ -17,8 +17,10 @@ public class TextScanner<Info: InfoType, ScanMode: ScanModeType> {
     /// Trigger the scanning view
     /// - Parameters:
     ///  - hint: The hint message displayed on the screen
+    ///  - screen: The screen of the device
     ///  - completion: Callback when the given info is detected
     public func scan(withHint hint: String,
+                     on screen: UIScreen = UIScreen.main,
                      completion: @escaping (Info) -> Void) {
         let viewController = TextScannerViewController<Info, ScanMode>()
         viewController.didDetectInfoAction = { [weak self] info in
@@ -28,7 +30,7 @@ public class TextScanner<Info: InfoType, ScanMode: ScanModeType> {
         }
         viewController.hint = hint
         let navigationController = UINavigationController(rootViewController: viewController)
-        let ratio = TextScannerViewController<Info, ScanMode>.ratio
+        let ratio = TextScannerViewController<Info, ScanMode>.ratio(on: screen)
         let bottomSheetViewController = BottomSheetViewController(
             viewController: navigationController,
             mode: .ratio(ratio))

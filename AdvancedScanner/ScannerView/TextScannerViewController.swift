@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UIViewController {
+open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType & ScanModePresentable>: UIViewController {
 
     /// Callback when some info is detected
     public var didDetectInfoAction: ((Info) -> Void)?
@@ -59,8 +59,15 @@ open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType>: UI
 
 extension TextScannerViewController {
     
-    /// The ratio of the camera view
-    static var ratio: Double { 2160.0 / 3840.0 }
+    /// The default ratio of the camera view
+    private static var defaultRatio: Double { 2160.0 / 3840.0 }
+    
+    /// The ratio of the view controller
+    /// - Parameter screen: The device screen
+    /// - Returns: The actual ratio
+    static func ratio(on screen: UIScreen) -> Double {
+        max(defaultRatio, screen.bounds.width / screen.bounds.height)
+    }
 }
 
 import AdvancedUIKit
