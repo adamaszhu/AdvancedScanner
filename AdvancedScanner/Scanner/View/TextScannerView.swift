@@ -188,6 +188,7 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
     }
     
     /// Handle a new text detection
+    /// - Parameter isNewDetection: Whether or not new text has been detected
     private func handleDetections(asNewDetection isNewDetection: Bool) {
         guard let info: Info = mode.info(from: textDetections) else {
             return

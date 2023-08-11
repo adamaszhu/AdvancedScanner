@@ -145,8 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */,
-				284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */,
 				284B6C9E26F0315F00FDFBB0 /* AdvancedScannerSample.app */,
+				284B6C7026F02FAA00FDFBB0 /* AdvancedScannerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,10 +154,8 @@
 		284B6C6926F02FA900FDFBB0 /* AdvancedScanner */ = {
 			isa = PBXGroup;
 			children = (
-				28A5BB1E28D199DB0065218B /* TextDetector */,
 				28A05EEA273B9EF700D8287D /* Scanner */,
-				28A05BFF2725792900D8287D /* ScannerView */,
-				28A05BFE2725751000D8287D /* Entity */,
+				28A5BB1E28D199DB0065218B /* TextDetector */,
 				284B6C6B26F02FA900FDFBB0 /* Info.plist */,
 			);
 			path = AdvancedScanner;
@@ -176,12 +174,12 @@
 			isa = PBXGroup;
 			children = (
 				284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */,
+				284B6CA926F0316100FDFBB0 /* Assets.xcassets */,
+				284B6CAE26F0316100FDFBB0 /* Info.plist */,
+				284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */,
+				284B6CA626F0315F00FDFBB0 /* Main.storyboard */,
 				284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */,
 				284B6CA426F0315F00FDFBB0 /* ViewController.swift */,
-				284B6CA626F0315F00FDFBB0 /* Main.storyboard */,
-				284B6CA926F0316100FDFBB0 /* Assets.xcassets */,
-				284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */,
-				284B6CAE26F0316100FDFBB0 /* Info.plist */,
 			);
 			path = AdvancedScannerSample;
 			sourceTree = "<group>";
@@ -190,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				2869C8A828D6063F00326933 /* TextDetection.swift */,
-				28D9845028D4AD0C00FA28BB /* TextFormatType.swift */,
 				28A5BB1F28D1B04E0065218B /* TextFormat.swift */,
+				28D9845028D4AD0C00FA28BB /* TextFormatType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -208,38 +206,31 @@
 		285718D82A0EE3E00003343C /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				28D9845428D4B75E00FA28BB /* InfoType.swift */,
 				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
-				28D9845228D4B2A700FA28BB /* ScanModeType.swift */,
+				28D9845428D4B75E00FA28BB /* InfoType.swift */,
 				28A05C022726C0DB00D8287D /* ScanMode.swift */,
+				28D9845228D4B2A700FA28BB /* ScanModeType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		28A05BFE2725751000D8287D /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		28A05BFF2725792900D8287D /* ScannerView */ = {
+		28A05BFF2725792900D8287D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				28A5BB1628D052410065218B /* PreviewMaskView.swift */,
-				28A05EED273BD42C00D8287D /* TextScannerViewController.swift */,
 				28A05EE8273B9B2200D8287D /* TextScannerView.swift */,
-				285718D42A0EE23F0003343C /* ScanModePresentable.swift */,
+				28A05EED273BD42C00D8287D /* TextScannerViewController.swift */,
 			);
-			path = ScannerView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		28A05EEA273B9EF700D8287D /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
 				285718D82A0EE3E00003343C /* Entities */,
+				B259DAF42A86035000A9E628 /* Presentable */,
+				28A05BFF2725792900D8287D /* View */,
 				28A05EEB273BADED00D8287D /* TextScanner.swift */,
-				285718D92A0EE40E0003343C /* ScanMode+Presentable.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -247,11 +238,20 @@
 		28A5BB1E28D199DB0065218B /* TextDetector */ = {
 			isa = PBXGroup;
 			children = (
-				285718D72A0EE38E0003343C /* Utilities */,
 				285718D62A0EE2560003343C /* Entities */,
+				285718D72A0EE38E0003343C /* Utilities */,
 				28A5BB2928D1ED920065218B /* TextDetector.swift */,
 			);
 			path = TextDetector;
+			sourceTree = "<group>";
+		};
+		B259DAF42A86035000A9E628 /* Presentable */ = {
+			isa = PBXGroup;
+			children = (
+				285718D92A0EE40E0003343C /* ScanMode+Presentable.swift */,
+				285718D42A0EE23F0003343C /* ScanModePresentable.swift */,
+			);
+			path = Presentable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,8 +396,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284B6CAD26F0316100FDFBB0 /* LaunchScreen.storyboard in Resources */,
 				284B6CAA26F0316100FDFBB0 /* Assets.xcassets in Resources */,
+				284B6CAD26F0316100FDFBB0 /* LaunchScreen.storyboard in Resources */,
 				284B6CA826F0315F00FDFBB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,22 +409,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28ABA9C22A0BBF3200FFBC21 /* TextDetection+Accessible.swift in Sources */,
-				28D9844F28D405F400FA28BB /* Image+TextDetectable.swift in Sources */,
 				284B6CD526F05D1D00FDFBB0 /* CreditCardInfo.swift in Sources */,
-				2869C8A928D6063F00326933 /* TextDetection.swift in Sources */,
+				28D9844F28D405F400FA28BB /* Image+TextDetectable.swift in Sources */,
 				28D9845528D4B75E00FA28BB /* InfoType.swift in Sources */,
-				28A5BB2028D1B04E0065218B /* TextFormat.swift in Sources */,
-				28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */,
-				28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */,
-				28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */,
-				28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */,
 				28A5BB1728D052410065218B /* PreviewMaskView.swift in Sources */,
-				28D9845128D4AD0C00FA28BB /* TextFormatType.swift in Sources */,
+				285718DA2A0EE40E0003343C /* ScanMode+Presentable.swift in Sources */,
 				28A05C032726C0DC00D8287D /* ScanMode.swift in Sources */,
 				285718D52A0EE23F0003343C /* ScanModePresentable.swift in Sources */,
+				28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */,
+				28ABA9C22A0BBF3200FFBC21 /* TextDetection+Accessible.swift in Sources */,
+				2869C8A928D6063F00326933 /* TextDetection.swift in Sources */,
 				28A5BB2A28D1ED920065218B /* TextDetector.swift in Sources */,
-				285718DA2A0EE40E0003343C /* ScanMode+Presentable.swift in Sources */,
+				28A5BB2028D1B04E0065218B /* TextFormat.swift in Sources */,
+				28D9845128D4AD0C00FA28BB /* TextFormatType.swift in Sources */,
+				28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */,
+				28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */,
+				28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,9 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */,
 				284B6CA126F0315F00FDFBB0 /* AppDelegate.swift in Sources */,
 				284B6CA326F0315F00FDFBB0 /* SceneDelegate.swift in Sources */,
+				284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

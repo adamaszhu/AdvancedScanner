@@ -1,12 +1,8 @@
-//
-//  ScanMode+Presentable.swift
-//  AdvancedScanner
-//
-//  Created by Adamas Zhu on 13/5/2023.
-//
-
-import Foundation
-
+/// Defines the UI dimentions for scan modes
+///
+/// - version: 0.1.0
+/// - date: 11/08/23
+/// - author: Adamas
 extension ScanMode: ScanModePresentable {
     
     public var scanningAreaRadius: CGFloat {
@@ -40,4 +36,4 @@ private extension ScanMode {
     static var creditCardRatio: CGFloat { 3.0 / 2.0 }
 }
 
-import UIKit
+import CoreGraphics

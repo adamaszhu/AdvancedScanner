@@ -1,12 +1,8 @@
-//
-//  ScanModePresentable.swift
-//  AdvancedScanner
-//
-//  Created by Adamas Zhu on 13/5/2023.
-//
-
-import Foundation
-
+/// Defines the UI dimentions for a scan mode
+///
+/// - version: 0.1.0
+/// - date: 11/08/23
+/// - author: Adamas
 public protocol ScanModePresentable {
     
     /// The radius of the scanning area
