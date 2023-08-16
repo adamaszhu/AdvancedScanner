@@ -54,8 +54,7 @@ extension TextFormat: TextFormatType {
             case .fullName:
                 return DefaultRuleFactory.fullNameRules(withMessage: errorMessage)
             case .price:
-                return [DefaultRuleFactory.currencyRule(withMessage: errorMessage,
-                                                        and: [.english, .mandarin])]
+                return DefaultRuleFactory.currencyRules(for: Language.allCases, withMessage: errorMessage)
         }
     }
 
@@ -80,3 +79,4 @@ private extension TextFormat {
 }
 
 import AdvancedUIKit
+import AdvancedFoundation
