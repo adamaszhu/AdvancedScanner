@@ -17,6 +17,9 @@ public enum TextFormat {
 
     /// A human full name
     case fullName
+
+    /// A price string
+    case price
 }
 
 extension TextFormat: TextFormatType {
@@ -31,6 +34,8 @@ extension TextFormat: TextFormatType {
                 return Self.expiryName
             case .fullName:
                 return Self.fullNameName
+            case .price:
+                return Self.priceName
         }
     }
 
@@ -48,6 +53,9 @@ extension TextFormat: TextFormatType {
                                                                             andLengthMessage: errorMessage)
             case .fullName:
                 return DefaultRuleFactory.fullNameRules(withMessage: errorMessage)
+            case .price:
+                return [DefaultRuleFactory.currencyRule(withMessage: errorMessage,
+                                                        and: [.english, .mandarin])]
         }
     }
 
@@ -68,6 +76,7 @@ private extension TextFormat {
     static let creditCardVerificationNumberName = "CVN"
     static let fullNameName = "Name"
     static let expiryName = "Expiry date"
+    static let priceName = "Price"
 }
 
 import AdvancedUIKit

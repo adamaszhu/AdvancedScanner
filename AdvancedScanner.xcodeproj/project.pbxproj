@@ -36,6 +36,8 @@
 		28D9845128D4AD0C00FA28BB /* TextFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845028D4AD0C00FA28BB /* TextFormatType.swift */; };
 		28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845228D4B2A700FA28BB /* ScanModeType.swift */; };
 		28D9845528D4B75E00FA28BB /* InfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845428D4B75E00FA28BB /* InfoType.swift */; };
+		B2BFE4642A87148800617B10 /* PriceTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4632A87148800617B10 /* PriceTagInfo.swift */; };
+		B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4652A87149600617B10 /* ReceiptInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		28D9845028D4AD0C00FA28BB /* TextFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatType.swift; sourceTree = "<group>"; };
 		28D9845228D4B2A700FA28BB /* ScanModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModeType.swift; sourceTree = "<group>"; };
 		28D9845428D4B75E00FA28BB /* InfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoType.swift; sourceTree = "<group>"; };
+		B2BFE4632A87148800617B10 /* PriceTagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagInfo.swift; sourceTree = "<group>"; };
+		B2BFE4652A87149600617B10 /* ReceiptInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 			children = (
 				284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */,
 				28D9845428D4B75E00FA28BB /* InfoType.swift */,
+				B2BFE4632A87148800617B10 /* PriceTagInfo.swift */,
+				B2BFE4652A87149600617B10 /* ReceiptInfo.swift */,
 				28A05C022726C0DB00D8287D /* ScanMode.swift */,
 				28D9845228D4B2A700FA28BB /* ScanModeType.swift */,
 			);
@@ -413,6 +419,8 @@
 				28D9844F28D405F400FA28BB /* Image+TextDetectable.swift in Sources */,
 				28D9845528D4B75E00FA28BB /* InfoType.swift in Sources */,
 				28A5BB1728D052410065218B /* PreviewMaskView.swift in Sources */,
+				B2BFE4642A87148800617B10 /* PriceTagInfo.swift in Sources */,
+				B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */,
 				285718DA2A0EE40E0003343C /* ScanMode+Presentable.swift in Sources */,
 				28A05C032726C0DC00D8287D /* ScanMode.swift in Sources */,
 				285718D52A0EE23F0003343C /* ScanModePresentable.swift in Sources */,
@@ -611,6 +619,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V276VB2699;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -645,6 +654,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V276VB2699;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -719,6 +729,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V276VB2699;
 				INFOPLIST_FILE = AdvancedScannerSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -732,6 +743,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iscanner.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = XCode;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = XCode;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -746,6 +758,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V276VB2699;
 				INFOPLIST_FILE = AdvancedScannerSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -759,6 +772,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.iscanner.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = XCode;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = XCode;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

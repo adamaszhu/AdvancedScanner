@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adamaszhu/AdvancedFoundation",
       "state" : {
-        "revision" : "909129f65f28d3c4b00c29faae556d7ca50c9cc0",
-        "version" : "1.9.5"
+        "revision" : "9ae6746aefa94e226748b6098f59f2955a4a2a65",
+        "version" : "1.9.6"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adamaszhu/AdvancedUIKit",
       "state" : {
-        "revision" : "544aca10d7a14618f842baffd98e2c25cf0609cd",
-        "version" : "1.9.12"
+        "revision" : "15b31412643326130025ed02e0cc6ca07f4ba493",
+        "version" : "1.9.17"
       }
     },
     {

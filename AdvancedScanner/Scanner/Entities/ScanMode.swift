@@ -7,6 +7,12 @@ public enum ScanMode {
     
     /// Credit card
     case creditCard
+
+    /// Price tag
+    case priceTag
+
+    /// Receipt
+    case receipt
     
     /// Detect nothing
     case none
@@ -16,6 +22,8 @@ extension ScanMode: ScanModeType {
     
     public var shouldCorrectLanguage: Bool {
         switch self {
+        case .priceTag, .receipt:
+            return true
         default:
             return false
         }
@@ -28,6 +36,8 @@ extension ScanMode: ScanModeType {
                         TextFormat.expiry,
                         TextFormat.creditCardVerificationNumber,
                         TextFormat.fullName]
+            case .priceTag, .receipt:
+                return [TextFormat.price]
             case .none:
                 return []
         }
@@ -36,6 +46,10 @@ extension ScanMode: ScanModeType {
     public init(infoType: InfoType.Type) {
         if infoType == CreditCardInfo.self {
             self = .creditCard
+        } else if infoType == ReceiptInfo.self {
+            self = .receipt
+        } else if infoType == PriceTagInfo.self {
+            self = .priceTag
         } else {
             self = .none
         }
@@ -45,6 +59,10 @@ extension ScanMode: ScanModeType {
         switch self {
             case .creditCard:
                 return CreditCardInfo(textDetections: textDetections) as? Info
+        case .priceTag:
+            return PriceTagInfo(textDetections: textDetections) as? Info
+        case .receipt:
+            return ReceiptInfo(textDetections: textDetections) as? Info
             default:
                 return nil
         }
