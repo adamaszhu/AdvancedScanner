@@ -59,10 +59,10 @@ extension ScanMode: ScanModeType {
         switch self {
             case .creditCard:
                 return CreditCardInfo(textDetections: textDetections) as? Info
-        case .priceTag:
-            return PriceTagInfo(textDetections: textDetections) as? Info
-        case .receipt:
-            return ReceiptInfo(textDetections: textDetections) as? Info
+            case .priceTag:
+                return PriceTagInfo(textDetections: textDetections) as? Info
+            case .receipt:
+                return ReceiptInfo(textDetections: textDetections) as? Info
             default:
                 return nil
         }

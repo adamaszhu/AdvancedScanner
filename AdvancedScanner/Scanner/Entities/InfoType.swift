@@ -11,5 +11,5 @@ public protocol InfoType {
 
     /// Update the info with a new list of text detections
     /// - Parameter textDetections: A list of text detections
-    func update(with textDetections: [TextDetection])
+    mutating func update(with textDetections: [TextDetection])
 }
