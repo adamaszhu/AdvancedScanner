@@ -9,5 +9,5 @@ public struct TextDetection {
     public let string: String
 
     /// Detected text format
-    public let textFormat: TextFormatType
+    public let textFormat: TextFormatType?
 }

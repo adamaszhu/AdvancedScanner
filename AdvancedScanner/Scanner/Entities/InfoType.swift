@@ -5,7 +5,11 @@
 /// - author: Adamas
 public protocol InfoType {
 
-    /// Generate info
-    /// - Parameter textDetections: A list of text detected
+    /// Create the object from a list of detections
+    /// - Parameter textDetections: A list of detections
     init?(textDetections: [TextDetection])
+
+    /// Update the info with a new list of text detections
+    /// - Parameter textDetections: A list of text detections
+    func update(with textDetections: [TextDetection])
 }

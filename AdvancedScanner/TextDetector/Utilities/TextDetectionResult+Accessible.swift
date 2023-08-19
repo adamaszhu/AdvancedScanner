@@ -5,11 +5,10 @@
 /// - author: Adamas
 public extension Array where Element == TextDetection {
     
-    /// Get strings of a given text format in the array
+    /// Get the first string of a given text format in the array
     /// - Parameter textFormat: The text format
-    /// - Returns: A list of strings
-    subscript(_ textFormat: TextFormatType) -> [String] {
-        filter { $0.textFormat.isEqualTo(textFormat) }
-            .map { $0.string }
+    /// - Returns: A matching string
+    subscript(_ textFormat: TextFormatType) -> String? {
+        first { $0.textFormat?.name == textFormat.name }?.string
     }
 }
