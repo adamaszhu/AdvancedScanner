@@ -8,6 +8,6 @@ public struct TextDetection {
     /// Detected string
     public let string: String
 
-    /// Detected text format
+    /// Detected text format. Nil if there is no detection
     public let textFormat: TextFormatType?
 }
