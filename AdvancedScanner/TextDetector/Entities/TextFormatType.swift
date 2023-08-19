@@ -15,16 +15,4 @@ public protocol TextFormatType {
     var name: String { get }
 }
 
-public extension TextFormatType {
-
-    /// Check if a give text format is the same as the current one.
-    ///
-    /// - Important: Protocol cannot be applied on protocols, otherwise the protocol cannot be used to hold an object.
-    /// - Parameter textFormat: The other text format
-    /// - Returns: Whether they are the same text format or not
-    func isEqualTo(_ textFormat: TextFormatType) -> Bool {
-        name == textFormat.name
-    }
-}
-
 import AdvancedUIKit
