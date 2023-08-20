@@ -12,7 +12,10 @@ public struct ReceiptInfo {
     /// - Parameter priceString: The price string
     /// - Returns: The price
     private static func price(fromString priceString: String) -> Double? {
-        Language.allCases
+        if let price = Double(priceString) {
+            return price
+        }
+        return Language.allCases
             .map(NumberFormatterFactory.currencyFormatter)
             .compactMap { Double(currency: priceString, numberFormatter: $0) }
             .first
@@ -43,8 +46,8 @@ extension ReceiptInfo: InfoType {
         var isUpdated = false
         if let priceString = textDetections[TextFormat.price],
            let price = Self.price(fromString: priceString) {
+            isUpdated = self.price != price
             self.price = price
-            isUpdated = true
         }
         return isUpdated
     }

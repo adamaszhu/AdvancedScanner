@@ -69,21 +69,21 @@ extension CreditCardInfo: InfoType {
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
         var isUpdated = false
         if let number = textDetections[TextFormat.creditCardNumber] {
+            isUpdated = self.number != number
             self.number = number
-            isUpdated = true
         }
         if let name = textDetections[TextFormat.fullName] {
+            isUpdated = self.name != name
             self.name = name
-            isUpdated = true
         }
         if let expiryString = textDetections[TextFormat.expiry],
            let expiry = Self.expiry(fromString: expiryString) {
+            isUpdated = self.expiry != expiry
             self.expiry = expiry
-            isUpdated = true
         }
         if let cvn = textDetections[TextFormat.creditCardVerificationNumber] {
+            isUpdated = self.cvn != cvn
             self.cvn = cvn
-            isUpdated = true
         }
         return isUpdated
     }

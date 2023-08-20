@@ -172,7 +172,7 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
         }
 
         DispatchQueue.main.async { [weak self] in
-            self?.handleDetections()
+            self?.handleNewDetection()
         }
     }
     
