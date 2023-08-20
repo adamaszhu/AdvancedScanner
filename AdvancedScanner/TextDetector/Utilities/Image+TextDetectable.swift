@@ -16,9 +16,11 @@ public extension CIImage {
         try? requestHandler.perform([request])
         return request
             .results?
-            .flatMap { $0.topCandidates(Self.maxCandidate)
-            .filter { $0.confidence == 1 }
-            .map { $0.string } } ?? []
+            .compactMap { 
+                $0.topCandidates(Self.maxCandidate)
+                    .first { $0.confidence == 1 }?
+                    .string
+            } ?? []
     }
 }
 
