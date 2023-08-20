@@ -18,7 +18,7 @@ final class TextDetectorSpecs: QuickSpec {
                     let string = "4444333322221111"
                     it("returns a detection") {
                         let textDetection = textDetector.detect(string)
-                        expect(textDetection?.string) == string
+                        expect(textDetection.textFormat?.name) == TextFormat.creditCardNumber.name
                     }
                 }
             }
