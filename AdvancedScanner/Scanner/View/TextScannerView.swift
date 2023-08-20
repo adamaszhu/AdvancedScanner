@@ -160,33 +160,30 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
         let textDetections = textDetector.detect(ciImage, withLanguageCorrection: mode.shouldCorrectLanguage)
 
         var hasNewDetection = false
-        var hasModifiedDetection = false
         if info != nil {
-            hasModifiedDetection = info?.update(with: textDetections) ?? false
+            hasNewDetection = info?.update(with: textDetections) ?? false
         } else {
             info = Info(textDetections: textDetections)
             hasNewDetection = info != nil
         }
 
-        guard hasNewDetection || hasModifiedDetection else {
+        guard hasNewDetection else {
             return
         }
 
         DispatchQueue.main.async { [weak self] in
-            self?.handleDetections(asNewDetection: hasNewDetection)
+            self?.handleDetections()
         }
     }
     
     /// Handle a new text detection
     /// - Parameter isNewDetection: Whether or not new text has been detected
-    private func handleDetections(asNewDetection isNewDetection: Bool) {
+    private func handleNewDetection() {
         guard let info = info else {
             return
         }
         // Vibration feedback
-        if isNewDetection {
-            UINotificationFeedbackGenerator().notificationOccurred(.success)
-        }
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
         didDetectInfoAction?(info)
         updateDetections()
     }
