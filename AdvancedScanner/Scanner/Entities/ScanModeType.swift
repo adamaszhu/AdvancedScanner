@@ -15,10 +15,4 @@ public protocol ScanModeType {
     ///
     /// - Parameter infoType: The information type
     init(infoType: InfoType.Type)
-
-    /// Generate an info from a list of text detections
-    ///
-    /// - Parameter textDetections: The text detection
-    /// - Returns: An info object
-    func info<Info: InfoType>(from textDetections: [TextDetection]) -> Info?
 }

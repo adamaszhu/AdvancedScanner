@@ -21,8 +21,8 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
     /// Whether the layout has been initialized
     private var isInitialized = false
 
-    /// Cached text detections
-    private var textDetections: [TextDetection] = []
+    /// Cached detected info
+    private var info: Info?
 
     /// The hint label displayed in the centre of the screen
     private let hintLabel = UILabel()
@@ -159,23 +159,13 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
         let textDetector = TextDetector(textTypes: mode.textFormats)
         let textDetections = textDetector.detect(ciImage, withLanguageCorrection: mode.shouldCorrectLanguage)
 
-        guard !textDetections.isEmpty else {
-            return
-        }
-
-        // Insert new detection or modify existing detection
         var hasNewDetection = false
         var hasModifiedDetection = false
-        textDetections.forEach { textDetection in
-            let existingDetection = self.textDetections.first { $0.textFormat.isEqualTo(textDetection.textFormat) }
-            if let existingDetection = existingDetection,
-               existingDetection.string != textDetection.string {
-                existingDetection.string = textDetection.string
-                hasModifiedDetection = true
-            } else if existingDetection == nil {
-                self.textDetections.append(textDetection)
-                hasNewDetection = true
-            }
+        if info != nil {
+            hasModifiedDetection = info?.update(with: textDetections) ?? false
+        } else {
+            info = Info(textDetections: textDetections)
+            hasNewDetection = info != nil
         }
 
         guard hasNewDetection || hasModifiedDetection else {
@@ -190,7 +180,7 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
     /// Handle a new text detection
     /// - Parameter isNewDetection: Whether or not new text has been detected
     private func handleDetections(asNewDetection isNewDetection: Bool) {
-        guard let info: Info = mode.info(from: textDetections) else {
+        guard let info = info else {
             return
         }
         // Vibration feedback
@@ -204,10 +194,10 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & ScanModePre
     /// Display detections in the stack view
     private func updateDetections() {
         detectionsStackView.subviews.forEach { $0.removeFromSuperview() }
-        textDetections.forEach { textDetection in
+        info?.fields.forEach { field in
             let label = UILabel()
             label.textColor = Self.hintColor
-            label.text = textDetection.textFormat.name + .colon + .space + textDetection.string
+            label.text = field.key + .colon + .space + field.value
             detectionsStackView.addArrangedSubview(label)
         }
     }

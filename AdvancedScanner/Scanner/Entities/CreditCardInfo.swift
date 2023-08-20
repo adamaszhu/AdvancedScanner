@@ -48,6 +48,13 @@ public struct CreditCardInfo {
 }
 
 extension CreditCardInfo: InfoType {
+
+    public var fields: [String : String] {
+        [TextFormat.creditCardNumber.name: number,
+         TextFormat.fullName.name: name ?? .empty,
+         TextFormat.expiry.name: expiry?.string(with: DateFormat.fullDate) ?? .empty,
+         TextFormat.creditCardVerificationNumber.name: cvn ?? .empty]
+    }
     
     public init?(textDetections: [TextDetection]) {
         guard let number = textDetections[TextFormat.creditCardNumber] else {
@@ -59,20 +66,26 @@ extension CreditCardInfo: InfoType {
                   cvn: textDetections[TextFormat.creditCardVerificationNumber])
     }
 
-    public mutating func update(with textDetections: [TextDetection]) {
+    public mutating func update(with textDetections: [TextDetection]) -> Bool {
+        var isUpdated = false
         if let number = textDetections[TextFormat.creditCardNumber] {
             self.number = number
+            isUpdated = true
         }
         if let name = textDetections[TextFormat.fullName] {
             self.name = name
+            isUpdated = true
         }
         if let expiryString = textDetections[TextFormat.expiry],
            let expiry = Self.expiry(fromString: expiryString) {
             self.expiry = expiry
+            isUpdated = true
         }
         if let cvn = textDetections[TextFormat.creditCardVerificationNumber] {
             self.cvn = cvn
+            isUpdated = true
         }
+        return isUpdated
     }
 }
 

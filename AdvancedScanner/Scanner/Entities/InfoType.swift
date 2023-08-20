@@ -5,11 +5,15 @@
 /// - author: Adamas
 public protocol InfoType {
 
+    /// Fields contained in the info
+    var fields: [String: String] { get }
+
     /// Create the object from a list of detections
     /// - Parameter textDetections: A list of detections
     init?(textDetections: [TextDetection])
 
     /// Update the info with a new list of text detections
     /// - Parameter textDetections: A list of text detections
-    mutating func update(with textDetections: [TextDetection])
+    /// - Returns: Whether or not the info has been updated
+    mutating func update(with textDetections: [TextDetection]) -> Bool
 }

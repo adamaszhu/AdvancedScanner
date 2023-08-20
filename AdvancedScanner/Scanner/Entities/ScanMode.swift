@@ -54,18 +54,5 @@ extension ScanMode: ScanModeType {
             self = .none
         }
     }
-
-    public func info<Info>(from textDetections: [TextDetection]) -> Info? where Info : InfoType {
-        switch self {
-            case .creditCard:
-                return CreditCardInfo(textDetections: textDetections) as? Info
-            case .priceTag:
-                return PriceTagInfo(textDetections: textDetections) as? Info
-            case .receipt:
-                return ReceiptInfo(textDetections: textDetections) as? Info
-            default:
-                return nil
-        }
-    }
 }
 import UIKit

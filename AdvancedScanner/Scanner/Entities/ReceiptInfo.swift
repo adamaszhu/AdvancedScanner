@@ -28,6 +28,10 @@ public struct ReceiptInfo {
 
 extension ReceiptInfo: InfoType {
 
+    public var fields: [String : String] {
+        [TextFormat.price.name: price.currencyString() ?? .empty]
+    }
+
     public init?(textDetections: [TextDetection]) {
         guard let price = textDetections[TextFormat.price] else {
             return nil
@@ -35,11 +39,14 @@ extension ReceiptInfo: InfoType {
         self.init(price: price)
     }
 
-    public mutating func update(with textDetections: [TextDetection]) {
+    public mutating func update(with textDetections: [TextDetection]) -> Bool {
+        var isUpdated = false
         if let priceString = textDetections[TextFormat.price],
            let price = Self.price(fromString: priceString) {
             self.price = price
+            isUpdated = true
         }
+        return isUpdated
     }
 }
 
