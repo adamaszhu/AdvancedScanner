@@ -9,7 +9,8 @@ public extension Array where Element == TextDetection {
     /// - Parameter textFormat: The text format
     /// - Returns: A matching string
     subscript(_ textFormat: TextFormatType) -> String? {
-        guard let string = first { $0.textFormat?.name == textFormat.name }?.string else {
+        let textDetection = first { $0.textFormat?.name == textFormat.name }
+        guard let string = textDetection?.string else {
             return nil
         }
         return textFormat.format(string)
