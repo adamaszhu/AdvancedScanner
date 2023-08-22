@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		283B4FDE26F56B6D00FCE3B6 /* AdvancedUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */; };
 		284B6CA126F0315F00FDFBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */; };
 		284B6CA326F0315F00FDFBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */; };
 		284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B6CA426F0315F00FDFBB0 /* ViewController.swift */; };
@@ -36,6 +35,8 @@
 		28D9845128D4AD0C00FA28BB /* TextFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845028D4AD0C00FA28BB /* TextFormatType.swift */; };
 		28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845228D4B2A700FA28BB /* ScanModeType.swift */; };
 		28D9845528D4B75E00FA28BB /* InfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9845428D4B75E00FA28BB /* InfoType.swift */; };
+		B20AB0892A94887B00712825 /* AdvancedUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = B20AB0882A94887B00712825 /* AdvancedUIKit */; };
+		B20AB08B2A94887B00712825 /* AdvancedUIKitPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = B20AB08A2A94887B00712825 /* AdvancedUIKitPhoto */; };
 		B2BFE4642A87148800617B10 /* PriceTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4632A87148800617B10 /* PriceTagInfo.swift */; };
 		B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4652A87149600617B10 /* ReceiptInfo.swift */; };
 /* End PBXBuildFile section */
@@ -111,7 +112,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */,
-				283B4FDE26F56B6D00FCE3B6 /* AdvancedUIKit in Frameworks */,
+				B20AB0892A94887B00712825 /* AdvancedUIKit in Frameworks */,
+				B20AB08B2A94887B00712825 /* AdvancedUIKitPhoto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +291,8 @@
 			name = AdvancedScanner;
 			packageProductDependencies = (
 				287054F926F16A6500D2DA33 /* AdvancedFoundation */,
-				283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */,
+				B20AB0882A94887B00712825 /* AdvancedUIKit */,
+				B20AB08A2A94887B00712825 /* AdvancedUIKitPhoto */,
 			);
 			productName = iScanner;
 			productReference = 284B6C6726F02FA900FDFBB0 /* AdvancedScanner.framework */;
@@ -368,9 +371,9 @@
 			mainGroup = 284B6C5D26F02FA900FDFBB0;
 			packageReferences = (
 				287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */,
-				283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */,
 				285718BF2A0DAB0D0003343C /* XCRemoteSwiftPackageReference "Quick" */,
 				285718C32A0DAB7E0003343C /* XCRemoteSwiftPackageReference "Nimble" */,
+				B20AB0872A94887B00712825 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */,
 			);
 			productRefGroup = 284B6C6826F02FA900FDFBB0 /* Products */;
 			projectDirPath = "";
@@ -820,14 +823,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adamaszhu/AdvancedUIKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.2;
-			};
-		};
 		285718BF2A0DAB0D0003343C /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
@@ -852,14 +847,17 @@
 				minimumVersion = 1.7.1;
 			};
 		};
+		B20AB0872A94887B00712825 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamaszhu/AdvancedUIKit";
+			requirement = {
+				kind = revision;
+				revision = f6e4570a0689f2610b36150b5167077a352b17ab;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		283B4FDD26F56B6D00FCE3B6 /* AdvancedUIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 283B4FDC26F56B6D00FCE3B6 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */;
-			productName = AdvancedUIKit;
-		};
 		285718C02A0DAB0D0003343C /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 285718BF2A0DAB0D0003343C /* XCRemoteSwiftPackageReference "Quick" */;
@@ -874,6 +872,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 287054F826F16A6500D2DA33 /* XCRemoteSwiftPackageReference "AdvancedFoundation" */;
 			productName = AdvancedFoundation;
+		};
+		B20AB0882A94887B00712825 /* AdvancedUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B20AB0872A94887B00712825 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */;
+			productName = AdvancedUIKit;
+		};
+		B20AB08A2A94887B00712825 /* AdvancedUIKitPhoto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B20AB0872A94887B00712825 /* XCRemoteSwiftPackageReference "AdvancedUIKit" */;
+			productName = AdvancedUIKitPhoto;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
