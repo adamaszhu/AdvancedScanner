@@ -18,10 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="faF-vZ-ww1">
-                                <rect key="frame" x="189.5" y="433" width="35" height="30"/>
+                                <rect key="frame" x="146.5" y="416" width="121" height="64.5"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-NC-CM0">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Select Photo"/>
+                                        <connections>
+                                            <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="84V-aq-5gE"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMF-2Z-90Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                                        <rect key="frame" x="0.0" y="34.5" width="121" height="30"/>
                                         <state key="normal" title="Scan"/>
                                         <connections>
                                             <action selector="scan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MMB-CN-7jq"/>
