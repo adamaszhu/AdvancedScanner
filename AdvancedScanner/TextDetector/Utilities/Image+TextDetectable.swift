@@ -17,8 +17,8 @@ public extension CIImage {
         return request
             .results?
             .compactMap { 
-                $0.topCandidates(Self.maxCandidate)
-                    .first { $0.confidence == 1 }?
+                $0.topCandidates(1)
+                    .first { $0.confidence > Self.minConfidence }?
                     .string
             } ?? []
     }
@@ -26,7 +26,7 @@ public extension CIImage {
 
 /// Constants
 private extension CIImage {
-    static let maxCandidate = 20
+    static let minConfidence: Float = 0.5
 }
 
 import Vision
