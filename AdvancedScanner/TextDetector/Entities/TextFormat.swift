@@ -58,12 +58,12 @@ extension TextFormat: TextFormatType {
         }
     }
 
-    public var isSpaceAllowed: Bool {
+    public func format(_ value: String) -> String {
         switch self {
             case .fullName:
-                return true
+                return value.combineSpaces()
             default:
-                return false
+                return value.removingSpaces()
         }
     }
 }

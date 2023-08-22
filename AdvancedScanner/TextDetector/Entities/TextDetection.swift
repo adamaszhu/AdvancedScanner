@@ -5,7 +5,7 @@
 /// - author: Adamas
 public struct TextDetection {
 
-    /// Detected string
+    /// The original string
     public let string: String
 
     /// Detected text format. Nil if there is no detection

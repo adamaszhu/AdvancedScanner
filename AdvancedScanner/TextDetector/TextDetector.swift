@@ -40,9 +40,7 @@ public class TextDetector {
     /// - Returns: A detection result
     public func detect(_ string: String) -> TextDetection {
         for type in textTypes {
-            let formattedString = type.isSpaceAllowed
-            ? string.combineSpaces()
-            : string.removingSpaces()
+            let formattedString = type.format(string)
             let isValid = type
                 .rules
                 .allSatisfy { $0.isValid(value: formattedString) == nil }

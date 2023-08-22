@@ -8,11 +8,13 @@ public protocol TextFormatType {
     /// A list of rules that a TextFormat should follow
     var rules: [RuleType] { get }
 
-    /// Whether or not the format can contain spaces
-    var isSpaceAllowed: Bool { get }
-
     /// The field name
     var name: String { get }
+
+    /// Format the value before checking against rules
+    /// - Parameter value: The original value
+    /// - Returns: The sterilized value
+    func format(_ value: String) -> String
 }
 
 import AdvancedUIKit
