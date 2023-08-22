@@ -8,6 +8,9 @@ public struct PriceTagInfo {
     /// The price
     public private (set) var price: Double
 
+    /// Barcode
+    public private (set) var barcode: String?
+
     /// Get the price from a price string
     /// - Parameter priceString: The price string
     /// - Returns: The price
@@ -24,22 +27,27 @@ public struct PriceTagInfo {
     /// Initialize the object
     /// - Parameters:
     ///   - price: The price
-    public init(price: String) {
+    ///   - barcode: The barcode
+    public init(price: String,
+                barcode: String?) {
         self.price = Self.price(fromString: price) ?? 0
+        self.barcode = barcode
     }
 }
 
 extension PriceTagInfo: InfoType {
 
     public var fields: [String : String] {
-        [TextFormat.price.name: price.currencyString() ?? .empty]
+        [TextFormat.price.name: price.currencyString() ?? .empty,
+         TextFormat.barcode.name: barcode ?? .empty]
     }
     
     public init?(textDetections: [TextDetection]) {
         guard let price = textDetections[TextFormat.price] else {
             return nil
         }
-        self.init(price: price)
+        self.init(price: price,
+                  barcode: textDetections[TextFormat.barcode])
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
@@ -48,6 +56,10 @@ extension PriceTagInfo: InfoType {
            let price = Self.price(fromString: priceString) {
             isUpdated = self.price != price
             self.price = price
+        }
+        if let barcode = textDetections[TextFormat.barcode] {
+            isUpdated = self.barcode != barcode
+            self.barcode = barcode
         }
         return isUpdated
     }

@@ -37,7 +37,10 @@ final class ViewController: UIViewController {
     }
 
     private func show(_ info: PriceTagInfo) {
-        let message = "Price: \(info.price.currencyString() ?? "-")"
+        var message = "Price: \(info.price.currencyString() ?? "-")"
+        if let barcode = info.barcode {
+            message += "\nBarcode: \(barcode)"
+        }
         let messageHelper = SystemMessageHelper()
         messageHelper?.showInfo(message,
                                withTitle: "Price Tag",

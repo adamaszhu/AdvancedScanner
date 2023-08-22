@@ -20,6 +20,9 @@ public enum TextFormat {
 
     /// A price string
     case price
+
+    /// A barcode string
+    case barcode
 }
 
 extension TextFormat: TextFormatType {
@@ -36,6 +39,8 @@ extension TextFormat: TextFormatType {
                 return Self.fullNameName
             case .price:
                 return Self.priceName
+            case .barcode:
+                return Self.barcodeName
         }
     }
 
@@ -55,6 +60,8 @@ extension TextFormat: TextFormatType {
                 return DefaultRuleFactory.fullNameRules(withMessage: errorMessage)
             case .price:
                 return DefaultRuleFactory.currencyRules(for: Language.allCases, withMessage: errorMessage)
+            case .barcode:
+                return [DefaultRuleFactory.barcodeRule(withMessage: errorMessage)]
         }
     }
 
@@ -76,6 +83,7 @@ private extension TextFormat {
     static let fullNameName = "Name"
     static let expiryName = "Expiry date"
     static let priceName = "Price"
+    static let barcodeName = "Barcode"
 }
 
 import AdvancedUIKit
