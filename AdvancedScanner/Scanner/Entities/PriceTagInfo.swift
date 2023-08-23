@@ -14,6 +14,9 @@ public struct PriceTagInfo {
     /// Barcode
     public private (set) var barcode: String?
 
+    /// A list of detected texts
+    private var textDetections: [TextDetection]
+
     /// Get the price from a price string
     /// - Parameter priceString: The price string
     /// - Returns: The price
@@ -33,11 +36,20 @@ public struct PriceTagInfo {
     ///   - price: The price
     ///   - barcode: The barcode
     public init(description: String,
-                price: String,
+                price: Double,
                 barcode: String?) {
-        self.price = Self.price(fromString: price) ?? 0
+        textDetections = []
+        self.price = price
         self.barcode = barcode
         self.description = description
+    }
+
+    /// Update the info from text detections
+    private mutating func update() {
+        let price = textDetections[TextFormat.price]?.formattedString ?? .empty
+        self.price = Self.price(fromString: price) ?? 0
+        description = textDetections[TextFormat.description]?.formattedString ?? .empty
+        barcode = textDetections[TextFormat.barcode]?.formattedString
     }
 }
 
@@ -50,31 +62,36 @@ extension PriceTagInfo: InfoType {
     }
     
     public init?(textDetections: [TextDetection]) {
-        guard let price = textDetections[TextFormat.price],
-            let description = textDetections[TextFormat.description] else {
+        guard let price = textDetections[TextFormat.price]?.formattedString,
+              let description = textDetections[TextFormat.description]?.formattedString else {
             return nil
         }
-        self.init(description: description,
-                  price: price,
-                  barcode: textDetections[TextFormat.barcode])
+        self.price = Self.price(fromString: price) ?? 0
+        self.description = description
+        self.textDetections = textDetections
+        update()
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        var isUpdated: [Bool] = []
-        if let description = textDetections[TextFormat.description] {
-            isUpdated.append(self.description != description)
-            self.description = description
-        }
-        if let priceString = textDetections[TextFormat.price],
-           let price = Self.price(fromString: priceString) {
-            isUpdated.append(self.price != price)
-            self.price = price
-        }
-        if let barcode = textDetections[TextFormat.barcode] {
-            isUpdated.append(self.barcode != barcode)
-            self.barcode = barcode
-        }
-        return isUpdated.contains(true)
+        var isUpdated = false
+        ScanMode.priceTag
+            .textFormats
+            .forEach { textFormat in
+                guard let newTextDetection = textDetections[textFormat] else {
+                    return
+                }
+                if let currentTextDetection = self.textDetections[textFormat],
+                   newTextDetection.confidence > currentTextDetection.confidence,
+                   newTextDetection.string != currentTextDetection.string {
+                    isUpdated = true
+                    self.textDetections.removeAll { $0.textFormat?.name == textFormat.name }
+                    self.textDetections.append(newTextDetection)
+                } else {
+                    isUpdated = true
+                    self.textDetections.append(newTextDetection)
+                }
+            }
+        return isUpdated
     }
 }
 

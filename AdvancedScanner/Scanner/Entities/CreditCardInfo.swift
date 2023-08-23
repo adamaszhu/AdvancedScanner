@@ -17,6 +17,9 @@ public struct CreditCardInfo {
     /// The credit card verification number
     public private (set) var cvn: String?
 
+    /// A list of detected texts
+    private var textDetections: [TextDetection]
+
     /// Convert an expiry string into a date object
     /// - Parameter expiryString: The expiry string
     /// - Returns: The date
@@ -34,12 +37,21 @@ public struct CreditCardInfo {
     ///   - expiry: The expiry string
     public init(number: String,
                 name: String?,
-                expiry: String?,
+                expiry: Date?,
                 cvn: String?) {
+        textDetections = []
         self.number = number
         self.cvn = cvn
         self.name = name
-        if let expiry = expiry {
+        self.expiry = expiry
+    }
+
+    /// Update the info from text detections
+    private mutating func update() {
+        number = textDetections[TextFormat.creditCardNumber]?.formattedString ?? .empty
+        name = textDetections[TextFormat.fullName]?.formattedString
+        cvn = textDetections[TextFormat.creditCardVerificationNumber]?.formattedString
+        if let expiry = textDetections[TextFormat.expiry]?.formattedString {
             self.expiry = Self.expiry(fromString: expiry)
         } else {
             self.expiry = nil
@@ -57,35 +69,34 @@ extension CreditCardInfo: InfoType {
     }
     
     public init?(textDetections: [TextDetection]) {
-        guard let number = textDetections[TextFormat.creditCardNumber] else {
+        guard let number = textDetections[TextFormat.creditCardNumber]?.formattedString else {
             return nil
         }
-        self.init(number: number,
-                  name: textDetections[TextFormat.fullName],
-                  expiry: textDetections[TextFormat.expiry],
-                  cvn: textDetections[TextFormat.creditCardVerificationNumber])
+        self.number = number
+        self.textDetections = textDetections
+        update()
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        var isUpdated: [Bool] = []
-        if let number = textDetections[TextFormat.creditCardNumber] {
-            isUpdated.append(self.number != number)
-            self.number = number
-        }
-        if let name = textDetections[TextFormat.fullName] {
-            isUpdated.append(self.name != name)
-            self.name = name
-        }
-        if let expiryString = textDetections[TextFormat.expiry],
-           let expiry = Self.expiry(fromString: expiryString) {
-            isUpdated.append(self.expiry != expiry)
-            self.expiry = expiry
-        }
-        if let cvn = textDetections[TextFormat.creditCardVerificationNumber] {
-            isUpdated.append(self.cvn != cvn)
-            self.cvn = cvn
-        }
-        return isUpdated.contains(true)
+        var isUpdated = false
+        ScanMode.creditCard
+            .textFormats
+            .forEach { textFormat in
+                guard let newTextDetection = textDetections[textFormat] else {
+                    return
+                }
+                if let currentTextDetection = self.textDetections[textFormat],
+                   newTextDetection.confidence > currentTextDetection.confidence,
+                   newTextDetection.string != currentTextDetection.string {
+                    isUpdated = true
+                    self.textDetections.removeAll { $0.textFormat?.name == textFormat.name }
+                    self.textDetections.append(newTextDetection)
+                } else {
+                    isUpdated = true
+                    self.textDetections.append(newTextDetection)
+                }
+            }
+        return isUpdated
     }
 }
 

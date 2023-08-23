@@ -14,3 +14,14 @@ public struct TextDetection {
     /// Detected text format. Nil if there is no detection
     public let textFormat: TextFormatType?
 }
+
+public extension TextDetection {
+
+    /// Get the formated string according to the detected text format
+    var formattedString: String? {
+        guard let textFormat else {
+            return nil
+        }
+        return textFormat.format(string)
+    }
+}

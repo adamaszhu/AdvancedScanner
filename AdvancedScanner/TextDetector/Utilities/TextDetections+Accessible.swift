@@ -4,15 +4,11 @@
 /// - date: 10/05/23
 /// - author: Adamas
 public extension Array where Element == TextDetection {
-    
-    /// Get the first string of a given text format in the array
+
+    /// Get the first detection of a given text format in the array
     /// - Parameter textFormat: The text format
-    /// - Returns: A matching string
-    subscript(_ textFormat: TextFormatType) -> String? {
-        let textDetection = first { $0.textFormat?.name == textFormat.name }
-        guard let string = textDetection?.string else {
-            return nil
-        }
-        return textFormat.format(string)
+    /// - Returns: A matching detection
+    subscript(_ textFormat: TextFormatType) -> TextDetection? {
+        first { $0.textFormat?.name == textFormat.name }
     }
 }
