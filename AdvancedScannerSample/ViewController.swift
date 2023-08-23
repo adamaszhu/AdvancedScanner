@@ -21,32 +21,13 @@ final class ViewController: UIViewController {
         imagePicker.showImagePicker()
     }
 
-    private func show(_ info: CreditCardInfo) {
-        var message = "Number: \(info.number)"
-        if let expiry = info.expiry {
-            let expiryString = expiry.string(with: DateFormat.expiryDate)
-            message += "\nExpiry: \(expiryString)"
-        }
-        if let name = info.name {
-            message += "\nName: \(name)"
-        }
-        if let cvn = info.cvn {
-            message += "\nCVN: \(cvn)"
-        }
+    private func show(_ info: InfoType) {
+        let message = info.fields
+            .map { "\($0): \($1)" }
+            .joined(separator: "\n")
         let messageHelper = SystemMessageHelper()
         messageHelper?.showInfo(message,
-                               withTitle: "Credit Card",
-                               withConfirmButtonName: "OK")
-    }
-
-    private func show(_ info: PriceTagInfo) {
-        var message = "Price: \(info.price.currencyString() ?? "-")"
-        if let barcode = info.barcode {
-            message += "\nBarcode: \(barcode)"
-        }
-        let messageHelper = SystemMessageHelper()
-        messageHelper?.showInfo(message,
-                               withTitle: "Price Tag",
+                               withTitle: "Detected",
                                withConfirmButtonName: "OK")
     }
 }

@@ -43,13 +43,13 @@ extension ReceiptInfo: InfoType {
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        var isUpdated = false
+        var isUpdated: [Bool] = []
         if let priceString = textDetections[TextFormat.price],
            let price = Self.price(fromString: priceString) {
-            isUpdated = self.price != price
+            isUpdated.append(self.price != price)
             self.price = price
         }
-        return isUpdated
+        return isUpdated.contains(true)
     }
 }
 

@@ -5,6 +5,9 @@
 /// - author: Adamas
 public struct PriceTagInfo {
 
+    /// Name
+    public private (set) var description: String
+
     /// The price
     public private (set) var price: Double
 
@@ -26,42 +29,52 @@ public struct PriceTagInfo {
 
     /// Initialize the object
     /// - Parameters:
+    ///   - description: Product description
     ///   - price: The price
     ///   - barcode: The barcode
-    public init(price: String,
+    public init(description: String,
+                price: String,
                 barcode: String?) {
         self.price = Self.price(fromString: price) ?? 0
         self.barcode = barcode
+        self.description = description
     }
 }
 
 extension PriceTagInfo: InfoType {
 
     public var fields: [String : String] {
-        [TextFormat.price.name: price.currencyString() ?? .empty,
+        [TextFormat.description.name: description,
+         TextFormat.price.name: price.currencyString() ?? .empty,
          TextFormat.barcode.name: barcode ?? .empty]
     }
     
     public init?(textDetections: [TextDetection]) {
-        guard let price = textDetections[TextFormat.price] else {
+        guard let price = textDetections[TextFormat.price],
+            let description = textDetections[TextFormat.description] else {
             return nil
         }
-        self.init(price: price,
+        self.init(description: description,
+                  price: price,
                   barcode: textDetections[TextFormat.barcode])
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        var isUpdated = false
+        var isUpdated: [Bool] = []
+        if let description = textDetections[TextFormat.description] {
+            isUpdated.append(self.description != description)
+            self.description = description
+        }
         if let priceString = textDetections[TextFormat.price],
            let price = Self.price(fromString: priceString) {
-            isUpdated = self.price != price
+            isUpdated.append(self.price != price)
             self.price = price
         }
         if let barcode = textDetections[TextFormat.barcode] {
-            isUpdated = self.barcode != barcode
+            isUpdated.append(self.barcode != barcode)
             self.barcode = barcode
         }
-        return isUpdated
+        return isUpdated.contains(true)
     }
 }
 

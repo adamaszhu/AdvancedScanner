@@ -852,7 +852,7 @@
 			repositoryURL = "https://github.com/adamaszhu/AdvancedUIKit";
 			requirement = {
 				kind = revision;
-				revision = 5758a4c7df2e8947fbf065509040b95469c5db4c;
+				revision = 36506b30d2227494c3665a87e590bc685049a006;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
