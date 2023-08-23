@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="faF-vZ-ww1">
-                                <rect key="frame" x="146.5" y="416" width="121" height="64.5"/>
+                                <rect key="frame" x="146.5" y="797.5" width="121" height="64.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-NC-CM0">
                                         <rect key="frame" x="0.0" y="0.0" width="121" height="34.5"/>
@@ -37,18 +37,61 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-Ra-8ul">
+                                <rect key="frame" x="16" y="358.5" width="382" height="439"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-P3-InX">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-DH-4xo">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="Z0G-Pq-i1K"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RNs-P3-InX" firstAttribute="top" secondItem="gTa-Vo-gJU" secondAttribute="top" id="6yO-fd-Axy"/>
+                                    <constraint firstItem="RNs-P3-InX" firstAttribute="trailing" secondItem="gTa-Vo-gJU" secondAttribute="trailing" id="P9O-CZ-9zo"/>
+                                    <constraint firstItem="RNs-P3-InX" firstAttribute="bottom" secondItem="gTa-Vo-gJU" secondAttribute="bottom" id="Wbr-p0-I1H"/>
+                                    <constraint firstItem="RNs-P3-InX" firstAttribute="width" secondItem="4Ql-FR-Awq" secondAttribute="width" id="sEg-4d-UNw"/>
+                                    <constraint firstItem="gTa-Vo-gJU" firstAttribute="leading" secondItem="RNs-P3-InX" secondAttribute="leading" id="sKm-iC-1ZF"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="gTa-Vo-gJU"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="4Ql-FR-Awq"/>
+                            </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VpV-B2-gAa">
+                                <rect key="frame" x="0.0" y="48" width="414" height="310.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VpV-B2-gAa" secondAttribute="height" multiplier="4:3" id="h0m-qY-bE1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VpV-B2-gAa" secondAttribute="trailing" id="20g-8t-1eW"/>
+                            <constraint firstItem="VpV-B2-gAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4yd-v2-yJT"/>
+                            <constraint firstItem="faF-vZ-ww1" firstAttribute="top" secondItem="hDp-Ra-8ul" secondAttribute="bottom" id="8Mc-u2-qQd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hDp-Ra-8ul" secondAttribute="trailing" constant="16" id="9R6-6a-9Fu"/>
+                            <constraint firstItem="hDp-Ra-8ul" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CMh-2Z-3E8"/>
                             <constraint firstItem="faF-vZ-ww1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TLN-Ad-Qpr"/>
-                            <constraint firstItem="faF-vZ-ww1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kKH-n2-xsz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="faF-vZ-ww1" secondAttribute="bottom" id="WGZ-bR-D6d"/>
+                            <constraint firstItem="VpV-B2-gAa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bbR-js-cC2"/>
+                            <constraint firstItem="hDp-Ra-8ul" firstAttribute="top" secondItem="VpV-B2-gAa" secondAttribute="bottom" id="ueB-Z5-Miw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="VpV-B2-gAa" id="MQk-L4-Doc"/>
+                        <outlet property="messageStackView" destination="RNs-P3-InX" id="bL5-Gz-0gX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="84"/>
+            <point key="canvasLocation" x="37.681159420289859" y="83.705357142857139"/>
         </scene>
     </scenes>
     <resources>

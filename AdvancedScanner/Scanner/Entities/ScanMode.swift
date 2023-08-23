@@ -37,7 +37,8 @@ extension ScanMode: ScanModeType {
                         TextFormat.creditCardVerificationNumber,
                         TextFormat.fullName]
             case .priceTag, .receipt:
-                return [TextFormat.price]
+                return [TextFormat.price,
+                        TextFormat.barcode]
             case .none:
                 return []
         }

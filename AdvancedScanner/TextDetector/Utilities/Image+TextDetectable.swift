@@ -26,7 +26,7 @@ public extension CIImage {
 
 /// Constants
 private extension CIImage {
-    static let minConfidence: Float = 0.5
+    static let minConfidence: Float = 0.4
 }
 
 import Vision

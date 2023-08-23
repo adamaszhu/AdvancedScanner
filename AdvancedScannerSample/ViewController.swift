@@ -1,5 +1,8 @@
 final class ViewController: UIViewController {
     
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var messageStackView: UIStackView!
+
     private lazy var scanner = TextScanner<PriceTagInfo, ScanMode>(viewController: self)
 
     private lazy var imagePicker: ImagePickerHelper = {
@@ -53,14 +56,20 @@ extension ViewController: ImagePickerHelperDelegate {
     func imagePickerHelper(_ imagePickerHelper: ImagePickerHelper,
                            didPick image: UIImage) {
         let detector = TextDetector(textTypes: ScanMode.priceTag.textFormats)
-        guard let image = CIImage(image: image) else {
+        guard let ciImage = CIImage(image: image) else {
             return
         }
-        let detections = detector.detect(image, withLanguageCorrection: true)
-        let description = detections
+        let detections = detector.detect(ciImage, withLanguageCorrection: true)
+        messageStackView.arrangedSubviews
+            .forEach { $0.removeFromSuperview() }
+        detections
             .map(\.string)
-            .joined(separator: .linebreak)
-        Logger.standard.logInfo("Detections", withDetail: description)
+            .forEach { detection in
+                let label = UILabel()
+                label.text = detection
+                messageStackView.addArrangedSubview(label)
+            }
+        imageView.image = image
         guard let priceTag = PriceTagInfo(textDetections: detections) else {
             return
         }
