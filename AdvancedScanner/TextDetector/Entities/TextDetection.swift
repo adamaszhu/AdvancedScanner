@@ -8,6 +8,9 @@ public struct TextDetection {
     /// The original string
     public let string: String
 
+    /// The confidence of the detection.
+    public let confidence: Double
+
     /// Detected text format. Nil if there is no detection
     public let textFormat: TextFormatType?
 }

@@ -22,8 +22,8 @@ public class TextDetector {
     /// - Returns: A list of detection results
     public func detect(_ ciImage: CIImage,
                        withLanguageCorrection shouldCorrectLanguage: Bool) -> [TextDetection] {
-        let strings = ciImage.strings(withLanguageCorrection: shouldCorrectLanguage)
-        return detect(strings)
+        let textDetections = ciImage.strings(withLanguageCorrection: shouldCorrectLanguage)
+        return textDetections.map(detectingFormat(of:))
     }
 
     /// Detect text formats from an array
@@ -31,7 +31,10 @@ public class TextDetector {
     /// - Parameter strings: The source strings
     /// - Returns: A list of detection results
     public func detect(_ strings: [String]) -> [TextDetection] {
-        strings.map(detect)
+        let textDetections = strings.map { TextDetection(string: $0,
+                                                         confidence: 1,
+                                                         textFormat: nil) }
+        return textDetections.map(detectingFormat(of:))
     }
 
     /// Try to detect a text format from a string
@@ -39,16 +42,28 @@ public class TextDetector {
     /// - Parameter string: The source string
     /// - Returns: A detection result
     public func detect(_ string: String) -> TextDetection {
+        let textDetection = TextDetection(string: string,
+                                          confidence: 1,
+                                          textFormat: nil)
+        return detectingFormat(of: textDetection)
+    }
+
+    /// Detect the format of a detected text
+    /// - Parameter textDetection: A detected text
+    /// - Returns: Text detection with correct text format
+    private func detectingFormat(of textDetection: TextDetection) -> TextDetection {
         for type in textTypes {
-            let formattedString = type.format(string)
+            let formattedString = type.format(textDetection.string)
             let isValid = type
                 .rules
                 .allSatisfy { $0.isValid(value: formattedString) == nil }
             if isValid {
-                return TextDetection(string: string, textFormat: type)
+                return TextDetection(string: textDetection.string,
+                                     confidence: textDetection.confidence,
+                                     textFormat: type)
             }
         }
-        return TextDetection(string: string, textFormat: nil)
+        return textDetection
     }
 }
 
