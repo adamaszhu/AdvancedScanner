@@ -23,3 +23,28 @@ public protocol InfoType {
     /// - Returns: Whether or not the info has been updated
     mutating func update(with textDetections: [TextDetection]) -> Bool
 }
+
+extension InfoType {
+
+    func updating(_ currentTextDetections: inout [TextDetection],
+                  with newTextDetections: [TextDetection]) -> Bool {
+        var isUpdated = false
+        Self.textFormats
+            .forEach { textFormat in
+                guard let newTextDetection = newTextDetections[textFormat] else {
+                    return
+                }
+                if let currentTextDetection = currentTextDetections[textFormat],
+                   newTextDetection.confidence > currentTextDetection.confidence,
+                   newTextDetection.string != currentTextDetection.string {
+                    isUpdated = true
+                    currentTextDetections.removeAll { $0.textFormat?.name == textFormat.name }
+                    currentTextDetections.append(newTextDetection)
+                } else {
+                    isUpdated = true
+                    currentTextDetections.append(newTextDetection)
+                }
+            }
+        return isUpdated
+    }
+}

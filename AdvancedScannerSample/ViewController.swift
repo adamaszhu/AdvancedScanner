@@ -1,9 +1,11 @@
 final class ViewController: UIViewController {
+
+    typealias Info = CreditCardInfo
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var messageStackView: UIStackView!
 
-    private lazy var scanner = TextScanner<PriceTagInfo>(viewController: self)
+    private lazy var scanner = TextScanner<Info>(viewController: self)
 
     private lazy var imagePicker: ImagePickerHelper = {
         let imagePicker = ImagePickerHelper()
@@ -36,7 +38,7 @@ extension ViewController: ImagePickerHelperDelegate {
 
     func imagePickerHelper(_ imagePickerHelper: ImagePickerHelper,
                            didPick image: UIImage) {
-        let detector = TextDetector(textTypes: PriceTagInfo.textFormats)
+        let detector = TextDetector(textTypes: Info.textFormats)
         guard let ciImage = CIImage(image: image) else {
             return
         }
@@ -51,10 +53,10 @@ extension ViewController: ImagePickerHelperDelegate {
                 messageStackView.addArrangedSubview(label)
             }
         imageView.image = image
-        guard let priceTag = PriceTagInfo(textDetections: detections) else {
+        guard let info = Info(textDetections: detections) else {
             return
         }
-        show(priceTag)
+        show(info)
     }
 
     func imagePickerHelper(_ imagePickerHelper: ImagePickerHelper,

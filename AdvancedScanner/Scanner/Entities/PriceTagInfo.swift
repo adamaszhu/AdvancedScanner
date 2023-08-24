@@ -67,24 +67,7 @@ extension PriceTagInfo: InfoType {
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        var isUpdated = false
-        Self.textFormats
-            .forEach { textFormat in
-                guard let newTextDetection = textDetections[textFormat] else {
-                    return
-                }
-                if let currentTextDetection = self.textDetections[textFormat],
-                   newTextDetection.confidence > currentTextDetection.confidence,
-                   newTextDetection.string != currentTextDetection.string {
-                    isUpdated = true
-                    self.textDetections.removeAll { $0.textFormat?.name == textFormat.name }
-                    self.textDetections.append(newTextDetection)
-                } else {
-                    isUpdated = true
-                    self.textDetections.append(newTextDetection)
-                }
-            }
-        return isUpdated
+        updating(&self.textDetections, with: textDetections)
     }
 }
 
