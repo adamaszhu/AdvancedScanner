@@ -34,14 +34,15 @@ extension InfoType {
                 guard let newTextDetection = newTextDetections[textFormat] else {
                     return
                 }
-                if let currentTextDetection = currentTextDetections[textFormat],
-                   newTextDetection.confidence > currentTextDetection.confidence,
+                guard let currentTextDetection = currentTextDetections[textFormat] else {
+                    isUpdated = true
+                    currentTextDetections.append(newTextDetection)
+                    return
+                }
+                if newTextDetection.confidence > currentTextDetection.confidence,
                    newTextDetection.string != currentTextDetection.string {
                     isUpdated = true
                     currentTextDetections.removeAll { $0.textFormat?.name == textFormat.name }
-                    currentTextDetections.append(newTextDetection)
-                } else {
-                    isUpdated = true
                     currentTextDetections.append(newTextDetection)
                 }
             }

@@ -60,7 +60,7 @@ extension CreditCardInfo: InfoType {
     public var fields: [String : String] {
         [TextFormat.creditCardNumber.name: number,
          TextFormat.fullName.name: name ?? .empty,
-         TextFormat.expiry.name: expiry?.string(with: DateFormat.fullDate) ?? .empty,
+         TextFormat.expiry.name: expiry?.string(with: DateFormat.expiryDate) ?? .empty,
          TextFormat.creditCardVerificationNumber.name: cvn ?? .empty]
     }
     
@@ -74,7 +74,9 @@ extension CreditCardInfo: InfoType {
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        updating(&self.textDetections, with: textDetections)
+        let result = updating(&self.textDetections, with: textDetections)
+        update()
+        return result
     }
 }
 

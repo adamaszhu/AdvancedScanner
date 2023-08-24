@@ -67,7 +67,9 @@ extension PriceTagInfo: InfoType {
     }
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
-        updating(&self.textDetections, with: textDetections)
+        let result = updating(&self.textDetections, with: textDetections)
+        update()
+        return result
     }
 }
 

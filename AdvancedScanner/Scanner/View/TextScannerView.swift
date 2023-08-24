@@ -154,7 +154,9 @@ final class TextScannerView<Info: InfoType & InfoPresentable>: UIView, AVCapture
         ciImage = ciImage.cropped(to: CIImage.ciRect(for: rect, in: ciImage.extent))
 
         let textDetector = TextDetector(textTypes: Info.textFormats)
-        let textDetections = textDetector.detect(ciImage, withLanguageCorrection: Info.shouldCorrectLanguage)
+        let textDetections = textDetector
+            .detect(ciImage, withLanguageCorrection: Info.shouldCorrectLanguage)
+            .filter { $0.textFormat != nil }
 
         var hasNewDetection = false
         if info != nil {
