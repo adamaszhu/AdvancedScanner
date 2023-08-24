@@ -48,6 +48,15 @@ public struct CreditCardInfo {
 
 extension CreditCardInfo: InfoType {
 
+    public static var textFormats: [TextFormatType] {
+        [TextFormat.creditCardNumber,
+         TextFormat.fullName,
+         TextFormat.expiry,
+         TextFormat.creditCardVerificationNumber]
+    }
+
+    public static var shouldCorrectLanguage: Bool { false }
+
     public var fields: [String : String] {
         [TextFormat.creditCardNumber.name: number,
          TextFormat.fullName.name: name ?? .empty,
@@ -66,8 +75,7 @@ extension CreditCardInfo: InfoType {
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
         var isUpdated = false
-        ScanMode.creditCard
-            .textFormats
+        Self.textFormats
             .forEach { textFormat in
                 guard let newTextDetection = textDetections[textFormat] else {
                     return

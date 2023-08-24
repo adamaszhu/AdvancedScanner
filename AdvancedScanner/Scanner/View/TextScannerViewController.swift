@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-open class TextScannerViewController<Info: InfoType & InfoPresentable, ScanMode: ScanModeType>: UIViewController {
+open class TextScannerViewController<Info: InfoType & InfoPresentable>: UIViewController {
 
     /// Callback when some info is detected
     public var didDetectInfoAction: ((Info) -> Void)?
@@ -12,7 +12,7 @@ open class TextScannerViewController<Info: InfoType & InfoPresentable, ScanMode:
     public var hint: String = .empty
 
     /// The scanner view in the view controller
-    private lazy var textScannerView: TextScannerView<Info, ScanMode> = TextScannerView<Info, ScanMode>()
+    private lazy var textScannerView: TextScannerView<Info> = TextScannerView<Info>()
 
     /// The detected info
     private var info: Info?

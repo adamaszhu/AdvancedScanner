@@ -27,6 +27,13 @@ public struct ReceiptInfo {
 
 extension ReceiptInfo: InfoType {
 
+    public static var textFormats: [TextFormatType] {
+        [TextFormat.price,
+         TextFormat.description]
+    }
+
+    public static var shouldCorrectLanguage: Bool { true }
+
     public var fields: [String : String] {
         [TextFormat.price.name: price.currencyString() ?? .empty]
     }
@@ -42,8 +49,7 @@ extension ReceiptInfo: InfoType {
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
         var isUpdated = false
-        ScanMode.receipt
-            .textFormats
+        Self.textFormats
             .forEach { textFormat in
                 guard let newTextDetection = textDetections[textFormat] else {
                     return

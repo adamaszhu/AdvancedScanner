@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 10/11/21
 /// - author: Adamas
-final class TextScannerView<Info: InfoType & InfoPresentable, ScanMode: ScanModeType>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class TextScannerView<Info: InfoType & InfoPresentable>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)?
@@ -14,9 +14,6 @@ final class TextScannerView<Info: InfoType & InfoPresentable, ScanMode: ScanMode
             hintLabel.text = hint
         }
     }
-
-    /// The scanning mode that the view is under
-    private let mode = ScanMode(infoType: Info.self)
 
     /// Whether the layout has been initialized
     private var isInitialized = false
@@ -156,8 +153,8 @@ final class TextScannerView<Info: InfoType & InfoPresentable, ScanMode: ScanMode
                       height: rect.height * ratio)
         ciImage = ciImage.cropped(to: CIImage.ciRect(for: rect, in: ciImage.extent))
 
-        let textDetector = TextDetector(textTypes: mode.textFormats)
-        let textDetections = textDetector.detect(ciImage, withLanguageCorrection: mode.shouldCorrectLanguage)
+        let textDetector = TextDetector(textTypes: Info.textFormats)
+        let textDetections = textDetector.detect(ciImage, withLanguageCorrection: Info.shouldCorrectLanguage)
 
         var hasNewDetection = false
         if info != nil {

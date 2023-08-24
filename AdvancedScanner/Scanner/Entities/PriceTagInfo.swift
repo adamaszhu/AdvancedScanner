@@ -41,6 +41,14 @@ public struct PriceTagInfo {
 
 extension PriceTagInfo: InfoType {
 
+    public static var textFormats: [TextFormatType] {
+        [TextFormat.price,
+         TextFormat.barcode,
+         TextFormat.description]
+    }
+
+    public static var shouldCorrectLanguage: Bool { true }
+
     public var fields: [String : String] {
         [TextFormat.description.name: description,
          TextFormat.price.name: price.currencyString() ?? .empty,
@@ -60,8 +68,7 @@ extension PriceTagInfo: InfoType {
 
     public mutating func update(with textDetections: [TextDetection]) -> Bool {
         var isUpdated = false
-        ScanMode.priceTag
-            .textFormats
+        Self.textFormats
             .forEach { textFormat in
                 guard let newTextDetection = textDetections[textFormat] else {
                     return

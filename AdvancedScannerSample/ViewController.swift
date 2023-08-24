@@ -3,7 +3,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var messageStackView: UIStackView!
 
-    private lazy var scanner = TextScanner<PriceTagInfo, ScanMode>(viewController: self)
+    private lazy var scanner = TextScanner<PriceTagInfo>(viewController: self)
 
     private lazy var imagePicker: ImagePickerHelper = {
         let imagePicker = ImagePickerHelper()
@@ -36,7 +36,7 @@ extension ViewController: ImagePickerHelperDelegate {
 
     func imagePickerHelper(_ imagePickerHelper: ImagePickerHelper,
                            didPick image: UIImage) {
-        let detector = TextDetector(textTypes: ScanMode.priceTag.textFormats)
+        let detector = TextDetector(textTypes: PriceTagInfo.textFormats)
         guard let ciImage = CIImage(image: image) else {
             return
         }

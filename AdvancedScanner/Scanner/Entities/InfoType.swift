@@ -5,6 +5,12 @@
 /// - author: Adamas
 public protocol InfoType {
 
+    /// A list of text formats which should be detected under the mode
+    static var textFormats: [TextFormatType] { get }
+
+    /// Whether or not auto correction should be applied to the result
+    static var shouldCorrectLanguage: Bool { get }
+
     /// Fields contained in the info
     var fields: [String: String] { get }
 
