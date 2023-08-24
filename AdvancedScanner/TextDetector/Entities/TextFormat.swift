@@ -91,9 +91,20 @@ extension TextFormat: TextFormatType {
             .description:
             return sterilizedValue as? Value
         case .expiry:
-            return sterilizedValue as? Value
+            let date = [DateFormat.expiryDate, DateFormat.fullExpiryDate]
+                .compactMap { Date(string: sterilizedValue,
+                                   dateFormat: $0) }
+                .first
+            return date as? Value
         case .price:
-            return sterilizedValue as? Value
+            if let price = Double(sterilizedValue) {
+                return price as? Value
+            }
+            return Language.allCases
+                .map(NumberFormatterFactory.currencyFormatter)
+                .compactMap { Double(currency: sterilizedValue,
+                                     numberFormatter: $0) }
+                .first as? Value
         }
     }
 }
@@ -112,3 +123,4 @@ private extension TextFormat {
 
 import AdvancedUIKit
 import AdvancedFoundation
+import Foundation

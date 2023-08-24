@@ -17,19 +17,6 @@ public struct PriceTagInfo {
     /// A list of detected texts
     private var textDetections: [TextDetection]
 
-    /// Get the price from a price string
-    /// - Parameter priceString: The price string
-    /// - Returns: The price
-    private static func price(fromString priceString: String) -> Double? {
-        if let price = Double(priceString) {
-            return price
-        }
-        return Language.allCases
-            .map(NumberFormatterFactory.currencyFormatter)
-            .compactMap { Double(currency: priceString, numberFormatter: $0) }
-            .first
-    }
-
     /// Initialize the object
     /// - Parameters:
     ///   - description: Product description
@@ -46,10 +33,9 @@ public struct PriceTagInfo {
 
     /// Update the info from text detections
     private mutating func update() {
-        let price = textDetections[TextFormat.price]?.formattedString ?? .empty
-        self.price = Self.price(fromString: price) ?? 0
-        description = textDetections[TextFormat.description]?.formattedString ?? .empty
-        barcode = textDetections[TextFormat.barcode]?.formattedString
+        price = textDetections[TextFormat.price]?.value() ?? 0
+        description = textDetections[TextFormat.description]?.value() ?? .empty
+        barcode = textDetections[TextFormat.barcode]?.value()
     }
 }
 
@@ -62,11 +48,11 @@ extension PriceTagInfo: InfoType {
     }
     
     public init?(textDetections: [TextDetection]) {
-        guard let price = textDetections[TextFormat.price]?.formattedString,
-              let description = textDetections[TextFormat.description]?.formattedString else {
+        guard let price: Double = textDetections[TextFormat.price]?.value(),
+              let description: String = textDetections[TextFormat.description]?.value() else {
             return nil
         }
-        self.price = Self.price(fromString: price) ?? 0
+        self.price = price
         self.description = description
         self.textDetections = textDetections
         update()

@@ -13,15 +13,13 @@ public struct TextDetection {
 
     /// Detected text format. Nil if there is no detection
     public let textFormat: TextFormatType?
-}
 
-public extension TextDetection {
-
-    /// Get the formated string according to the detected text format
-    var formattedString: String? {
+    /// Extract the detected value
+    /// - Returns: The detected value
+    public func value<Value>() -> Value? {
         guard let textFormat else {
             return nil
         }
-        return textFormat.sterilize(string)
+        return textFormat.format(string)
     }
 }

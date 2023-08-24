@@ -20,15 +20,6 @@ public struct CreditCardInfo {
     /// A list of detected texts
     private var textDetections: [TextDetection]
 
-    /// Convert an expiry string into a date object
-    /// - Parameter expiryString: The expiry string
-    /// - Returns: The date
-    private static func expiry(fromString expiryString: String) -> Date? {
-        [DateFormat.expiryDate, DateFormat.fullExpiryDate]
-            .compactMap { Date(string: expiryString, dateFormat: $0) }
-            .first
-    }
-
     /// Initialize the object
     /// - Parameters:
     ///   - number: The card number
@@ -48,14 +39,10 @@ public struct CreditCardInfo {
 
     /// Update the info from text detections
     private mutating func update() {
-        number = textDetections[TextFormat.creditCardNumber]?.formattedString ?? .empty
-        name = textDetections[TextFormat.fullName]?.formattedString
-        cvn = textDetections[TextFormat.creditCardVerificationNumber]?.formattedString
-        if let expiry = textDetections[TextFormat.expiry]?.formattedString {
-            self.expiry = Self.expiry(fromString: expiry)
-        } else {
-            self.expiry = nil
-        }
+        number = textDetections[TextFormat.creditCardNumber]?.value() ?? .empty
+        name = textDetections[TextFormat.fullName]?.value()
+        cvn = textDetections[TextFormat.creditCardVerificationNumber]?.value()
+        expiry = textDetections[TextFormat.expiry]?.value()
     }
 }
 
@@ -69,7 +56,7 @@ extension CreditCardInfo: InfoType {
     }
     
     public init?(textDetections: [TextDetection]) {
-        guard let number = textDetections[TextFormat.creditCardNumber]?.formattedString else {
+        guard let number: String = textDetections[TextFormat.creditCardNumber]?.value() else {
             return nil
         }
         self.number = number

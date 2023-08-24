@@ -11,19 +11,6 @@ public struct ReceiptInfo {
     /// A list of detected texts
     private var textDetections: [TextDetection]
 
-    /// Get the price from a price string
-    /// - Parameter priceString: The price string
-    /// - Returns: The price
-    private static func price(fromString priceString: String) -> Double? {
-        if let price = Double(priceString) {
-            return price
-        }
-        return Language.allCases
-            .map(NumberFormatterFactory.currencyFormatter)
-            .compactMap { Double(currency: priceString, numberFormatter: $0) }
-            .first
-    }
-
     /// Initialize the object
     /// - Parameters:
     ///   - price: The price
@@ -34,8 +21,7 @@ public struct ReceiptInfo {
 
     /// Update the info from text detections
     private mutating func update() {
-        let price = textDetections[TextFormat.price]?.formattedString ?? .empty
-        self.price = Self.price(fromString: price) ?? 0
+        price = textDetections[TextFormat.price]?.value() ?? 0
     }
 }
 
@@ -46,10 +32,10 @@ extension ReceiptInfo: InfoType {
     }
 
     public init?(textDetections: [TextDetection]) {
-        guard let price = textDetections[TextFormat.price]?.formattedString else {
+        guard let price: Double = textDetections[TextFormat.price]?.value() else {
             return nil
         }
-        self.price = Self.price(fromString: price) ?? 0
+        self.price = price
         self.textDetections = textDetections
         update()
     }
