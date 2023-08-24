@@ -72,12 +72,28 @@ extension TextFormat: TextFormatType {
         }
     }
 
-    public func format(_ value: String) -> String {
+    public func sterilize(_ value: String) -> String {
         switch self {
             case .fullName, .description:
                 return value.combineSpaces()
             default:
                 return value.removingSpaces()
+        }
+    }
+
+    public func format<Value>(_ value: String) -> Value? {
+        let sterilizedValue = sterilize(value)
+        switch self {
+        case .barcode,
+            .creditCardNumber,
+            .creditCardVerificationNumber,
+            .fullName,
+            .description:
+            return sterilizedValue as? Value
+        case .expiry:
+            return sterilizedValue as? Value
+        case .price:
+            return sterilizedValue as? Value
         }
     }
 }

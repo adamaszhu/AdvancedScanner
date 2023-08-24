@@ -9,7 +9,7 @@ public class TextDetector {
     private let textTypes: [TextFormatType]
 
     /// Create the detector
-    /// - Parameter textTypes: A list of text formats to detect
+    /// - Parameter textTypes: A list of text formats to detect. Order will decide which will be detected first
     public init(textTypes: [TextFormatType]) {
         self.textTypes = textTypes
     }
@@ -53,7 +53,7 @@ public class TextDetector {
     /// - Returns: Text detection with correct text format
     private func detectingFormat(of textDetection: TextDetection) -> TextDetection {
         for type in textTypes {
-            let formattedString = type.format(textDetection.string)
+            let formattedString = type.sterilize(textDetection.string)
             let isValid = type
                 .rules
                 .allSatisfy { $0.isValid(value: formattedString) == nil }

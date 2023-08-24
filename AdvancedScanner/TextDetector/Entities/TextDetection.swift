@@ -22,6 +22,6 @@ public extension TextDetection {
         guard let textFormat else {
             return nil
         }
-        return textFormat.format(string)
+        return textFormat.sterilize(string)
     }
 }

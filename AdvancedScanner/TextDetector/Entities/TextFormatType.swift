@@ -11,10 +11,15 @@ public protocol TextFormatType {
     /// The field name
     var name: String { get }
 
-    /// Format the value before checking against rules
+    /// Sterilize the value before checking against rules
     /// - Parameter value: The original value
     /// - Returns: The sterilized value
-    func format(_ value: String) -> String
+    func sterilize(_ value: String) -> String
+
+    /// Format the value into a given data type
+    /// - Parameter value: The original value
+    /// - Returns: A data object
+    func format<Value>(_ value: String) -> Value?
 }
 
 import AdvancedUIKit
