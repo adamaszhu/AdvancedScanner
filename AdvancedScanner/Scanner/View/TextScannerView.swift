@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 10/11/21
 /// - author: Adamas
-final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & InfoPresentable>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class TextScannerView<Info: InfoType & InfoPresentable, ScanMode: ScanModeType>: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     /// Callback when some info is detected
     var didDetectInfoAction: ((Info) -> Void)?
@@ -66,9 +66,9 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & InfoPresent
         layer.sublayers?.first?.frame = bounds
 
         // Setup the mask view
-        let rect = mode.scanningAreaRect(in: bounds)
+        let rect = Info.scanningAreaRect(in: bounds)
         let maskView = PreviewMaskView(rect: rect,
-                                       rectRadius: mode.scanningAreaRadius)
+                                       rectRadius: Info.scanningAreaRadius)
         addSubview(maskView)
         maskView.pinEdgesToSuperview()
 
@@ -136,7 +136,7 @@ final class TextScannerView<Info: InfoType, ScanMode: ScanModeType & InfoPresent
             return
         }
 
-        let rect = mode.scanningAreaRect(in: latestBounds)
+        let rect = Info.scanningAreaRect(in: latestBounds)
         extractInfo(from: buffer, in: rect, inside: latestBounds)
     }
 

@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-open class TextScannerViewController<Info: InfoType, ScanMode: ScanModeType & InfoPresentable>: UIViewController {
+open class TextScannerViewController<Info: InfoType & InfoPresentable, ScanMode: ScanModeType>: UIViewController {
 
     /// Callback when some info is detected
     public var didDetectInfoAction: ((Info) -> Void)?

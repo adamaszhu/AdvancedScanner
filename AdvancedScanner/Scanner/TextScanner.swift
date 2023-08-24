@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/10/21
 /// - author: Adamas
-public class TextScanner<Info: InfoType, ScanMode: ScanModeType & InfoPresentable> {
+public class TextScanner<Info: InfoType & InfoPresentable, ScanMode: ScanModeType> {
 
     /// The current view controller
     private weak var viewController: UIViewController?
