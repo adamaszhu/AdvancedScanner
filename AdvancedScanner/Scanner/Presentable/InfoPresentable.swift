@@ -1,9 +1,9 @@
-/// Defines the UI dimentions for a scan mode
+/// Defines the UI dimentions for scanning an info
 ///
 /// - version: 0.1.0
 /// - date: 11/08/23
 /// - author: Adamas
-public protocol ScanModePresentable {
+public protocol InfoPresentable {
     
     /// The radius of the scanning area
     var scanningAreaRadius: CGFloat { get }

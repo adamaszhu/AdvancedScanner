@@ -3,7 +3,7 @@
 /// - version: 0.1.0
 /// - date: 11/08/23
 /// - author: Adamas
-extension ScanMode: ScanModePresentable {
+extension ScanMode: InfoPresentable {
     
     public var scanningAreaRadius: CGFloat {
         switch self {

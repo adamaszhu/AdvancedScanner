@@ -19,7 +19,7 @@
 		285718C12A0DAB0D0003343C /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 285718C02A0DAB0D0003343C /* Quick */; };
 		285718C52A0DAB7E0003343C /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 285718C42A0DAB7E0003343C /* Nimble */; };
 		285718D32A0E27520003343C /* TextDetectorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285718D22A0E27520003343C /* TextDetectorSpecs.swift */; };
-		285718D52A0EE23F0003343C /* ScanModePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285718D42A0EE23F0003343C /* ScanModePresentable.swift */; };
+		285718D52A0EE23F0003343C /* InfoPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285718D42A0EE23F0003343C /* InfoPresentable.swift */; };
 		285718DA2A0EE40E0003343C /* ScanMode+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285718D92A0EE40E0003343C /* ScanMode+Presentable.swift */; };
 		2869C8A928D6063F00326933 /* TextDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869C8A828D6063F00326933 /* TextDetection.swift */; };
 		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
@@ -87,7 +87,7 @@
 		284B6CAE26F0316100FDFBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		284B6CD426F05D1D00FDFBB0 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
 		285718D22A0E27520003343C /* TextDetectorSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetectorSpecs.swift; sourceTree = "<group>"; };
-		285718D42A0EE23F0003343C /* ScanModePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModePresentable.swift; sourceTree = "<group>"; };
+		285718D42A0EE23F0003343C /* InfoPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPresentable.swift; sourceTree = "<group>"; };
 		285718D92A0EE40E0003343C /* ScanMode+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanMode+Presentable.swift"; sourceTree = "<group>"; };
 		2869C8A828D6063F00326933 /* TextDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetection.swift; sourceTree = "<group>"; };
 		28A05C022726C0DB00D8287D /* ScanMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMode.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				285718D92A0EE40E0003343C /* ScanMode+Presentable.swift */,
-				285718D42A0EE23F0003343C /* ScanModePresentable.swift */,
+				285718D42A0EE23F0003343C /* InfoPresentable.swift */,
 			);
 			path = Presentable;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 				B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */,
 				285718DA2A0EE40E0003343C /* ScanMode+Presentable.swift in Sources */,
 				28A05C032726C0DC00D8287D /* ScanMode.swift in Sources */,
-				285718D52A0EE23F0003343C /* ScanModePresentable.swift in Sources */,
+				285718D52A0EE23F0003343C /* InfoPresentable.swift in Sources */,
 				28D9845328D4B2A700FA28BB /* ScanModeType.swift in Sources */,
 				2869C8A928D6063F00326933 /* TextDetection.swift in Sources */,
 				28ABA9C22A0BBF3200FFBC21 /* TextDetections+Accessible.swift in Sources */,
