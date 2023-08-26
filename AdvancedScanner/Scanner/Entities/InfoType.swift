@@ -26,6 +26,11 @@ public protocol InfoType {
 
 extension InfoType {
 
+    /// Update the current detections with new detections
+    /// - Parameters:
+    ///   - currentTextDetections: The current detections
+    ///   - newTextDetections: The new detections
+    /// - Returns: Whether the detections has been updated or not
     func updating(_ currentTextDetections: inout [TextDetection],
                   with newTextDetections: [TextDetection]) -> Bool {
         var isUpdated = false
@@ -39,7 +44,7 @@ extension InfoType {
                     currentTextDetections.append(newTextDetection)
                     return
                 }
-                if newTextDetection.confidence > currentTextDetection.confidence,
+                if newTextDetection.confidence >= currentTextDetection.confidence,
                    newTextDetection.string != currentTextDetection.string {
                     isUpdated = true
                     currentTextDetections.removeAll { $0.textFormat?.name == textFormat.name }

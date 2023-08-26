@@ -62,7 +62,9 @@ extension TextFormat: TextFormatType {
                 return DefaultRuleFactory.creditCardVerificationNumberRules(withInvalidMessage: errorMessage,
                                                                             andLengthMessage: errorMessage)
             case .fullName:
-                return DefaultRuleFactory.fullNameRules(withMessage: errorMessage)
+                var rules = DefaultRuleFactory.fullNameRules(withMessage: errorMessage)
+                rules.append(UppercaseRule(message: errorMessage))
+                return rules
             case .price:
                 return DefaultRuleFactory.currencyRules(for: Language.allCases, withMessage: errorMessage)
             case .barcode:
