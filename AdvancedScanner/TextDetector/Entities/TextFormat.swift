@@ -21,6 +21,9 @@ public enum TextFormat {
     /// A price string
     case price
 
+    /// A date string
+    case date
+
     /// A barcode string
     case barcode
 
@@ -46,6 +49,8 @@ extension TextFormat: TextFormatType {
                 return Self.barcodeName
             case .description:
                 return Self.descriptionName
+            case .date:
+                return Self.dateName
         }
     }
 
@@ -71,6 +76,10 @@ extension TextFormat: TextFormatType {
                 return DefaultRuleFactory.barcodeRules(withMessage: errorMessage)
             case .description:
                 return [DefaultRuleFactory.phraseRule(withMessage: errorMessage)]
+            case .date:
+                return [DateRule(dateFormats: [DateFormat.shortCalendarDate,
+                                               PriceTagDateFormat.shortDashCalendarDate],
+                                 message: errorMessage)]
         }
     }
 
@@ -98,6 +107,14 @@ extension TextFormat: TextFormatType {
                                    dateFormat: $0) }
                 .first
             return date as? Value
+        case .date:
+            let dateFormats: [DateFormatType] = [DateFormat.shortCalendarDate,
+                                                 PriceTagDateFormat.shortDashCalendarDate]
+            let date = dateFormats
+                .compactMap { Date(string: sterilizedValue,
+                                   dateFormat: $0) }
+                .first
+            return date as? Value
         case .price:
             if let price = Double(sterilizedValue) {
                 return price as? Value
@@ -120,6 +137,7 @@ private extension TextFormat {
     static let expiryName = "Expiry date"
     static let priceName = "Price"
     static let barcodeName = "Barcode"
+    static let dateName = "Date"
     static let descriptionName = "Description"
 }
 

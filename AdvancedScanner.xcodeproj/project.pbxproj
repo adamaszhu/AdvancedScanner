@@ -39,6 +39,7 @@
 		B23031962A9785B20004EE1D /* ReceiptInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031952A9785B20004EE1D /* ReceiptInfo+Presentable.swift */; };
 		B2BFE4642A87148800617B10 /* PriceTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4632A87148800617B10 /* PriceTagInfo.swift */; };
 		B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4652A87149600617B10 /* ReceiptInfo.swift */; };
+		B2F4FD6B2A9A1FEC00674A46 /* PriceTagDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4FD6A2A9A1FEC00674A46 /* PriceTagDateFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		B23031952A9785B20004EE1D /* ReceiptInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceiptInfo+Presentable.swift"; sourceTree = "<group>"; };
 		B2BFE4632A87148800617B10 /* PriceTagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagInfo.swift; sourceTree = "<group>"; };
 		B2BFE4652A87149600617B10 /* ReceiptInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfo.swift; sourceTree = "<group>"; };
+		B2F4FD6A2A9A1FEC00674A46 /* PriceTagDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagDateFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				2869C8A828D6063F00326933 /* TextDetection.swift */,
 				28A5BB1F28D1B04E0065218B /* TextFormat.swift */,
 				28D9845028D4AD0C00FA28BB /* TextFormatType.swift */,
+				B2F4FD6A2A9A1FEC00674A46 /* PriceTagDateFormat.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				B23031942A9785030004EE1D /* PriceTagInfo+Presentable.swift in Sources */,
 				28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */,
 				28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */,
+				B2F4FD6B2A9A1FEC00674A46 /* PriceTagDateFormat.swift in Sources */,
 				28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

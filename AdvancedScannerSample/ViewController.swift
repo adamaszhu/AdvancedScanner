@@ -1,6 +1,6 @@
 final class ViewController: UIViewController {
 
-    typealias Info = CreditCardInfo
+    typealias Info = PriceTagInfo
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var messageStackView: UIStackView!
