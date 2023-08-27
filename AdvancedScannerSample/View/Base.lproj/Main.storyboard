@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ab5-TD-Ui0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="pGq-Ms-8IX">
+            <objects>
+                <navigationController id="Ab5-TD-Ui0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AZR-BH-ZEA">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sdi-rG-bmT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBe-JF-fBh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-804" y="84"/>
+        </scene>
+        <!--Advanced Scanner-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AdvancedScannerSample" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,28 +33,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="faF-vZ-ww1">
-                                <rect key="frame" x="146.5" y="797.5" width="121" height="64.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-NC-CM0">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Select Photo"/>
-                                        <connections>
-                                            <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="84V-aq-5gE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMF-2Z-90Y">
-                                        <rect key="frame" x="0.0" y="34.5" width="121" height="30"/>
-                                        <state key="normal" title="Scan"/>
-                                        <connections>
-                                            <action selector="scan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MMB-CN-7jq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-Ra-8ul">
-                                <rect key="frame" x="16" y="358.5" width="382" height="439"/>
+                                <rect key="frame" x="16" y="437.5" width="382" height="458.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-P3-InX">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
@@ -63,8 +59,28 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="gTa-Vo-gJU"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="4Ql-FR-Awq"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od2-sI-Wg2">
+                                <rect key="frame" x="0.0" y="92" width="414" height="35"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RIP-Iy-Cgl">
+                                        <rect key="frame" x="4" y="2" width="406" height="32"/>
+                                        <segments>
+                                            <segment title="Credit Card"/>
+                                            <segment title="Price Tag"/>
+                                            <segment title="Receipt"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1764705882352941" green="0.40784313725490196" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RIP-Iy-Cgl" firstAttribute="leading" secondItem="Od2-sI-Wg2" secondAttribute="leading" constant="4" id="Gjh-d8-sgN"/>
+                                    <constraint firstAttribute="trailing" secondItem="RIP-Iy-Cgl" secondAttribute="trailing" constant="4" id="fqp-PU-Tw4"/>
+                                    <constraint firstAttribute="bottom" secondItem="RIP-Iy-Cgl" secondAttribute="bottom" constant="2" id="jV7-rG-BC0"/>
+                                    <constraint firstItem="RIP-Iy-Cgl" firstAttribute="top" secondItem="Od2-sI-Wg2" secondAttribute="top" constant="2" id="sC8-NA-gKt"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VpV-B2-gAa">
-                                <rect key="frame" x="0.0" y="48" width="414" height="310.5"/>
+                                <rect key="frame" x="0.0" y="127" width="414" height="310.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VpV-B2-gAa" secondAttribute="height" multiplier="4:3" id="h0m-qY-bE1"/>
                                 </constraints>
@@ -75,18 +91,32 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VpV-B2-gAa" secondAttribute="trailing" id="20g-8t-1eW"/>
                             <constraint firstItem="VpV-B2-gAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4yd-v2-yJT"/>
-                            <constraint firstItem="faF-vZ-ww1" firstAttribute="top" secondItem="hDp-Ra-8ul" secondAttribute="bottom" id="8Mc-u2-qQd"/>
+                            <constraint firstItem="Od2-sI-Wg2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8R9-fy-3zB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hDp-Ra-8ul" secondAttribute="trailing" constant="16" id="9R6-6a-9Fu"/>
                             <constraint firstItem="hDp-Ra-8ul" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CMh-2Z-3E8"/>
-                            <constraint firstItem="faF-vZ-ww1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TLN-Ad-Qpr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="faF-vZ-ww1" secondAttribute="bottom" id="WGZ-bR-D6d"/>
-                            <constraint firstItem="VpV-B2-gAa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bbR-js-cC2"/>
+                            <constraint firstItem="Od2-sI-Wg2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GhF-LK-aSN"/>
+                            <constraint firstItem="VpV-B2-gAa" firstAttribute="top" secondItem="Od2-sI-Wg2" secondAttribute="bottom" id="HHB-8q-irt"/>
+                            <constraint firstAttribute="bottom" secondItem="hDp-Ra-8ul" secondAttribute="bottom" id="XLX-u3-Wbp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Od2-sI-Wg2" secondAttribute="trailing" id="guH-H9-TYo"/>
                             <constraint firstItem="hDp-Ra-8ul" firstAttribute="top" secondItem="VpV-B2-gAa" secondAttribute="bottom" id="ueB-Z5-Miw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Advanced Scanner" id="Ngw-oC-cXK">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="photo" catalog="system" id="PiB-YE-par">
+                            <connections>
+                                <action selector="selectPhoto:" destination="BYZ-38-t0r" id="ijn-l7-PuY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera" catalog="system" id="1eE-sL-DdM">
+                            <connections>
+                                <action selector="scan:" destination="BYZ-38-t0r" id="tqS-fg-KZA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="VpV-B2-gAa" id="MQk-L4-Doc"/>
                         <outlet property="messageStackView" destination="RNs-P3-InX" id="bL5-Gz-0gX"/>
+                        <outlet property="modeSegmentedControl" destination="RIP-Iy-Cgl" id="0fc-Tj-WLK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,6 +125,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

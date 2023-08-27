@@ -37,6 +37,7 @@
 		B23031922A977DB30004EE1D /* CreditCardInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031912A977DB30004EE1D /* CreditCardInfo+Presentable.swift */; };
 		B23031942A9785030004EE1D /* PriceTagInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031932A9785030004EE1D /* PriceTagInfo+Presentable.swift */; };
 		B23031962A9785B20004EE1D /* ReceiptInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031952A9785B20004EE1D /* ReceiptInfo+Presentable.swift */; };
+		B2946CA72A9AF4AE00CB9355 /* ScanMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2946CA62A9AF4AE00CB9355 /* ScanMode.swift */; };
 		B2BFE4642A87148800617B10 /* PriceTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4632A87148800617B10 /* PriceTagInfo.swift */; };
 		B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4652A87149600617B10 /* ReceiptInfo.swift */; };
 		B2F4FD6B2A9A1FEC00674A46 /* PriceTagDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4FD6A2A9A1FEC00674A46 /* PriceTagDateFormat.swift */; };
@@ -103,6 +104,7 @@
 		B23031912A977DB30004EE1D /* CreditCardInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditCardInfo+Presentable.swift"; sourceTree = "<group>"; };
 		B23031932A9785030004EE1D /* PriceTagInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceTagInfo+Presentable.swift"; sourceTree = "<group>"; };
 		B23031952A9785B20004EE1D /* ReceiptInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceiptInfo+Presentable.swift"; sourceTree = "<group>"; };
+		B2946CA62A9AF4AE00CB9355 /* ScanMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMode.swift; sourceTree = "<group>"; };
 		B2BFE4632A87148800617B10 /* PriceTagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagInfo.swift; sourceTree = "<group>"; };
 		B2BFE4652A87149600617B10 /* ReceiptInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfo.swift; sourceTree = "<group>"; };
 		B2F4FD6A2A9A1FEC00674A46 /* PriceTagDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagDateFormat.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				284B6CA626F0315F00FDFBB0 /* Main.storyboard */,
 				284B6CA426F0315F00FDFBB0 /* ViewController.swift */,
+				B2946CA62A9AF4AE00CB9355 /* ScanMode.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				284B6CA126F0315F00FDFBB0 /* AppDelegate.swift in Sources */,
 				284B6CA326F0315F00FDFBB0 /* SceneDelegate.swift in Sources */,
 				284B6CA526F0315F00FDFBB0 /* ViewController.swift in Sources */,
+				B2946CA72A9AF4AE00CB9355 /* ScanMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
