@@ -181,13 +181,9 @@
 		284B6C9F26F0315F00FDFBB0 /* AdvancedScannerSample */ = {
 			isa = PBXGroup;
 			children = (
-				284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */,
-				284B6CA926F0316100FDFBB0 /* Assets.xcassets */,
-				284B6CAE26F0316100FDFBB0 /* Info.plist */,
-				284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */,
-				284B6CA626F0315F00FDFBB0 /* Main.storyboard */,
-				284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */,
-				284B6CA426F0315F00FDFBB0 /* ViewController.swift */,
+				B224F7912A9ACBA60041E602 /* View */,
+				B224F7902A9ACB910041E602 /* Resources */,
+				B224F78F2A9ACB7E0041E602 /* App */,
 			);
 			path = AdvancedScannerSample;
 			sourceTree = "<group>";
@@ -252,6 +248,34 @@
 				28A5BB2928D1ED920065218B /* TextDetector.swift */,
 			);
 			path = TextDetector;
+			sourceTree = "<group>";
+		};
+		B224F78F2A9ACB7E0041E602 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				284B6CAE26F0316100FDFBB0 /* Info.plist */,
+				284B6CA226F0315F00FDFBB0 /* SceneDelegate.swift */,
+				284B6CA026F0315F00FDFBB0 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B224F7902A9ACB910041E602 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				284B6CA926F0316100FDFBB0 /* Assets.xcassets */,
+				284B6CAB26F0316100FDFBB0 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B224F7912A9ACBA60041E602 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				284B6CA626F0315F00FDFBB0 /* Main.storyboard */,
+				284B6CA426F0315F00FDFBB0 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B259DAF42A86035000A9E628 /* Presentable */ = {
@@ -737,7 +761,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V276VB2699;
-				INFOPLIST_FILE = AdvancedScannerSample/Info.plist;
+				INFOPLIST_FILE = AdvancedScannerSample/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -766,7 +790,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V276VB2699;
-				INFOPLIST_FILE = AdvancedScannerSample/Info.plist;
+				INFOPLIST_FILE = AdvancedScannerSample/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
