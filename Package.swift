@@ -13,20 +13,27 @@ let package = Package(
         .library(name: "AdvancedScanner", targets: ["AdvancedScanner"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick", .upToNextMajor(from: "5.0.0")),
-        .package(url: "https://github.com/Quick/Nimble", .upToNextMajor(from: "10.0.0")),
-        .package(url: "https://github.com/adamaszhu/AdvancedFoundation", .upToNextMajor(from: "1.9.7")),
-        .package(url: "https://github.com/adamaszhu/AdvancedUIKit", .upToNextMajor(from: "1.9.12"))
+        .package(url: "https://github.com/Quick/Quick",
+            .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/Quick/Nimble",
+            .upToNextMajor(from: "10.0.0")),
+        .package(url: "https://github.com/adamaszhu/AdvancedFoundation",
+                 .upToNextMajor(from: "1.9.7")),
+        .package(url: "https://github.com/adamaszhu/AdvancedUIKit",
+            .revisionItem("c68a4d9b1348cec076a8ac557a77be11ac3c8721"))
     ],
     targets: [
         .target(name: "AdvancedScanner",
-                dependencies: ["AdvancedFoundation", "AdvancedUIKit", "AdvancedUIKitPhoto"],
+                dependencies: ["AdvancedFoundation",
+                               .product(name: "AdvancedUIKit", package: "AdvancedUIKit"),
+                               .product(name: "AdvancedUIKitPhoto", package: "AdvancedUIKit")],
                 path: "AdvancedScanner"),
         .testTarget(
             name: "AdvancedScannerTests",
-            dependencies: ["AdvancedFoundation",
-                           "AdvancedUIKit",
-                           "AdvancedUIKitPhoto",
+            dependencies: ["AdvancedScanner",
+                           "AdvancedFoundation",
+                           .product(name: "AdvancedUIKit", package: "AdvancedUIKit"),
+                           .product(name: "AdvancedUIKitPhoto", package: "AdvancedUIKit"),
                            "Nimble",
                            "Quick"],
             path: "AdvancedScannerTests"),
