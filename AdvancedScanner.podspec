@@ -12,8 +12,8 @@ s.homepage = "https://github.com/adamaszhu/AdvancedScanner"
 s.source = { :git => "https://github.com/adamaszhu/AdvancedScanner.git",
              :tag => "#{s.version}" }
 s.framework = "Foundation", "UIKit"
-s.dependency 'AdvancedFoundation', '~> 1.9.0'
-s.dependency 'AdvancedUI', '~> 1.9.25'
+s.dependency 'AdvancedFoundation', '~> 1.9.7'
+s.dependency 'AdvancedUI', '~> 1.9.28'
 s.source_files = "AdvancedScanner/**/*.{swift}"
 s.resources = "AdvancedScanner/**/*.{strings}"
 s.swift_version = "5"
