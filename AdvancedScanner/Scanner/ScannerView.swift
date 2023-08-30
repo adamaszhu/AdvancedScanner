@@ -8,10 +8,20 @@ public struct ScanView<Info: InfoType & InfoPresentable>: UIViewControllerRepres
     public typealias UIViewControllerType = UINavigationController
 
     /// The hint message displayed on the screen
-    let hint: String
+    private let hint: String
 
     /// Callback when the given info is detected
-    let completion: (Info) -> Void
+    private let completion: (Info) -> Void
+
+    /// Initialize the view
+    /// - Parameters:
+    ///   - hint: The hint message displayed on the screen
+    ///   - completion: Callback when the given info is detected
+    public init(hint: String,
+                completion: @escaping (Info) -> Void) {
+        self.hint = hint
+        self.completion = completion
+    }
 
     public func makeUIViewController(context: Context) -> UINavigationController {
         let viewController = TextScannerViewController<Info>()
