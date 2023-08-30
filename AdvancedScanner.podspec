@@ -5,7 +5,7 @@ s.ios.deployment_target = '13.0'
 s.name = "AdvancedScanner"
 s.summary = "AdvancedScanner contains additional text detection logic."
 s.requires_arc = true
-s.version = "0.2.0"
+s.version = "0.2.1"
 s.license = { :type => "MIT", :file => "LICENSE" }
 s.author = { "Adamas Zhu" => "developer@adamaszhu.com" }
 s.homepage = "https://github.com/adamaszhu/AdvancedScanner"

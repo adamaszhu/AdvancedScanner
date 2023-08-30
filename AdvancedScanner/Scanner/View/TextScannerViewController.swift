@@ -70,5 +70,10 @@ extension TextScannerViewController {
     }
 }
 
-import AdvancedUIKit
 import UIKit
+
+#if canImport(AdvancedUIKit)
+import AdvancedUIKit
+#else
+import AdvancedUI
+#endif

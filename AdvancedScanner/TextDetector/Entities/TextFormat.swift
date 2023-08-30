@@ -141,6 +141,11 @@ private extension TextFormat {
     static let descriptionName = "Description"
 }
 
-import AdvancedUIKit
 import AdvancedFoundation
 import Foundation
+
+#if canImport(AdvancedUIKit)
+import AdvancedUIKit
+#else
+import AdvancedUI
+#endif

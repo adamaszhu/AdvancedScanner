@@ -40,5 +40,10 @@ public class Scanner {
 }
 
 import AdvancedFoundation
-import AdvancedUIKit
 import UIKit
+
+#if canImport(AdvancedUIKit)
+import AdvancedUIKit
+#else
+import AdvancedUI
+#endif

@@ -209,9 +209,14 @@ private extension TextScannerView {
     static var videoDispatchQueue: DispatchQueue { DispatchQueue(label: Self.videoProcessingQueueLabel) }
 }
 
-import AdvancedUIKit
 import AdvancedFoundation
 import CoreGraphics
 import AVFoundation
 import UIKit
 import CoreImage
+
+#if canImport(AdvancedUIKit)
+import AdvancedUIKit
+#else
+import AdvancedUI
+#endif
