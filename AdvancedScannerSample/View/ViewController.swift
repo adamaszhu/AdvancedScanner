@@ -4,7 +4,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var messageStackView: UIStackView!
     @IBOutlet private weak var modeSegmentedControl: UISegmentedControl!
 
-    private lazy var scanner = TextScanner(viewController: self)
+    private lazy var scanner = Scanner(viewController: self)
 
     private lazy var imagePicker: ImagePickerHelper = {
         let imagePicker = ImagePickerHelper()
