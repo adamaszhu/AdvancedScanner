@@ -22,4 +22,8 @@ public protocol TextFormatType {
     func format<Value>(_ value: String) -> Value?
 }
 
+#if canImport(AdvancedUIKit)
 import AdvancedUIKit
+#else
+import AdvancedUI
+#endif
