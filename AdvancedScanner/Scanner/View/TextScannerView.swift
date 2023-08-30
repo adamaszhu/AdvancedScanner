@@ -189,6 +189,7 @@ final class TextScannerView<Info: InfoType & InfoPresentable>: UIView, AVCapture
 
     /// Display detections in the stack view
     private func updateDetections() {
+        hintLabel.isHidden = true
         detectionsStackView.subviews.forEach { $0.removeFromSuperview() }
         info?.fields.forEach { field in
             let label = UILabel()

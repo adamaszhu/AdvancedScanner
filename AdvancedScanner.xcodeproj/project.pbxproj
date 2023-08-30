@@ -23,7 +23,7 @@
 		2869C8A928D6063F00326933 /* TextDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869C8A828D6063F00326933 /* TextDetection.swift */; };
 		287054FA26F16A6500D2DA33 /* AdvancedFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 287054F926F16A6500D2DA33 /* AdvancedFoundation */; };
 		28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EE8273B9B2200D8287D /* TextScannerView.swift */; };
-		28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EEB273BADED00D8287D /* TextScanner.swift */; };
+		28A05EEC273BADED00D8287D /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EEB273BADED00D8287D /* Scanner.swift */; };
 		28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A05EED273BD42C00D8287D /* TextScannerViewController.swift */; };
 		28A5BB1728D052410065218B /* PreviewMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5BB1628D052410065218B /* PreviewMaskView.swift */; };
 		28A5BB2028D1B04E0065218B /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5BB1F28D1B04E0065218B /* TextFormat.swift */; };
@@ -37,6 +37,7 @@
 		B23031922A977DB30004EE1D /* CreditCardInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031912A977DB30004EE1D /* CreditCardInfo+Presentable.swift */; };
 		B23031942A9785030004EE1D /* PriceTagInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031932A9785030004EE1D /* PriceTagInfo+Presentable.swift */; };
 		B23031962A9785B20004EE1D /* ReceiptInfo+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23031952A9785B20004EE1D /* ReceiptInfo+Presentable.swift */; };
+		B24AC55C2A9EB46A006CE749 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AC55B2A9EB46A006CE749 /* ScannerView.swift */; };
 		B2946CA72A9AF4AE00CB9355 /* ScanMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2946CA62A9AF4AE00CB9355 /* ScanMode.swift */; };
 		B2BFE4642A87148800617B10 /* PriceTagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4632A87148800617B10 /* PriceTagInfo.swift */; };
 		B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFE4652A87149600617B10 /* ReceiptInfo.swift */; };
@@ -92,7 +93,7 @@
 		285718D42A0EE23F0003343C /* InfoPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPresentable.swift; sourceTree = "<group>"; };
 		2869C8A828D6063F00326933 /* TextDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetection.swift; sourceTree = "<group>"; };
 		28A05EE8273B9B2200D8287D /* TextScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
-		28A05EEB273BADED00D8287D /* TextScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
+		28A05EEB273BADED00D8287D /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		28A05EED273BD42C00D8287D /* TextScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerViewController.swift; sourceTree = "<group>"; };
 		28A5BB1628D052410065218B /* PreviewMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMaskView.swift; sourceTree = "<group>"; };
 		28A5BB1F28D1B04E0065218B /* TextFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		B23031912A977DB30004EE1D /* CreditCardInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditCardInfo+Presentable.swift"; sourceTree = "<group>"; };
 		B23031932A9785030004EE1D /* PriceTagInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceTagInfo+Presentable.swift"; sourceTree = "<group>"; };
 		B23031952A9785B20004EE1D /* ReceiptInfo+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceiptInfo+Presentable.swift"; sourceTree = "<group>"; };
+		B24AC55B2A9EB46A006CE749 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		B2946CA62A9AF4AE00CB9355 /* ScanMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMode.swift; sourceTree = "<group>"; };
 		B2BFE4632A87148800617B10 /* PriceTagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagInfo.swift; sourceTree = "<group>"; };
 		B2BFE4652A87149600617B10 /* ReceiptInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfo.swift; sourceTree = "<group>"; };
@@ -237,7 +239,8 @@
 				285718D82A0EE3E00003343C /* Entities */,
 				B259DAF42A86035000A9E628 /* Presentable */,
 				28A05BFF2725792900D8287D /* View */,
-				28A05EEB273BADED00D8287D /* TextScanner.swift */,
+				28A05EEB273BADED00D8287D /* Scanner.swift */,
+				B24AC55B2A9EB46A006CE749 /* ScannerView.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -457,13 +460,14 @@
 				B2BFE4662A87149600617B10 /* ReceiptInfo.swift in Sources */,
 				285718D52A0EE23F0003343C /* InfoPresentable.swift in Sources */,
 				2869C8A928D6063F00326933 /* TextDetection.swift in Sources */,
+				B24AC55C2A9EB46A006CE749 /* ScannerView.swift in Sources */,
 				28ABA9C22A0BBF3200FFBC21 /* TextDetections+Accessible.swift in Sources */,
 				28A5BB2A28D1ED920065218B /* TextDetector.swift in Sources */,
 				28A5BB2028D1B04E0065218B /* TextFormat.swift in Sources */,
 				28D9845128D4AD0C00FA28BB /* TextFormatType.swift in Sources */,
 				B23031962A9785B20004EE1D /* ReceiptInfo+Presentable.swift in Sources */,
 				B23031942A9785030004EE1D /* PriceTagInfo+Presentable.swift in Sources */,
-				28A05EEC273BADED00D8287D /* TextScanner.swift in Sources */,
+				28A05EEC273BADED00D8287D /* Scanner.swift in Sources */,
 				28A05EE9273B9B2200D8287D /* TextScannerView.swift in Sources */,
 				B2F4FD6B2A9A1FEC00674A46 /* PriceTagDateFormat.swift in Sources */,
 				28A05EEE273BD42C00D8287D /* TextScannerViewController.swift in Sources */,
@@ -884,7 +888,7 @@
 			repositoryURL = "https://github.com/adamaszhu/AdvancedUIKit";
 			requirement = {
 				kind = revision;
-				revision = c68a4d9b1348cec076a8ac557a77be11ac3c8721;
+				revision = 5f79dcb36c75e888ae8db0e82d0f4f27fc9d8589;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
