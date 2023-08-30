@@ -15,7 +15,6 @@ s.framework = "Foundation", "UIKit"
 s.dependency 'AdvancedFoundation', '~> 1.9.7'
 s.dependency 'AdvancedUI', '~> 1.9.28'
 s.source_files = "AdvancedScanner/**/*.{swift}"
-s.resources = "AdvancedScanner/**/*.{strings}"
 s.swift_version = "5"
 
 end
